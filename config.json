@@ -1,0 +1,82 @@
+{
+  "about": {
+    "appName": "AirTok",
+    "tagline": "跨平台极速互传，隐私优先",
+    "tagline_en": "Cross-platform transfer, privacy first"
+  },
+  "latestVersion": "1.0.0",
+  "updateUrl": {
+    "ios": "",
+    "android": "",
+    "desktop": ""
+  },
+  "forceUpdateBelow": "",
+  "announcement": "",
+  "sections": [
+    {
+      "title": "链接",
+      "title_en": "Links",
+      "items": [
+        {
+          "type": "link",
+          "icon": "privacy",
+          "title": "隐私政策",
+          "title_en": "Privacy Policy",
+          "url": "https://airtokapp.com/privacy.html"
+        },
+        {
+          "type": "link",
+          "icon": "terms",
+          "title": "使用条款",
+          "title_en": "Terms of Service",
+          "url": "https://airtokapp.com/terms.html"
+        }
+      ]
+    },
+    {
+      "title": "反馈",
+      "title_en": "Feedback",
+      "items": [
+        {
+          "type": "feedback",
+          "icon": "feedback",
+          "title": "反馈问题或建议",
+          "title_en": "Send Feedback",
+          "url": "mailto:dexli0215@gmail.com"
+        }
+      ]
+    },
+    {
+      "title": "联系",
+      "title_en": "Contact",
+      "items": [
+        {
+          "type": "copy",
+          "icon": "email",
+          "title": "邮箱",
+          "title_en": "Email",
+          "subtitle": "dexli0215@gmail.com",
+          "value": "dexli0215@gmail.com"
+        },
+        {
+          "type": "link",
+          "icon": "web",
+          "title": "官网",
+          "title_en": "Website",
+          "subtitle": "airtokapp.com",
+          "url": "https://airtokapp.com"
+        }
+      ]
+    },
+    {
+      "title": "",
+      "items": [
+        {
+          "type": "text",
+          "title": "Made with ❤️",
+          "align": "center"
+        }
+      ]
+    }
+  ]
+}
