@@ -399,9 +399,13 @@
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
+        <!-- Platform icons are local SVGs under icons/ (originally
+             from Simple Icons, then vendored to avoid the third-party
+             CDN dependency). Edit the file directly if you need to
+             recolor or swap the brand mark. -->
         <a href="https://dl.airtokapp.com/macos/latest/AirTok.dmg" class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
-            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <img src="icons/apple.svg" alt="macOS" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">macOS</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.macos.note">Universal · macOS 11+</p>
@@ -413,7 +417,7 @@
 
         <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
-            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+            <img src="icons/windows.svg" alt="Windows" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">Windows</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.windows.note">x64 · Windows 10/11</p>
@@ -422,7 +426,7 @@
 
         <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
-            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521z"/></svg>
+            <img src="icons/linux.svg" alt="Linux" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">Linux</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.linux.note">x64 · 需要 GTK 3</p>
@@ -431,7 +435,7 @@
 
         <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
-            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01z"/></svg>
+            <img src="icons/apple.svg" alt="iOS" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">iOS</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.ios.note">iOS 15+ · iPhone & iPad</p>
@@ -440,7 +444,7 @@
 
         <a href="https://dl.airtokapp.com/android/latest/AirTok.apk" class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
-            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.34l1.997-3.46a.41.41 0 00-.149-.56.41.41 0 00-.56.149l-2.022 3.503C15.21 14.21 13.65 13.748 12 13.748s-3.21.464-4.79 1.225L5.19 11.47a.41.41 0 00-.56-.149.41.41 0 00-.149.56l1.997 3.46C3.345 17.13 1.5 19.94 1.5 23h21c0-3.061-1.845-5.87-4.977-7.66"/></svg>
+            <img src="icons/android.svg" alt="Android" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">Android</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.android.note">arm64 · Android 7+</p>
@@ -619,7 +623,7 @@
         'os.windows': '下载 Windows 版',
         'os.linux': '下载 Linux 版',
         'os.ios': 'App Store · 即将到来',
-        'os.android': 'Play Store · 即将到来',
+        'os.android': '下载 .apk',
       },
       'en': {
         'nav.features': 'Features',
@@ -703,7 +707,7 @@
         'os.windows': 'Download for Windows',
         'os.linux': 'Download for Linux',
         'os.ios': 'Coming to App Store',
-        'os.android': 'Coming to Play Store',
+        'os.android': 'Download .apk',
       }
     };
 
@@ -728,15 +732,33 @@
       localStorage.setItem('airtok.lang', lang);
     }
 
+    // When the platform has a live download URL, make the hero CTA
+    // take the visitor straight to the file. For platforms still
+    // listed as "coming soon", the button keeps its default #download
+    // anchor (page scrolls to the full device matrix below).
+    const DOWNLOAD_URLS = {
+      macos:   'https://dl.airtokapp.com/macos/latest/AirTok.dmg',
+      android: 'https://dl.airtokapp.com/android/latest/AirTok.apk',
+      // windows/linux: not yet published → leave blank so the CTA
+      // falls back to scrolling down to the download section.
+    };
+
     function updateOsButton(dict) {
       const ua = navigator.userAgent;
       const btn = document.getElementById('primary-download-text');
-      if (!btn) return;
-      if (/Mac/.test(ua) && !/iPhone|iPad/.test(ua)) btn.textContent = dict['os.macos'];
-      else if (/Windows/.test(ua)) btn.textContent = dict['os.windows'];
-      else if (/Linux/.test(ua) && !/Android/.test(ua)) btn.textContent = dict['os.linux'];
-      else if (/iPhone|iPad|iPod/.test(ua)) btn.textContent = dict['os.ios'];
-      else if (/Android/.test(ua)) btn.textContent = dict['os.android'];
+      const link = document.getElementById('primary-download');
+      if (!btn || !link) return;
+      let os = null;
+      if (/iPhone|iPad|iPod/.test(ua)) os = 'ios';
+      else if (/Android/.test(ua)) os = 'android';
+      else if (/Mac/.test(ua)) os = 'macos';
+      else if (/Windows/.test(ua)) os = 'windows';
+      else if (/Linux/.test(ua)) os = 'linux';
+      if (os) btn.textContent = dict['os.' + os];
+      const href = DOWNLOAD_URLS[os];
+      link.setAttribute('href', href || '#download');
+      if (href) link.setAttribute('download', '');
+      else link.removeAttribute('download');
     }
 
     let currentLang = detectLang();
