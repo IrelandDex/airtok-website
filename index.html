@@ -8,6 +8,9 @@
   <meta name="keywords" content="AirTok,AirDrop alternative,LAN file transfer,局域网传输,跨平台传输,LocalSend,Live Photo 跨平台,iOS Android file transfer,Windows Mac Linux transfer,断点续传" />
   <meta name="author" content="DEXUAN LI" />
   <link rel="canonical" href="https://airtokapp.com/" />
+  <!-- SVG favicon scales crisply at every browser tab size; PNG
+       fallback kept for older browsers and iOS home-screen pinning. -->
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
   <link rel="icon" type="image/png" href="og-image.png" />
   <link rel="apple-touch-icon" href="og-image.png" />
 
@@ -158,14 +161,10 @@
   <!-- ============================================================ -->
   <nav class="glass sticky top-0 z-50 border-b border-slate-200/60">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-brand-500/30">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </div>
+      <a href="/" class="flex items-center gap-2 hover:opacity-90 transition">
+        <img src="icon.svg" alt="AirTok" class="w-9 h-9 rounded-xl shadow-lg shadow-brand-500/30" />
         <span class="font-bold text-lg">AirTok</span>
-      </div>
+      </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
         <a href="#features" class="hover:text-brand-600 transition" data-i18n="nav.features">功能</a>
         <a href="#download" class="hover:text-brand-600 transition" data-i18n="nav.download">下载</a>
