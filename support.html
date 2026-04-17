@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AirTok - 技术支持</title>
+  <title>技术支持 — AirTok</title>
+  <meta name="description" content="AirTok 故障排查与进阶用法：设备互相看不到、iOS 多播限制、断点续传、二维码配对、Live Photo 跨平台、卸载指南。联系邮箱 dexli0215@gmail.com。" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://airtokapp.com/support.html" />
+  <link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/support.html" />
+  <link rel="alternate" hreflang="en" href="https://airtokapp.com/support_en.html" />
+  <meta property="og:title" content="技术支持 — AirTok" />
+  <meta property="og:description" content="AirTok 故障排查、进阶用法与联系方式。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://airtokapp.com/support.html" />
+  <meta property="og:image" content="https://airtokapp.com/og-image.png" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.8; color: #1a1a1a; max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
@@ -35,85 +45,107 @@
     <p style="color:#666;font-weight:400;font-size:14px;margin-top:8px;">一般 48 小时内回复。发邮件时请附上系统版本、AirTok 版本，以及能复现问题的步骤。</p>
   </div>
 
-  <h2>常见问题</h2>
+  <p style="color:#666;font-size:14px;">基础问题（是否联网、和 AirDrop 的区别、大文件支持等）请见<a href="index.html#faq">首页常见问题</a>。本页面聚焦故障排查与进阶用法。</p>
+
+  <h2>故障排查</h2>
 
   <details>
-    <summary>两台设备互相看不到怎么办？</summary>
+    <summary>两台设备互相看不到</summary>
     <p>AirTok 通过局域网自动发现设备，请先确认：</p>
     <ul>
       <li>两台设备连的是<strong>同一个 Wi-Fi</strong>（不是同一运营商不同热点）</li>
-      <li>路由器没有开启 "AP 隔离" / "客户端隔离"（部分酒店/公司 Wi-Fi 会开，会屏蔽设备互相发现）</li>
+      <li>路由器没有开启"AP 隔离" / "客户端隔离"（部分酒店 / 公司 Wi-Fi 会开，会屏蔽设备互相发现）</li>
       <li>iOS 首次启动时弹出的"本地网络"权限要允许，否则 iOS 会静默屏蔽 AirTok 的发现包</li>
       <li>防火墙没有拦截 53317（TCP）和 53318（UDP）端口</li>
     </ul>
-    <p>以上都检查过仍看不到，可以用"扫二维码连接"的手动方式直接配对。</p>
+    <p>以上都检查过仍看不到，可以用"扫二维码连接"的方式手动配对。</p>
   </details>
 
   <details>
-    <summary>iOS 看不到 Mac / Windows 设备？</summary>
-    <p>iOS 14 以后对多播权限管得很严，AirTok 的多播权限申请正在审核中。在多播权限到位前：</p>
+    <summary>iOS 看不到 Mac / Windows 设备</summary>
+    <p>iOS 14 起对多播权限管得很严，AirTok 的多播权限申请正在 Apple 审核中。在权限到位前：</p>
     <ul>
-      <li>首次打开 iOS 允许"本地网络"权限</li>
+      <li>首次打开 iOS 时允许"本地网络"权限</li>
       <li>Mac / Windows 这一端能正常看到 iOS（单向工作）</li>
-      <li>点 Mac / Windows 端的设备发起传输，iOS 会收到弹窗</li>
+      <li>从 Mac / Windows 发起传输，iOS 会收到弹窗</li>
       <li>或者用扫二维码的方式手动配对</li>
     </ul>
   </details>
 
   <details>
-    <summary>传输大文件到一半中断了，会丢吗？</summary>
-    <p>不会丢。AirTok 支持<strong>断点续传</strong>：</p>
+    <summary>传输到一半中断了怎么办</summary>
+    <p>AirTok 支持断点续传，不用担心丢文件：</p>
     <ul>
       <li>中断的文件会在接收端以 <code>.part</code> 后缀临时保存</li>
-      <li>下次再发同一个文件，AirTok 会自动从中断位置继续传</li>
-      <li>未完成的任务会显示在"设备"页的"未完成"区域，可以主动点"继续"重试</li>
+      <li>未完成的任务会显示在"设备"页的"未完成"区域</li>
+      <li>点击"继续"即可从中断位置恢复</li>
+      <li>不想继续可以点"取消"，AirTok 会清理两端的 .part 残留</li>
     </ul>
   </details>
 
   <details>
-    <summary>Live Photo 跨平台传输会保留动态效果吗？</summary>
-    <p>会。AirTok 是目前极少数支持 <strong>iOS Live Photo 与 Android 动态照片（华为、三星、Google、小米等）双向互转</strong>的工具。</p>
+    <summary>扫了二维码但连不上</summary>
     <ul>
-      <li>iOS → Android：自动转成目标手机原生支持的动态照片格式</li>
+      <li>确认二维码是从同一个局域网内的另一台 AirTok 生成的</li>
+      <li>二维码有时效（10 分钟），过期后需要重新生成</li>
+      <li>如果两台设备之前信任过但现在装过新版本，对方的证书指纹可能变了，需要先在"设置 → 已信任设备"里移除旧记录再重新配对</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>传输速度明显变慢</summary>
+    <ul>
+      <li>Wi-Fi 信号弱 / 拥堵是最常见原因，可以把两台设备都靠近路由器</li>
+      <li>某些 5GHz 路由器对 UDP 多播有限速，改用有线或靠近 AP 会快</li>
+      <li>同时开了 SHA-256 完整性校验会有一点性能开销（约 5-10%），追求极速时可以在设置里关闭</li>
+      <li>大量小文件本身比大文件慢，因为每个文件有独立的握手开销</li>
+    </ul>
+  </details>
+
+  <h2>进阶用法</h2>
+
+  <details>
+    <summary>如何跨平台传 Live Photo / 动态照片</summary>
+    <p>AirTok 会自动识别并保留动态效果，无需额外操作：</p>
+    <ul>
+      <li>iOS → Android：自动转成目标手机原生支持的动态照片格式（华为 / 三星 / Google / 小米 / OPPO / vivo 等）</li>
       <li>Android → iOS：自动重组为 Apple 认可的 Live Photo 对</li>
-      <li>保存到相册后可以按住播放动效</li>
+      <li>保存到相册后按住照片即可播放动效</li>
     </ul>
   </details>
 
   <details>
-    <summary>传输是加密的吗？安全吗？</summary>
-    <p>是。AirTok 采用多层安全措施：</p>
+    <summary>如何移除已信任的设备</summary>
+    <p>进入"设置 → 已信任设备"，点击要移除的设备条目。移除后对方再发文件会被要求重新确认。</p>
+    <p>这个功能在以下情况很有用：</p>
     <ul>
-      <li>所有传输走 TLS 1.3 端到端加密</li>
-      <li>设备间互相验证证书指纹</li>
-      <li>首次连接采用 <strong>Trust-On-First-Use</strong>（首次信任），之后指纹变化会警告</li>
-      <li>可以在"设置"里开启 SHA-256 文件完整性校验</li>
-      <li>可以在"设置"里开启"接收前确认"防止陌生设备推送文件</li>
+      <li>设备易主（二手出售前清理）</li>
+      <li>对方重装了 AirTok，证书指纹变了</li>
+      <li>临时信任了一台共享电脑，事后取消</li>
     </ul>
   </details>
 
   <details>
-    <summary>传输的文件会经过服务器吗？</summary>
-    <p>不会。AirTok 纯<strong>点对点 LAN 传输</strong>，文件直接从发送设备发到接收设备，<strong>不经过任何云或中转服务器</strong>。离线 / 断网环境只要两台设备连同一路由器就能传。详见<a href="privacy.html">隐私政策</a>。</p>
+    <summary>如何查看 AirTok 版本号</summary>
+    <p>打开应用后点右下角"关于"页，顶部显示版本号。发 bug 报告时请把版本号一起附上。</p>
   </details>
 
-  <details>
-    <summary>忘记信任过的设备怎么办？</summary>
-    <p>在"设置 → 已信任设备"里可以看到所有已信任的设备列表，点击即可移除。移除后对方再发文件会被要求重新确认。</p>
-  </details>
+  <h2>卸载</h2>
 
   <details>
-    <summary>如何在 Mac 上卸载 AirTok？</summary>
+    <summary>如何在各平台卸载</summary>
     <ul>
-      <li>从"应用程序"文件夹里直接拖到废纸篓即可</li>
-      <li>应用数据存在 <code>~/Library/Application Support/AirTok/</code>，默认会保留（便于重装后恢复信任设备），可以手动删除</li>
-      <li>已接收的文件在你的"下载"目录下，卸载不会删除</li>
+      <li><strong>macOS</strong>：从"应用程序"拖到废纸篓。应用数据在 <code>~/Library/Application Support/AirTok/</code>（默认保留），接收的文件在"下载"目录。</li>
+      <li><strong>Windows</strong>：从设置 → 应用 → 已安装应用找到 AirTok 卸载。应用数据在 <code>%APPDATA%\AirTok\</code>。</li>
+      <li><strong>Linux</strong>：deb 装的用 <code>apt remove airtok</code>；AppImage 直接删掉文件即可。应用数据在 <code>~/.local/share/AirTok/</code>。</li>
+      <li><strong>iOS</strong>：长按图标 → 删除 App。iOS 会同时清除所有应用数据。</li>
+      <li><strong>Android</strong>：长按图标 → 卸载。部分手机会询问是否同时删除应用数据。</li>
     </ul>
   </details>
 
   <details>
-    <summary>为什么 Windows / Linux 版要额外装什么东西？</summary>
-    <p>不用装额外的。AirTok 把所有依赖都打包进了安装包：</p>
+    <summary>Windows / Linux 需要装什么依赖</summary>
+    <p>AirTok 把所有依赖都打包进了安装包：</p>
     <ul>
       <li>Windows：zip 解压直接运行，或安装 exe</li>
       <li>Linux：.deb 或 AppImage，装好即用，需要系统有 GTK 3（大部分发行版自带）</li>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://airtokapp.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://airtokapp.com/"/>
+  </url>
+  <url>
+    <loc>https://airtokapp.com/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://airtokapp.com/privacy_en.html"/>
+  </url>
+  <url>
+    <loc>https://airtokapp.com/privacy_en.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://airtokapp.com/privacy_en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://airtokapp.com/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://airtokapp.com/terms_en.html"/>
+  </url>
+  <url>
+    <loc>https://airtokapp.com/terms_en.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://airtokapp.com/terms_en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/terms.html"/>
+  </url>
+  <url>
+    <loc>https://airtokapp.com/support.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/support.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://airtokapp.com/support_en.html"/>
+  </url>
+  <url>
+    <loc>https://airtokapp.com/support_en.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://airtokapp.com/support_en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/support.html"/>
+  </url>
+</urlset>

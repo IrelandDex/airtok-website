@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AirTok - Support</title>
+  <title>Support — AirTok</title>
+  <meta name="description" content="AirTok troubleshooting and advanced usage: device discovery issues, iOS multicast, resumable transfers, QR pairing, cross-platform Live Photos, uninstall guide. Contact: dexli0215@gmail.com." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://airtokapp.com/support_en.html" />
+  <link rel="alternate" hreflang="en" href="https://airtokapp.com/support_en.html" />
+  <link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/support.html" />
+  <meta property="og:title" content="Support — AirTok" />
+  <meta property="og:description" content="AirTok troubleshooting, advanced usage, and contact info." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://airtokapp.com/support_en.html" />
+  <meta property="og:image" content="https://airtokapp.com/og-image.png" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.8; color: #1a1a1a; max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
@@ -36,10 +46,12 @@
     <p style="color:#666;font-weight:400;font-size:14px;margin-top:8px;">We usually reply within 48 hours. Please include your OS version, AirTok version, and steps to reproduce the issue.</p>
   </div>
 
-  <h2>Frequently Asked Questions</h2>
+  <p style="color:#666;font-size:14px;">For product basics (internet not required, difference from AirDrop, big-file support, etc.), see the <a href="index.html#faq">FAQ on the home page</a>. This page focuses on troubleshooting and advanced usage.</p>
+
+  <h2>Troubleshooting</h2>
 
   <details>
-    <summary>Two devices can't see each other. What should I do?</summary>
+    <summary>Two devices can't see each other</summary>
     <p>AirTok discovers devices over the local network. Please verify:</p>
     <ul>
       <li>Both devices are on the <strong>same Wi-Fi network</strong> (not just the same provider)</li>
@@ -51,7 +63,7 @@
   </details>
 
   <details>
-    <summary>iOS can't see Mac / Windows devices?</summary>
+    <summary>iOS can't see Mac / Windows devices</summary>
     <p>Since iOS 14, multicast access requires a special Apple-granted entitlement. AirTok's multicast entitlement request is pending review. In the meantime:</p>
     <ul>
       <li>Grant the "Local Network" permission on first launch</li>
@@ -62,58 +74,78 @@
   </details>
 
   <details>
-    <summary>A large transfer was interrupted. Will I lose the file?</summary>
-    <p>No. AirTok supports <strong>resumable transfers</strong>:</p>
+    <summary>A transfer was interrupted</summary>
+    <p>AirTok supports resumable transfers — you won't lose the file:</p>
     <ul>
-      <li>Partially received files are saved with a <code>.part</code> suffix</li>
-      <li>Retrying the same file resumes from where it stopped</li>
-      <li>Unfinished tasks appear in the "Unfinished" section on the Devices page; tap "Continue" to retry</li>
+      <li>Partially received files are stored with a <code>.part</code> suffix</li>
+      <li>Unfinished tasks appear in the "Unfinished" section on the Devices page</li>
+      <li>Tap "Continue" to resume from where it stopped</li>
+      <li>Tap "Cancel" to drop the task — AirTok cleans up <code>.part</code> remnants on both sides</li>
     </ul>
   </details>
 
   <details>
-    <summary>Does cross-platform Live Photo transfer preserve the motion?</summary>
-    <p>Yes. AirTok is one of very few tools that preserves <strong>Apple Live Photos and Android Motion Photos</strong> (Huawei, Samsung, Google, Xiaomi, etc.) across platforms:</p>
+    <summary>QR code scanned but devices won't connect</summary>
     <ul>
-      <li>iOS → Android: auto-converts to the target phone's native motion-photo format</li>
+      <li>Confirm the QR code was generated from another AirTok device on the same local network</li>
+      <li>QR codes expire after 10 minutes — regenerate if needed</li>
+      <li>If the two devices were previously trusted but one of them has been reinstalled, the cert fingerprint has changed. Remove the old trusted-device entry in Settings and pair again</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Transfer speed is noticeably slow</summary>
+    <ul>
+      <li>Weak / congested Wi-Fi is the most common cause; move both devices closer to the router</li>
+      <li>Some 5 GHz routers rate-limit UDP multicast — wired or near-AP gives best speed</li>
+      <li>SHA-256 integrity check adds ~5–10% overhead; you can disable it in Settings for pure speed</li>
+      <li>Many small files are inherently slower than one large file due to per-file handshake overhead</li>
+    </ul>
+  </details>
+
+  <h2>Advanced</h2>
+
+  <details>
+    <summary>How do Live Photos / Motion Photos transfer cross-platform</summary>
+    <p>AirTok auto-detects and preserves motion, nothing manual needed:</p>
+    <ul>
+      <li>iOS → Android: auto-converts to the target phone's native format (Huawei / Samsung / Google / Xiaomi / OPPO / vivo, etc.)</li>
       <li>Android → iOS: reconstructs a proper Apple Live Photo pair</li>
-      <li>Playable motion after saving to the camera roll</li>
+      <li>Playable with long-press after saving to the camera roll</li>
     </ul>
   </details>
 
   <details>
-    <summary>Are transfers encrypted? Is it safe?</summary>
-    <p>Yes. AirTok uses multiple layers of security:</p>
+    <summary>How to remove a trusted device</summary>
+    <p>Go to Settings → Trusted Devices and tap the entry. Next send from that device will require re-confirmation.</p>
+    <p>Useful when:</p>
     <ul>
-      <li>All transfers use TLS 1.3 end-to-end encryption</li>
-      <li>Devices validate each other's certificate fingerprint</li>
-      <li>First connection uses <strong>Trust-On-First-Use</strong>; subsequent fingerprint mismatches trigger a warning</li>
-      <li>Optional SHA-256 file integrity verification (in Settings)</li>
-      <li>Optional "confirm before receive" to block pushes from unknown devices</li>
+      <li>The device changes hands (cleaning before selling)</li>
+      <li>The other side reinstalled AirTok and the cert fingerprint changed</li>
+      <li>You temporarily trusted a shared computer and want to revoke access</li>
     </ul>
   </details>
 
   <details>
-    <summary>Do transfers pass through a server?</summary>
-    <p>No. AirTok is a pure <strong>peer-to-peer LAN transfer</strong> — files go directly from sender to receiver, never through any cloud or relay server. It works fully offline as long as both devices are on the same local network. See the <a href="privacy_en.html">Privacy Policy</a>.</p>
+    <summary>How to find my AirTok version</summary>
+    <p>Open the app and tap the About tab (bottom right). Version number is at the top. Please include it in any bug report.</p>
   </details>
 
-  <details>
-    <summary>How do I forget a trusted device?</summary>
-    <p>Go to Settings → Trusted Devices. Tap any entry to remove it. Next time that device sends a file, you'll be asked to re-confirm.</p>
-  </details>
+  <h2>Uninstall</h2>
 
   <details>
-    <summary>How do I uninstall AirTok on Mac?</summary>
+    <summary>How to uninstall on each platform</summary>
     <ul>
-      <li>Drag AirTok.app from the Applications folder to the Trash</li>
-      <li>Application data lives at <code>~/Library/Application Support/AirTok/</code> and is left behind by default (so reinstalling keeps your trusted-device list). Delete it manually if you want a clean slate.</li>
-      <li>Received files are in your Downloads folder and are not removed by uninstalling</li>
+      <li><strong>macOS</strong>: Drag from Applications to the Trash. App data lives at <code>~/Library/Application Support/AirTok/</code> (kept by default); received files are in Downloads.</li>
+      <li><strong>Windows</strong>: Settings → Apps → Installed apps → AirTok → Uninstall. App data lives at <code>%APPDATA%\AirTok\</code>.</li>
+      <li><strong>Linux</strong>: <code>apt remove airtok</code> for the .deb, or just delete the AppImage file. Data lives at <code>~/.local/share/AirTok/</code>.</li>
+      <li><strong>iOS</strong>: Long-press the icon → Delete App. iOS removes all app data at the same time.</li>
+      <li><strong>Android</strong>: Long-press the icon → Uninstall. Some OEMs ask whether to clear app data too.</li>
     </ul>
   </details>
 
   <details>
-    <summary>Do Windows / Linux builds need extra dependencies?</summary>
+    <summary>Do Windows / Linux builds need extra dependencies</summary>
     <p>No. AirTok bundles everything it needs:</p>
     <ul>
       <li>Windows: unzip and run, or install via the .exe</li>

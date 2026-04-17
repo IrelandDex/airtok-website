@@ -3,11 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AirTok</title>
-  <meta name="description" content="The AirDrop for all your devices. Bridging Windows, Mac, Linux, iOS, and Android." />
-  <meta property="og:title" content="AirTok" />
-  <meta property="og:description" content="The AirDrop for all your devices." />
+  <title>AirTok — Cross-platform LAN file transfer for iOS, Android, macOS, Windows, Linux</title>
+  <meta name="description" content="AirTok sends files, photos, and Live Photos between iOS, Android, macOS, Windows, and Linux over your local network. End-to-end TLS encryption, resumable transfers, no cloud, no sign-in." />
+  <meta name="keywords" content="AirTok,AirDrop alternative,LAN file transfer,局域网传输,跨平台传输,LocalSend,Live Photo 跨平台,iOS Android file transfer,Windows Mac Linux transfer,断点续传" />
+  <meta name="author" content="DEXUAN LI" />
+  <link rel="canonical" href="https://airtokapp.com/" />
+  <link rel="icon" type="image/png" href="og-image.png" />
+  <link rel="apple-touch-icon" href="og-image.png" />
+
+  <!-- Open Graph (Facebook, LinkedIn, WeChat previews) -->
+  <meta property="og:title" content="AirTok — The AirDrop for every device" />
+  <meta property="og:description" content="Cross-platform LAN file transfer. iOS, Android, macOS, Windows, Linux. TLS encrypted, resumable, no cloud." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://airtokapp.com/" />
+  <meta property="og:image" content="https://airtokapp.com/og-image.png" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="AirTok" />
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AirTok — The AirDrop for every device" />
+  <meta name="twitter:description" content="Cross-platform LAN file transfer. iOS, Android, macOS, Windows, Linux." />
+  <meta name="twitter:image" content="https://airtokapp.com/og-image.png" />
+
+  <!-- Structured data: SoftwareApplication schema. Gives Google + AI
+       crawlers (ChatGPT, Perplexity, Claude) a machine-readable
+       description of the app — powers rich search results and accurate
+       answers when users ask about cross-platform file transfer. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AirTok",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "iOS, Android, macOS, Windows, Linux",
+    "description": "Cross-platform LAN file transfer for iOS, Android, macOS, Windows, and Linux. Preserves Live Photos and Motion Photos across platforms, supports resumable transfers, and uses TLS 1.3 end-to-end encryption. No cloud, no analytics.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://airtokapp.com/",
+    "image": "https://airtokapp.com/og-image.png",
+    "author": { "@type": "Person", "name": "DEXUAN LI" },
+    "featureList": [
+      "Cross-platform: iOS, Android, macOS, Windows, Linux",
+      "Live Photo / Motion Photo cross-platform transfer",
+      "TLS 1.3 end-to-end encryption",
+      "Resumable transfers for large files",
+      "Zero cloud, zero analytics, zero tracking",
+      "QR code pairing and auto-discovery"
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQPage — lets Google show the FAQ directly in
+       search results ("rich snippet"). Mirror of the five #faq entries
+       below; keep the two in sync if you edit one. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does AirTok require an internet connection?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. AirTok works entirely over your local Wi-Fi / router. Files never leave your network."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is AirTok different from AirDrop and LocalSend?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AirDrop is Apple-only (excludes Windows and Android). LocalSend is cross-platform but does not preserve Live Photos across platforms and lacks true resumable transfers. AirTok covers both gaps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is AirTok secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All transfers use TLS 1.3 end-to-end encryption. The receiving device shows a confirmation prompt before accepting any transfer — silent pushes are not possible."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does AirTok support large files?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There is no size limit. Multi-gigabyte videos transfer reliably. If a transfer is interrupted, AirTok resumes from where it stopped."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "macOS shows an 'unidentified developer' warning on first launch — what should I do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Finder, right-click AirTok and choose Open, then click Open again in the dialog. Future releases will be Apple-notarized and the warning will go away."
+        }
+      }
+    ]
+  }
+  </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -300,17 +399,17 @@
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- TODO: fill href with the real DMG URL once uploaded to
-             Cloudflare R2 / CDN (e.g. https://dl.airtokapp.com/latest/AirTok-macos.dmg).
-             Left as placeholder to avoid 404-ing users before first release. -->
-        <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
+        <a href="https://dl.airtokapp.com/macos/latest/AirTok.dmg" class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
             <h3 class="text-xl font-bold">macOS</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.macos.note">Universal · macOS 11+</p>
-          <span class="text-slate-500 font-semibold" data-i18n="download.macos.cta">即将发布</span>
-        </div>
+          <div class="flex items-center justify-between">
+            <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.macos.cta">下载 .dmg →</span>
+            <span class="text-xs text-slate-500">~35 MB</span>
+          </div>
+        </a>
 
         <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
@@ -339,14 +438,17 @@
           <span class="text-slate-500 font-semibold" data-i18n="download.ios.cta">即将上架 App Store</span>
         </div>
 
-        <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
+        <a href="https://dl.airtokapp.com/android/latest/AirTok.apk" class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.34l1.997-3.46a.41.41 0 00-.149-.56.41.41 0 00-.56.149l-2.022 3.503C15.21 14.21 13.65 13.748 12 13.748s-3.21.464-4.79 1.225L5.19 11.47a.41.41 0 00-.56-.149.41.41 0 00-.149.56l1.997 3.46C3.345 17.13 1.5 19.94 1.5 23h21c0-3.061-1.845-5.87-4.977-7.66"/></svg>
             <h3 class="text-xl font-bold">Android</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.android.note">Android 7+ · APK</p>
-          <span class="text-slate-500 font-semibold" data-i18n="download.android.cta">即将上架 Play Store</span>
-        </div>
+          <div class="flex items-center justify-between">
+            <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.android.cta">下载 .apk →</span>
+            <span class="text-xs text-slate-500">~127 MB</span>
+          </div>
+        </a>
 
         <!-- Historical versions / changelog — re-enable once the
              download CDN is live. -->
@@ -396,6 +498,10 @@
           <summary class="font-semibold text-lg cursor-pointer flex items-center justify-between" data-i18n="faq.q5">macOS 第一次打开提示「无法验证开发者」？</summary>
           <p class="mt-4 text-slate-600 leading-relaxed" data-i18n="faq.a5">在访达里右键 AirTok → 打开，弹窗里再点一次「打开」即可。后续版本会做 Apple 公证，就不会再有这个提示了。</p>
         </details>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="support.html" class="btn-link arrow" data-i18n="faq.more">查看更多故障排查与进阶用法</a>
       </div>
     </div>
   </section>
@@ -479,7 +585,7 @@
         'download.title': '选择你的设备',
         'download.subtitle': '没有任何依赖，30 秒即可装好',
         'download.macos.note': 'Universal · macOS 11+',
-        'download.macos.cta': '即将发布',
+        'download.macos.cta': '下载 .dmg →',
         'download.windows.note': 'x64 · Windows 10/11',
         'download.windows.cta': '即将发布',
         'download.linux.note': 'x64 · 需要 GTK 3',
@@ -487,12 +593,13 @@
         'download.ios.note': 'iOS 15+ · iPhone & iPad',
         'download.ios.cta': '即将上架 App Store',
         'download.android.note': 'Android 7+ · APK',
-        'download.android.cta': '即将上架 Play Store',
+        'download.android.cta': '下载 .apk →',
         'download.all.title': '所有版本',
         'download.all.note': '查看历史版本与更新日志',
         'download.all.cta': '即将开放',
 
         'faq.title': '常见问题',
+        'faq.more': '查看更多故障排查与进阶用法',
         'faq.q1': '需要联网才能用吗？',
         'faq.a1': '不需要。两台设备只要连在同一个 Wi-Fi 或同一个路由器下就能互传，全程不走互联网。',
         'faq.q2': '和 AirDrop、LocalSend 有什么不一样？',
@@ -562,7 +669,7 @@
         'download.title': 'Pick your device.',
         'download.subtitle': 'No dependencies. Installs in 30 seconds.',
         'download.macos.note': 'Universal · macOS 11+',
-        'download.macos.cta': 'Coming soon',
+        'download.macos.cta': 'Download .dmg →',
         'download.windows.note': 'x64 · Windows 10/11',
         'download.windows.cta': 'Coming soon',
         'download.linux.note': 'x64 · Requires GTK 3',
@@ -570,12 +677,13 @@
         'download.ios.note': 'iOS 15+ · iPhone & iPad',
         'download.ios.cta': 'Coming to App Store',
         'download.android.note': 'Android 7+ · APK',
-        'download.android.cta': 'Coming to Play Store',
+        'download.android.cta': 'Download .apk →',
         'download.all.title': 'All versions',
         'download.all.note': 'Browse past releases and changelog',
         'download.all.cta': 'Coming soon',
 
         'faq.title': 'FAQ',
+        'faq.more': 'More troubleshooting & advanced usage',
         'faq.q1': 'Do I need internet?',
         'faq.a1': 'No. The two devices just need to be on the same Wi-Fi or behind the same router. Nothing goes through the internet.',
         'faq.q2': 'How does it differ from AirDrop and LocalSend?',

@@ -1,0 +1,8 @@
+# Let every major crawler index the site — there is no private content.
+# AI assistants that respect robots.txt are allowed (OAI, Perplexity,
+# Claude, etc.) so that AirTok surfaces in answers about cross-platform
+# file transfer.
+User-agent: *
+Allow: /
+
+Sitemap: https://airtokapp.com/sitemap.xml
