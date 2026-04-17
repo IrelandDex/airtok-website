@@ -6,53 +6,143 @@
   <title>AirTok - Privacy Policy</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; max-width: 720px; margin: 0 auto; padding: 40px 20px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.8; color: #1a1a1a; max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
     h1 { font-size: 28px; margin-bottom: 8px; }
-    h2 { font-size: 20px; margin-top: 32px; margin-bottom: 12px; }
-    p { margin-bottom: 16px; color: #333; }
-    .date { color: #888; font-size: 14px; margin-bottom: 32px; }
-    .lang { text-align: right; margin-bottom: 20px; }
-    .lang a { color: #1B6EF3; text-decoration: none; }
+    h2 { font-size: 20px; margin-top: 36px; margin-bottom: 12px; color: #111; }
+    h3 { font-size: 16px; margin-top: 20px; margin-bottom: 8px; color: #222; }
+    p, li { margin-bottom: 12px; color: #333; font-size: 15px; }
+    ul { padding-left: 20px; margin-bottom: 16px; }
+    li { margin-bottom: 6px; }
+    a { color: #1B6EF3; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .date { color: #888; font-size: 14px; margin-bottom: 36px; }
+    .lang { text-align: right; margin-bottom: 20px; font-size: 14px; }
+    .summary { background: #f0f7ff; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+    .summary p { margin-bottom: 0; font-weight: 500; color: #1B6EF3; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+    th, td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; }
+    th { background: #f8f9fc; font-weight: 600; }
   </style>
 </head>
 <body>
   <div class="lang"><a href="privacy.html">中文</a></div>
   <h1>Privacy Policy</h1>
-  <p class="date">Last updated: April 17, 2026</p>
+  <p class="date">Effective: April 17, 2026 · Last updated: April 17, 2026</p>
 
-  <h2>Overview</h2>
-  <p>AirTok is a local network file transfer app. We take your privacy seriously. This app does not collect, store, or transmit any personal data to our servers.</p>
+  <div class="summary">
+    <p>In short: AirTok does not collect any personal data, does not use any tracking technology, and all file transfers happen exclusively within your local network.</p>
+  </div>
 
-  <h2>Data Transfer</h2>
-  <p>All file transfers occur exclusively within your local network. Data is transferred directly between devices in a peer-to-peer manner, without passing through any cloud server or third-party relay.</p>
+  <h2>1. About This App</h2>
+  <p>AirTok ("the App") is a cross-platform local network file transfer tool supporting iOS, macOS, Android, Windows, and Linux. It is developed and operated by DEXUAN LI ("we", "us", or "our").</p>
+  <p>We understand the importance of privacy. This App was designed from the ground up with a "zero data collection" principle. This privacy policy aims to transparently explain how we handle (and do not handle) your data.</p>
 
-  <h2>Data Collection</h2>
-  <p>AirTok does not collect any of the following:</p>
-  <p>• Personal information (name, email, phone number, etc.)<br>
-     • Device identifiers (IDFA, IDFV, etc.)<br>
-     • Location data<br>
-     • Usage analytics<br>
-     • Contents of transferred files</p>
+  <h2>2. Data We Do NOT Collect</h2>
+  <p>This App <strong>does not collect, store, or transmit</strong> any of the following data to our servers or any third party:</p>
+  <ul>
+    <li>Personal identity information (name, email, phone number, address, etc.)</li>
+    <li>Device identifiers (IDFA, IDFV, Android ID, etc.)</li>
+    <li>Precise or approximate location data</li>
+    <li>Usage behavior data or analytics</li>
+    <li>Contents or names of transferred files</li>
+    <li>Contacts, calendar, browsing history, or other sensitive personal data</li>
+    <li>Crash logs (not automatically reported)</li>
+  </ul>
 
-  <h2>Network Communication</h2>
-  <p>AirTok uses the following network protocols, restricted to your local network only:</p>
-  <p>• UDP broadcast/multicast: to discover nearby devices on the LAN<br>
-     • TCP connections: for file transfer between devices, with TLS encryption support</p>
-  <p>These communications do not involve internet access and no data is sent outside your local network. The only exception is the remote configuration check on the About page (for version updates), which fetches a public JSON file and does not send any user data.</p>
+  <h2>3. How Data Is Transferred</h2>
+  <p>The core function of this App is to transfer files directly between devices on the <strong>same local network</strong>:</p>
+  <ul>
+    <li>Files are transferred via <strong>peer-to-peer TCP connections</strong> directly between devices, without passing through any cloud server or relay</li>
+    <li><strong>TLS encryption</strong> is supported to protect data during transit within the local network</li>
+    <li>After transfer, files are saved to the receiving device's local storage</li>
+  </ul>
 
-  <h2>Third-Party Services</h2>
-  <p>AirTok does not integrate any third-party analytics, advertising, or tracking SDKs.</p>
+  <h2>4. Device Permissions</h2>
+  <p>This App may request the following device permissions, each used solely for its stated purpose:</p>
 
-  <h2>Data Storage</h2>
-  <p>Received files are saved to your device's local storage (in the download directory you specify in Settings). AirTok does not upload these files anywhere.</p>
+  <table>
+    <tr><th>Permission</th><th>Purpose</th><th>When Requested</th></tr>
+    <tr><td>Local Network</td><td>Discover other devices and transfer files on the LAN</td><td>On first launch</td></tr>
+    <tr><td>Photo Library</td><td>Select photos/videos to send, or save received media to Photos</td><td>When selecting photos or saving</td></tr>
+    <tr><td>Camera</td><td>Scan QR codes to quickly connect to other devices</td><td>When using QR scanner</td></tr>
+    <tr><td>File Access</td><td>Select files to send, or save received files</td><td>When selecting files</td></tr>
+  </table>
+  <p>You can revoke any of these permissions at any time in your system settings. Revoking a permission may disable the related feature but will not affect other functions of the App.</p>
 
-  <h2>Children's Privacy</h2>
-  <p>AirTok is not directed at children under 13 and does not knowingly collect personal information from children.</p>
+  <h2>5. Network Communication</h2>
+  <p>This App uses the following network protocols, <strong>restricted to your local network only</strong>:</p>
+  <ul>
+    <li><strong>UDP broadcast/multicast</strong> (port 53318): Used to automatically discover other AirTok devices on the same network. Broadcast content only includes device name and connection port — no personal information.</li>
+    <li><strong>TCP connections</strong> (port 53317): Used for file transfer between devices. Supports TLS 1.3 encryption.</li>
+    <li><strong>Local HTTP</strong> (port 53319, desktop only): Internal communication between app components, listening on 127.0.0.1 only — inaccessible to external devices.</li>
+  </ul>
 
-  <h2>Changes to This Policy</h2>
-  <p>If this policy is updated, changes will be posted on this page. We encourage you to review it periodically.</p>
+  <h3>Only Internet Access</h3>
+  <p>The App's About page fetches a public configuration file via HTTPS (hosted on GitHub) to check for version updates. This request:</p>
+  <ul>
+    <li>Does not send any device information or user data</li>
+    <li>Does not use cookies or tracking technology</li>
+    <li>Fails silently without affecting core functionality</li>
+  </ul>
 
-  <h2>Contact Us</h2>
-  <p>For privacy-related inquiries, please contact: <a href="mailto:dexli0215@gmail.com">dexli0215@gmail.com</a></p>
+  <h2>6. Local Data Storage</h2>
+  <p>This App stores the following data locally on your device:</p>
+  <ul>
+    <li><strong>App settings</strong>: Download directory, device name, theme preferences, and other configuration</li>
+    <li><strong>Device registry</strong>: List of discovered and trusted devices (device name, IP address, trust status)</li>
+    <li><strong>Transfer history</strong>: Recent transfer records (file name, transfer status, timestamp)</li>
+    <li><strong>Received files</strong>: Saved to your specified download directory</li>
+    <li><strong>TLS certificates</strong>: Local key pairs used for encrypted transfers</li>
+  </ul>
+  <p>All of the above is stored locally on your device and is never uploaded to any server. Uninstalling the App will delete all data except received files.</p>
+
+  <h2>7. Third-Party Services</h2>
+  <p>This App <strong>does not integrate</strong> any third-party SDKs, including but not limited to:</p>
+  <ul>
+    <li>Analytics SDKs (e.g., Google Analytics, Firebase Analytics)</li>
+    <li>Advertising SDKs (e.g., AdMob, Facebook Ads)</li>
+    <li>Tracking SDKs (e.g., Adjust, AppsFlyer)</li>
+    <li>Crash reporting SDKs (e.g., Crashlytics, Sentry)</li>
+    <li>Social login SDKs</li>
+  </ul>
+
+  <h2>8. Data Security</h2>
+  <p>We take the following measures to protect your data:</p>
+  <ul>
+    <li>File transfers support TLS 1.3 end-to-end encryption</li>
+    <li>Devices verify each other's identity via TLS certificate fingerprints</li>
+    <li>Certificate fingerprints are pinned after first connection (Trust-On-First-Use) to prevent man-in-the-middle attacks</li>
+    <li>Optional file integrity verification (SHA-256) ensures transferred content has not been tampered with</li>
+    <li>Optional receive confirmation prevents unauthorized devices from pushing files</li>
+  </ul>
+
+  <h2>9. Children's Privacy</h2>
+  <p>This App is not directed at children under the age of 13 and does not knowingly collect any personal information from children. If you are a parent or guardian and believe your child has encountered a privacy issue while using this App, please contact us.</p>
+
+  <h2>10. Your Rights</h2>
+  <p>Since we do not collect any personal data, there is no personal data to delete or export. All your data resides on your own device. You can at any time:</p>
+  <ul>
+    <li>Clear transfer history in App settings</li>
+    <li>Delete received files</li>
+    <li>Untrust devices</li>
+    <li>Uninstall the App to remove all local data</li>
+  </ul>
+
+  <h2>11. Legal Compliance</h2>
+  <p>This privacy policy is designed to comply with the following privacy regulations:</p>
+  <ul>
+    <li>Personal Information Protection Law of the People's Republic of China (PIPL)</li>
+    <li>General Data Protection Regulation (GDPR, applicable to EU users)</li>
+    <li>California Consumer Privacy Act (CCPA, applicable to California residents)</li>
+  </ul>
+  <p>Since this App does not collect any personal data, the obligations regarding data processing and data subject rights under these regulations do not materially apply.</p>
+
+  <h2>12. Changes to This Policy</h2>
+  <p>If this policy is updated, we will post the revised version on this page and update the "Last updated" date at the top. Significant changes will be communicated via in-app announcements.</p>
+  <p>We encourage you to review this page periodically for the latest privacy information.</p>
+
+  <h2>13. Contact Us</h2>
+  <p>If you have any questions or suggestions regarding this privacy policy, please contact us at:</p>
+  <p>📧 Email: <a href="mailto:dexli0215@gmail.com">dexli0215@gmail.com</a></p>
 </body>
 </html>
