@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fafbfc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+    <filter id="shadow-sm" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <!-- Decorative blobs -->
+  <circle cx="200" cy="150" r="200" fill="#0ea5e9" opacity="0.08"/>
+  <circle cx="1400" cy="850" r="250" fill="#8b5cf6" opacity="0.08"/>
+
+  <!-- Mac window -->
+  <g transform="translate(200, 100)" filter="url(#shadow)">
+    <!-- Window with rounded corners -->
+    <rect x="0" y="0" width="1200" height="800" rx="14" fill="url(#card)"/>
+
+    <!-- Title bar -->
+    <rect x="0" y="0" width="1200" height="44" rx="14" fill="#f8fafc"/>
+    <rect x="0" y="30" width="1200" height="14" fill="#f8fafc"/>
+    <line x1="0" y1="44" x2="1200" y2="44" stroke="#e2e8f0"/>
+
+    <!-- Traffic lights -->
+    <circle cx="22" cy="22" r="7" fill="#ef4444"/>
+    <circle cx="44" cy="22" r="7" fill="#eab308"/>
+    <circle cx="66" cy="22" r="7" fill="#22c55e"/>
+
+    <!-- Window title -->
+    <text x="600" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">AirTok</text>
+
+    <!-- Sidebar -->
+    <rect x="0" y="44" width="220" height="756" fill="#f8fafc"/>
+    <line x1="220" y1="44" x2="220" y2="800" stroke="#e2e8f0"/>
+
+    <!-- Sidebar items -->
+    <g transform="translate(16, 70)">
+      <rect width="188" height="40" rx="8" fill="url(#brand)"/>
+      <rect x="14" y="11" width="18" height="18" rx="4" fill="#ffffff" opacity="0.3"/>
+      <text x="44" y="26" font-size="14" font-weight="600" fill="#ffffff">附近设备</text>
+    </g>
+
+    <g transform="translate(16, 124)">
+      <rect width="188" height="40" rx="8" fill="transparent"/>
+      <rect x="14" y="11" width="18" height="18" rx="4" fill="#cbd5e1"/>
+      <text x="44" y="26" font-size="14" fill="#64748b">传输历史</text>
+    </g>
+
+    <g transform="translate(16, 168)">
+      <rect width="188" height="40" rx="8" fill="transparent"/>
+      <rect x="14" y="11" width="18" height="18" rx="4" fill="#cbd5e1"/>
+      <text x="44" y="26" font-size="14" fill="#64748b">设置</text>
+    </g>
+
+    <!-- Self info bottom of sidebar -->
+    <g transform="translate(16, 700)">
+      <rect width="188" height="80" rx="10" fill="#f1f5f9"/>
+      <circle cx="28" cy="40" r="18" fill="url(#brand)"/>
+      <text x="28" y="45" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">M</text>
+      <text x="56" y="36" font-size="13" font-weight="600" fill="#0f172a">本机</text>
+      <text x="56" y="54" font-size="11" fill="#94a3b8">Mac · 192.168.1.10</text>
+      <text x="56" y="68" font-size="10" font-weight="600" fill="#0ea5e9">连接码 482917</text>
+    </g>
+
+    <!-- Main content header -->
+    <g transform="translate(260, 80)">
+      <text font-size="28" font-weight="800" fill="#0f172a">附近设备</text>
+      <g transform="translate(0, 16)">
+        <circle cx="6" cy="6" r="4" fill="#22c55e"/>
+        <text x="18" y="10" font-size="13" fill="#64748b">3 台设备在线 · Wi-Fi: HOME-5G</text>
+      </g>
+
+      <!-- Refresh button -->
+      <g transform="translate(840, -8)">
+        <rect x="0" y="0" width="100" height="36" rx="8" fill="#f1f5f9"/>
+        <text x="50" y="22" text-anchor="middle" font-size="13" font-weight="600" fill="#475569">刷新</text>
+      </g>
+    </g>
+
+    <!-- Device cards -->
+    <!-- Card 1: iPhone -->
+    <g transform="translate(260, 160)" filter="url(#shadow-sm)">
+      <rect width="900" height="120" rx="14" fill="#ffffff"/>
+      <!-- Avatar -->
+      <rect x="20" y="20" width="80" height="80" rx="18" fill="#fce7f3"/>
+      <g transform="translate(45, 38)">
+        <rect width="30" height="44" rx="6" fill="#ec4899"/>
+        <rect x="3" y="3" width="24" height="32" rx="2" fill="#fce7f3"/>
+        <circle cx="15" cy="40" r="1.5" fill="#fce7f3"/>
+      </g>
+      <!-- Device info -->
+      <text x="120" y="44" font-size="20" font-weight="700" fill="#0f172a">DX 的 iPhone</text>
+      <g transform="translate(120, 56)">
+        <circle cx="6" cy="6" r="4" fill="#22c55e"/>
+        <text x="18" y="10" font-size="13" fill="#64748b">在线 · iOS 18 · 192.168.1.21</text>
+      </g>
+      <text x="120" y="92" font-size="12" font-weight="600" fill="#94a3b8">连接码 305817</text>
+      <!-- Send button -->
+      <g transform="translate(740, 38)">
+        <rect width="140" height="44" rx="10" fill="url(#brand)"/>
+        <text x="70" y="29" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">发送文件</text>
+      </g>
+    </g>
+
+    <!-- Card 2: Android (Huawei) -->
+    <g transform="translate(260, 300)" filter="url(#shadow-sm)">
+      <rect width="900" height="120" rx="14" fill="#ffffff"/>
+      <rect x="20" y="20" width="80" height="80" rx="18" fill="#dcfce7"/>
+      <g transform="translate(45, 38)">
+        <rect width="30" height="44" rx="6" fill="#16a34a"/>
+        <rect x="3" y="3" width="24" height="32" rx="2" fill="#dcfce7"/>
+        <circle cx="15" cy="40" r="1.5" fill="#dcfce7"/>
+      </g>
+      <text x="120" y="44" font-size="20" font-weight="700" fill="#0f172a">华为 Mate 60</text>
+      <g transform="translate(120, 56)">
+        <circle cx="6" cy="6" r="4" fill="#22c55e"/>
+        <text x="18" y="10" font-size="13" fill="#64748b">在线 · HarmonyOS 4 · 192.168.1.15</text>
+      </g>
+      <text x="120" y="92" font-size="12" font-weight="600" fill="#94a3b8">连接码 692401</text>
+      <g transform="translate(740, 38)">
+        <rect width="140" height="44" rx="10" fill="url(#brand)"/>
+        <text x="70" y="29" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">发送文件</text>
+      </g>
+    </g>
+
+    <!-- Card 3: Windows -->
+    <g transform="translate(260, 440)" filter="url(#shadow-sm)">
+      <rect width="900" height="120" rx="14" fill="#ffffff"/>
+      <rect x="20" y="20" width="80" height="80" rx="18" fill="#dbeafe"/>
+      <g transform="translate(36, 36)">
+        <rect width="20" height="20" fill="#0078d4"/>
+        <rect x="22" y="0" width="20" height="20" fill="#0078d4"/>
+        <rect x="0" y="22" width="20" height="20" fill="#0078d4"/>
+        <rect x="22" y="22" width="20" height="20" fill="#0078d4"/>
+      </g>
+      <text x="120" y="44" font-size="20" font-weight="700" fill="#0f172a">Office-PC</text>
+      <g transform="translate(120, 56)">
+        <circle cx="6" cy="6" r="4" fill="#22c55e"/>
+        <text x="18" y="10" font-size="13" fill="#64748b">在线 · Windows 11 · 192.168.1.33</text>
+      </g>
+      <text x="120" y="92" font-size="12" font-weight="600" fill="#94a3b8">连接码 174203</text>
+      <g transform="translate(740, 38)">
+        <rect width="140" height="44" rx="10" fill="url(#brand)"/>
+        <text x="70" y="29" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">发送文件</text>
+      </g>
+    </g>
+
+    <!-- Drop zone hint -->
+    <g transform="translate(260, 600)">
+      <rect width="900" height="160" rx="16" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 6"/>
+      <text x="450" y="74" text-anchor="middle" font-size="18" font-weight="600" fill="#94a3b8">将文件拖到这里发送</text>
+      <text x="450" y="102" text-anchor="middle" font-size="13" fill="#cbd5e1">支持任意类型的文件、文件夹与压缩包</text>
+    </g>
+  </g>
+</svg>
