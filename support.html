@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AirTok - 技术支持</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.8; color: #1a1a1a; max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    h2 { font-size: 20px; margin-top: 36px; margin-bottom: 12px; color: #111; }
+    h3 { font-size: 16px; margin-top: 20px; margin-bottom: 8px; color: #222; }
+    p, li { margin-bottom: 12px; color: #333; font-size: 15px; }
+    ul { padding-left: 20px; margin-bottom: 16px; }
+    li { margin-bottom: 6px; }
+    a { color: #1B6EF3; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .date { color: #888; font-size: 14px; margin-bottom: 36px; }
+    .lang { text-align: right; margin-bottom: 20px; font-size: 14px; }
+    .contact-card { background: #f0f7ff; border-radius: 12px; padding: 20px; margin: 24px 0; }
+    .contact-card p { margin-bottom: 4px; color: #1B6EF3; font-weight: 500; }
+    details { background: #f8f9fc; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; border: 1px solid #eef1f5; }
+    details[open] { background: #fff; border-color: #d5e4ff; }
+    summary { cursor: pointer; font-weight: 600; font-size: 15px; color: #111; }
+    details p, details ul { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="lang"><a href="support_en.html">English</a></div>
+  <h1>技术支持</h1>
+  <p class="date">最后更新：2026 年 4 月 17 日</p>
+
+  <div class="contact-card">
+    <p>📧 邮箱支持：<a href="mailto:dexli0215@gmail.com">dexli0215@gmail.com</a></p>
+    <p style="color:#666;font-weight:400;font-size:14px;margin-top:8px;">一般 48 小时内回复。发邮件时请附上系统版本、AirTok 版本，以及能复现问题的步骤。</p>
+  </div>
+
+  <h2>常见问题</h2>
+
+  <details>
+    <summary>两台设备互相看不到怎么办？</summary>
+    <p>AirTok 通过局域网自动发现设备，请先确认：</p>
+    <ul>
+      <li>两台设备连的是<strong>同一个 Wi-Fi</strong>（不是同一运营商不同热点）</li>
+      <li>路由器没有开启 "AP 隔离" / "客户端隔离"（部分酒店/公司 Wi-Fi 会开，会屏蔽设备互相发现）</li>
+      <li>iOS 首次启动时弹出的"本地网络"权限要允许，否则 iOS 会静默屏蔽 AirTok 的发现包</li>
+      <li>防火墙没有拦截 53317（TCP）和 53318（UDP）端口</li>
+    </ul>
+    <p>以上都检查过仍看不到，可以用"扫二维码连接"的手动方式直接配对。</p>
+  </details>
+
+  <details>
+    <summary>iOS 看不到 Mac / Windows 设备？</summary>
+    <p>iOS 14 以后对多播权限管得很严，AirTok 的多播权限申请正在审核中。在多播权限到位前：</p>
+    <ul>
+      <li>首次打开 iOS 允许"本地网络"权限</li>
+      <li>Mac / Windows 这一端能正常看到 iOS（单向工作）</li>
+      <li>点 Mac / Windows 端的设备发起传输，iOS 会收到弹窗</li>
+      <li>或者用扫二维码的方式手动配对</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>传输大文件到一半中断了，会丢吗？</summary>
+    <p>不会丢。AirTok 支持<strong>断点续传</strong>：</p>
+    <ul>
+      <li>中断的文件会在接收端以 <code>.part</code> 后缀临时保存</li>
+      <li>下次再发同一个文件，AirTok 会自动从中断位置继续传</li>
+      <li>未完成的任务会显示在"设备"页的"未完成"区域，可以主动点"继续"重试</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Live Photo 跨平台传输会保留动态效果吗？</summary>
+    <p>会。AirTok 是目前极少数支持 <strong>iOS Live Photo 与 Android 动态照片（华为、三星、Google、小米等）双向互转</strong>的工具。</p>
+    <ul>
+      <li>iOS → Android：自动转成目标手机原生支持的动态照片格式</li>
+      <li>Android → iOS：自动重组为 Apple 认可的 Live Photo 对</li>
+      <li>保存到相册后可以按住播放动效</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>传输是加密的吗？安全吗？</summary>
+    <p>是。AirTok 采用多层安全措施：</p>
+    <ul>
+      <li>所有传输走 TLS 1.3 端到端加密</li>
+      <li>设备间互相验证证书指纹</li>
+      <li>首次连接采用 <strong>Trust-On-First-Use</strong>（首次信任），之后指纹变化会警告</li>
+      <li>可以在"设置"里开启 SHA-256 文件完整性校验</li>
+      <li>可以在"设置"里开启"接收前确认"防止陌生设备推送文件</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>传输的文件会经过服务器吗？</summary>
+    <p>不会。AirTok 纯<strong>点对点 LAN 传输</strong>，文件直接从发送设备发到接收设备，<strong>不经过任何云或中转服务器</strong>。离线 / 断网环境只要两台设备连同一路由器就能传。详见<a href="privacy.html">隐私政策</a>。</p>
+  </details>
+
+  <details>
+    <summary>忘记信任过的设备怎么办？</summary>
+    <p>在"设置 → 已信任设备"里可以看到所有已信任的设备列表，点击即可移除。移除后对方再发文件会被要求重新确认。</p>
+  </details>
+
+  <details>
+    <summary>如何在 Mac 上卸载 AirTok？</summary>
+    <ul>
+      <li>从"应用程序"文件夹里直接拖到废纸篓即可</li>
+      <li>应用数据存在 <code>~/Library/Application Support/AirTok/</code>，默认会保留（便于重装后恢复信任设备），可以手动删除</li>
+      <li>已接收的文件在你的"下载"目录下，卸载不会删除</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>为什么 Windows / Linux 版要额外装什么东西？</summary>
+    <p>不用装额外的。AirTok 把所有依赖都打包进了安装包：</p>
+    <ul>
+      <li>Windows：zip 解压直接运行，或安装 exe</li>
+      <li>Linux：.deb 或 AppImage，装好即用，需要系统有 GTK 3（大部分发行版自带）</li>
+    </ul>
+  </details>
+
+  <h2>举报与反馈</h2>
+  <p>如果你遇到 bug、想反馈功能建议，或发现任何安全问题，欢迎邮件联系：</p>
+  <p>📧 <a href="mailto:dexli0215@gmail.com">dexli0215@gmail.com</a></p>
+  <p>安全问题请在邮件标题写明 <strong>[安全]</strong>，我们会优先处理。</p>
+
+  <h2>相关链接</h2>
+  <ul>
+    <li><a href="index.html">返回官网首页</a></li>
+    <li><a href="privacy.html">隐私政策</a></li>
+    <li><a href="terms.html">使用条款</a></li>
+  </ul>
+</body>
+</html>

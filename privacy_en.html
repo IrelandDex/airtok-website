@@ -74,11 +74,11 @@
   <ul>
     <li><strong>UDP broadcast/multicast</strong> (port 53318): Used to automatically discover other AirTok devices on the same network. Broadcast content only includes device name and connection port — no personal information.</li>
     <li><strong>TCP connections</strong> (port 53317): Used for file transfer between devices. Supports TLS 1.3 encryption.</li>
-    <li><strong>Local HTTP</strong> (port 53319, desktop only): Internal communication between app components, listening on 127.0.0.1 only — inaccessible to external devices.</li>
+    <li><strong>Local HTTP</strong> (default port 53319, falls back to a system-assigned port if occupied; desktop only): Internal communication between app components, listening on 127.0.0.1 only — inaccessible to external devices.</li>
   </ul>
 
   <h3>Only Internet Access</h3>
-  <p>The App's About page fetches a public configuration file via HTTPS (hosted on GitHub) to check for version updates. This request:</p>
+  <p>The App's About page fetches a public configuration file via HTTPS (hosted on our official site airtokapp.com) to show the latest version and support links. This request:</p>
   <ul>
     <li>Does not send any device information or user data</li>
     <li>Does not use cookies or tracking technology</li>
