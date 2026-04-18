@@ -1,20 +1,23 @@
 # Screenshots
 
-Drop product screenshots here. The HTML expects:
+Real device captures used on the landing page. Two pages consume
+these; both swap the file based on the active UI language via
+`data-i18n-src` in `index.html`.
 
-- `hero-devices.png` (1600×1000) — hero section main image. Show the device list with multiple devices visible.
-- `live-photo-demo.gif` — Live Photo cross-platform demo. Pick a Live Photo on iPhone, send to Android, show that the gallery still plays it.
-- `devices.png` (mobile aspect, ~750×1334) — device discovery screen
-- `transfer.png` (mobile aspect) — transfer progress screen
-- `history.png` (mobile aspect) — history screen
+| File | Used in | Spec |
+|---|---|---|
+| `hero-devices_cn.png` | Hero section | 1600×1000 px, Mac app window |
+| `hero-devices_en.png` | Hero section (English) | same |
+| `live-photo-demo_cn.png` | "Live Photo cross-platform" feature | 800×600 px (or 4:3) |
+| `live-photo-demo_en.png` | same (English) | same |
 
-After dropping a file in, replace the corresponding `.screenshot-placeholder` div in `index.html` with:
+To update a screenshot: drop a new PNG with the same filename, commit,
+push — Cloudflare Pages redeploys automatically. The language toggle
+on airtokapp.com picks the matching variant.
 
-```html
-<img src="screenshots/hero-devices.png" alt="..." class="rounded-2xl shadow-2xl">
-```
+## Notes
 
-## Recording GIFs
-
-- macOS: [Kap](https://getkap.co/) (free) or QuickTime Player → File → New Screen Recording, then convert with `ffmpeg -i in.mov -vf "fps=15,scale=720:-1" out.gif`
-- Cross-platform: [LICEcap](https://www.cockos.com/licecap/) (free)
+- All files have `loading="lazy"` in the HTML so page TTFB isn't hurt.
+- Compressed PNG is fine; animated WebP or MP4 could replace the Live
+  Photo still if we want motion later — swap the `<img>` for a
+  `<video autoplay muted loop playsinline>` if doing that.

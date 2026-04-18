@@ -208,9 +208,13 @@
       </div>
     </div>
 
-    <!-- Hero screenshot -->
+    <!-- Hero screenshot — src swaps with the language toggle via
+         data-i18n-src; applyLang() picks the matching entry from the
+         active dict. -->
     <div class="max-w-5xl mx-auto px-6 pb-24">
-      <img src="screenshots/hero-devices.svg" alt="AirTok" class="w-full rounded-2xl shadow-2xl shadow-slate-900/20"/>
+      <img src="screenshots/hero-devices_cn.png" alt="AirTok"
+           class="w-full rounded-2xl shadow-2xl shadow-slate-900/20"
+           data-i18n-src="hero.screenshot" loading="lazy" />
     </div>
   </section>
 
@@ -259,7 +263,9 @@
       </p>
     </div>
     <div class="max-w-5xl mx-auto px-6">
-      <img src="screenshots/live-photo-demo.svg" alt="Live Photo cross-platform" class="w-full rounded-3xl shadow-2xl shadow-pink-500/10"/>
+      <img src="screenshots/live-photo-demo_cn.png" alt="Live Photo cross-platform"
+           class="w-full rounded-3xl shadow-2xl shadow-pink-500/10"
+           data-i18n-src="killer.live.screenshot" loading="lazy" />
     </div>
   </section>
 
@@ -360,31 +366,6 @@
     </div>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- Showcase                                                     -->
-  <!-- ============================================================ -->
-  <section class="py-24 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="heading-tight text-[40px] md:text-[56px] leading-[1.1] mb-4" data-i18n="showcase.title">看看长什么样</h2>
-        <p class="text-lg text-slate-600" data-i18n="showcase.subtitle">五端界面一致，学一次就够</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div>
-          <img src="screenshots/devices-mobile.svg" alt="Devices" class="w-full rounded-2xl shadow-lg"/>
-          <p class="text-center text-sm text-slate-600 mt-4 font-medium" data-i18n="showcase.devices.caption">设备发现</p>
-        </div>
-        <div>
-          <img src="screenshots/transfer-mobile.svg" alt="Transfer" class="w-full rounded-2xl shadow-lg"/>
-          <p class="text-center text-sm text-slate-600 mt-4 font-medium" data-i18n="showcase.transfer.caption">传输进度</p>
-        </div>
-        <div>
-          <img src="screenshots/history-mobile.svg" alt="History" class="w-full rounded-2xl shadow-lg"/>
-          <p class="text-center text-sm text-slate-600 mt-4 font-medium" data-i18n="showcase.history.caption">历史记录</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ============================================================ -->
   <!-- Download                                                     -->
@@ -579,11 +560,9 @@
         'feature.history.title': '历史记录',
         'feature.history.body': '发过什么、发给谁了，笔笔清晰，可随时找回。',
 
-        'showcase.title': '看看长什么样',
-        'showcase.subtitle': '五端界面一致，学一次就够',
-        'showcase.devices.caption': '设备发现',
-        'showcase.transfer.caption': '传输进度',
-        'showcase.history.caption': '历史记录',
+        // Screenshots that have a language-specific rendering (zh/en)
+        'hero.screenshot': 'screenshots/hero-devices_cn.png',
+        'killer.live.screenshot': 'screenshots/live-photo-demo_cn.png',
 
         'download.title': '选择你的设备',
         'download.subtitle': '没有任何依赖，30 秒即可装好',
@@ -663,11 +642,9 @@
         'feature.history.title': 'Full history',
         'feature.history.body': 'Every transfer, every recipient, every file — all retrievable.',
 
-        'showcase.title': 'See it in motion.',
-        'showcase.subtitle': 'Same UI on all five platforms.',
-        'showcase.devices.caption': 'Discovery',
-        'showcase.transfer.caption': 'Transfer',
-        'showcase.history.caption': 'History',
+        // Language-specific screenshots
+        'hero.screenshot': 'screenshots/hero-devices_en.png',
+        'killer.live.screenshot': 'screenshots/live-photo-demo_en.png',
 
         'download.title': 'Pick your device.',
         'download.subtitle': 'No dependencies. Installs in 30 seconds.',
@@ -724,6 +701,12 @@
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dict[key]) el.textContent = dict[key];
+      });
+      // Swap screenshot URLs for language-specific variants (hero
+      // and Live Photo demo have separate zh / en renders).
+      document.querySelectorAll('[data-i18n-src]').forEach(el => {
+        const key = el.getAttribute('data-i18n-src');
+        if (dict[key]) el.setAttribute('src', dict[key]);
       });
       const toggle = document.getElementById('lang-toggle');
       if (toggle) toggle.textContent = dict['lang.toggle'];
