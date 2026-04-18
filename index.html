@@ -72,7 +72,7 @@
         "name": "Does AirTok require an internet connection?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. AirTok works entirely over your local Wi-Fi / router. Files never leave your network."
+          "text": "Not at all. AirTok uses only the local network — whether it reaches the internet is irrelevant. Two devices work if they are on the same Wi-Fi, the same router, or if one shares a hotspot the other connects to. Even a phone with no cellular signal can transfer files by turning on its hotspot."
         }
       },
       {
@@ -167,6 +167,7 @@
       </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
         <a href="#features" class="hover:text-brand-600 transition" data-i18n="nav.features">功能</a>
+        <a href="#compare" class="hover:text-brand-600 transition" data-i18n="nav.compare">对比</a>
         <a href="#download" class="hover:text-brand-600 transition" data-i18n="nav.download">下载</a>
         <a href="#faq" class="hover:text-brand-600 transition" data-i18n="nav.faq">常见问题</a>
         <a href="support.html" class="hover:text-brand-600 transition" data-i18n="nav.support">支持</a>
@@ -197,7 +198,7 @@
         <span class="gradient-text" data-i18n="hero.title.line2">AirDrop</span>
       </h1>
       <p class="text-[18px] md:text-[22px] text-slate-600 max-w-3xl mx-auto leading-[1.45] mb-10" data-i18n="hero.subtitle">
-        Windows、Mac、Linux、iOS、Android 彻底打通。你发出的 Live Photo，到对方安卓机里照样能动。
+        Windows、Mac、Linux、iOS、Android 多端联通。iOS Live Photo 与多品牌安卓动态照片底层自动转换。支持文件夹直接传输，几十 GB 超大文件稳定传输。
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
@@ -221,29 +222,37 @@
   <!-- ============================================================ -->
   <!-- Platforms                                                    -->
   <!-- ============================================================ -->
-  <section class="py-12 border-y border-slate-200/60 bg-white">
+  <!-- Inline SVG path data (not <img src="icons/*.svg">) so the    -->
+  <!-- fill color follows the parent text color via currentColor.   -->
+  <!-- The files under icons/ hard-code fill="#ffffff", which only  -->
+  <!-- shows on the dark download section; on this white background -->
+  <!-- they would be invisible.                                     -->
+  <section class="py-24 border-y border-slate-200/60 bg-white">
     <div class="max-w-6xl mx-auto px-6">
-      <p class="text-center text-sm text-slate-500 font-medium mb-6 uppercase tracking-wider" data-i18n="platforms.title">五个平台都能用</p>
-      <div class="flex items-center justify-center gap-12 md:gap-20 text-slate-400">
-        <div class="flex flex-col items-center gap-2">
-          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-          <span class="text-xs font-medium">macOS</span>
+      <div class="text-center mb-16">
+        <h2 class="heading-tight text-[40px] md:text-[56px] leading-[1.1] mb-4" data-i18n="platforms.title">全平台覆盖</h2>
+        <p class="text-lg text-slate-600" data-i18n="platforms.subtitle">五端同步，随时可用。</p>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-10 md:gap-x-20 text-slate-700">
+        <div class="flex flex-col items-center gap-3">
+          <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+          <span class="text-sm font-semibold">macOS</span>
         </div>
-        <div class="flex flex-col items-center gap-2">
-          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
-          <span class="text-xs font-medium">Windows</span>
+        <div class="flex flex-col items-center gap-3">
+          <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+          <span class="text-sm font-semibold">Windows</span>
         </div>
-        <div class="flex flex-col items-center gap-2">
-          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521z"/></svg>
-          <span class="text-xs font-medium">Linux</span>
+        <div class="flex flex-col items-center gap-3">
+          <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.762 4.52c.61 0 1.1.49 1.1 1.095 0 .605-.49 1.096-1.1 1.096-.612 0-1.1-.491-1.1-1.096 0-.604.488-1.095 1.1-1.095zm-2.505.082c.456 0 .82.38.82.845 0 .466-.364.843-.82.843-.456 0-.824-.377-.824-.843 0-.465.368-.845.824-.845z"/></svg>
+          <span class="text-sm font-semibold">Linux</span>
         </div>
-        <div class="flex flex-col items-center gap-2">
-          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01z"/></svg>
-          <span class="text-xs font-medium">iOS</span>
+        <div class="flex flex-col items-center gap-3">
+          <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+          <span class="text-sm font-semibold">iOS</span>
         </div>
-        <div class="flex flex-col items-center gap-2">
-          <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.34l1.997-3.46a.41.41 0 00-.149-.56.41.41 0 00-.56.149l-2.022 3.503C15.21 14.21 13.65 13.748 12 13.748s-3.21.464-4.79 1.225L5.19 11.47a.41.41 0 00-.56-.149.41.41 0 00-.149.56l1.997 3.46C3.345 17.13 1.5 19.94 1.5 23h21c0-3.061-1.845-5.87-4.977-7.66"/></svg>
-          <span class="text-xs font-medium">Android</span>
+        <div class="flex flex-col items-center gap-3">
+          <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></svg>
+          <span class="text-sm font-semibold">Android</span>
         </div>
       </div>
     </div>
@@ -254,12 +263,12 @@
   <!-- ============================================================ -->
   <section id="killer" class="py-28 bg-gradient-to-br from-pink-50 via-white to-purple-50">
     <div class="max-w-5xl mx-auto px-6 text-center mb-16">
-      <div class="inline-block px-3 py-1 bg-pink-100 text-pink-700 text-xs font-bold rounded-full mb-6 tracking-wider">独家功能</div>
+      <div class="inline-block px-3 py-1 bg-pink-100 text-pink-700 text-xs font-bold rounded-full mb-6 tracking-wider" data-i18n="killer.live.badge">重点功能</div>
       <h2 class="heading-tight text-[40px] md:text-[64px] leading-[1.08] mb-6" data-i18n="killer.live.title">
-        发到安卓手机的 Live Photo，到了对方相册里还能动
+        iPhone 和安卓，支持互发动态照片
       </h2>
       <p class="text-[18px] md:text-[20px] text-slate-600 max-w-3xl mx-auto leading-[1.5]" data-i18n="killer.live.body">
-        告别静态图片。AirTok 实现了 iOS Live Photo 与多平台动态照片（华为、三星、Google）的底层自动转换。双向互传，直接播放。
+        AirTok 支持 Live Photo 与安卓动态照片自动适配，跨设备传输后，可直接在 app 内查看动态图，保存到相册后也会被系统识别为动态图。
       </p>
     </div>
     <div class="max-w-5xl mx-auto px-6">
@@ -270,25 +279,121 @@
   </section>
 
   <!-- ============================================================ -->
+  <!-- vs AirDrop / LocalSend comparison                            -->
+  <!-- ============================================================ -->
+  <section id="compare" class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <h2 class="heading-tight text-[40px] md:text-[56px] leading-[1.1] mb-4" data-i18n="compare.title">为什么 AirTok 更好用</h2>
+        <p class="text-lg text-slate-600" data-i18n="compare.subtitle">同类产品对比</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-slate-200/60 shadow-sm">
+        <table class="w-full text-left text-sm md:text-[15px]">
+          <thead class="bg-slate-50 text-slate-700">
+            <tr>
+              <th class="px-5 py-4 font-semibold" data-i18n="compare.col.feature">能力</th>
+              <th class="px-5 py-4 font-semibold text-center">AirDrop</th>
+              <th class="px-5 py-4 font-semibold text-center">LocalSend</th>
+              <th class="px-5 py-4 font-semibold text-center bg-brand-50 text-brand-700">AirTok</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.platform">五端全覆盖（Win/Mac/Linux/iOS/Android）</td>
+              <td class="px-5 py-4 text-center text-slate-400">仅 Apple</td>
+              <td class="px-5 py-4 text-center text-emerald-600">✓</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.livephoto">Live Photo 跨平台保留（含安卓动态照片）</td>
+              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.apple_only">仅 Apple↔Apple</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.resume">断点续传 / 暂停恢复</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.bigfile">超大文件稳定传输（几十 GB）</td>
+              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.flaky">易中断</td>
+              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.flaky2">易中断</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.qr">扫码快速配对</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.multicast">多设备并行发送（一次发给多台）</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-emerald-600">✓</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.trusted">信任设备免二次确认</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.partial">部分</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.text">文本 / 剪贴板直传</td>
+              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.basic">简陋</td>
+              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.via_file">走文件通道</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold" data-i18n="compare.cell.first_class">一等消息</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.conflict">文件冲突策略可选</td>
+              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.fixed">固定</td>
+              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.rename_only">仅重命名</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold" data-i18n="compare.cell.three_modes">重命名/覆盖/跳过</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.archive">应用内解压</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.diag">网络诊断可视化</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.account">无需账户</td>
+              <td class="px-5 py-4 text-center text-slate-400">Apple ID</td>
+              <td class="px-5 py-4 text-center text-emerald-600">✓</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.crypto">端到端 TLS 加密</td>
+              <td class="px-5 py-4 text-center text-emerald-600">✓</td>
+              <td class="px-5 py-4 text-center text-emerald-600">✓</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
   <!-- Features grid                                                -->
   <!-- ============================================================ -->
   <section id="features" class="py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="heading-tight text-[40px] md:text-[56px] leading-[1.1] mb-4" data-i18n="features.title">只做必要的事</h2>
-        <p class="text-lg text-slate-600" data-i18n="features.subtitle">没有花哨的功能，只有纯粹的传输体验</p>
+        <p class="text-lg text-slate-600" data-i18n="features.subtitle">专注把传输这件事做到最好：跨系统、不压缩、不丢动态</p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- 1. Cross-platform -->
-        <div class="card-hover p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
-          <div class="w-12 h-12 rounded-xl bg-violet-50 flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg>
-          </div>
-          <h3 class="text-xl font-bold mb-2" data-i18n="feature.crossplatform.title">无需重新学习</h3>
-          <p class="text-slate-600 leading-relaxed" data-i18n="feature.crossplatform.body">五个平台，一套长相。</p>
-        </div>
 
         <!-- 2. Resume -->
         <div class="card-hover p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
@@ -341,7 +446,25 @@
             <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
           </div>
           <h3 class="text-xl font-bold mb-2" data-i18n="feature.pair.title">无感发现</h3>
-          <p class="text-slate-600 leading-relaxed" data-i18n="feature.pair.body">自动发现同网络设备。跨网段也能扫码秒连。</p>
+          <p class="text-slate-600 leading-relaxed" data-i18n="feature.pair.body">同一个 Wi-Fi 下开机即连。附近设备自动出现在列表，点一下就发。</p>
+        </div>
+
+        <!-- 7b. QR scan -->
+        <div class="card-hover p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h6v6H4V4zm0 10h6v6H4v-6zM14 4h6v6h-6V4zm2 12h2v2h-2v-2zm2-2h2v2h-2v-2zm0 4h2v2h-2v-2zm-4-2h2v2h-2v-2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2" data-i18n="feature.qr.title">扫码连接</h3>
+          <p class="text-slate-600 leading-relaxed" data-i18n="feature.qr.body">手机扫一下屏幕上的二维码，设备立刻配对。不用拼设备名、不用等发现。</p>
+        </div>
+
+        <!-- 7c. Multi-device broadcast -->
+        <div class="card-hover p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-yellow-50 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2" data-i18n="feature.multicast.title">多设备同时发</h3>
+          <p class="text-slate-600 leading-relaxed" data-i18n="feature.multicast.body">一次选中多台设备，同一批文件并行发给所有人。课堂派资料、团队同步讲义再也不用重复点。</p>
         </div>
 
         <!-- 8. No login -->
@@ -360,6 +483,33 @@
           </div>
           <h3 class="text-xl font-bold mb-2" data-i18n="feature.history.title">历史记录</h3>
           <p class="text-slate-600 leading-relaxed" data-i18n="feature.history.body">发过什么、发给谁了，笔笔清晰，可随时找回。</p>
+        </div>
+
+        <!-- 10. Resume / pause control -->
+        <div class="card-hover p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2" data-i18n="feature.control.title">随时暂停、随时接</h3>
+          <p class="text-slate-600 leading-relaxed" data-i18n="feature.control.body">出门前暂停，到家再继续。不必担心中断打断节奏。</p>
+        </div>
+
+        <!-- 11. Conflict policy -->
+        <div class="card-hover p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-fuchsia-50 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-fuchsia-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2" data-i18n="feature.conflict.title">冲突你说了算</h3>
+          <p class="text-slate-600 leading-relaxed" data-i18n="feature.conflict.body">同名文件遇上了？重命名、覆盖、跳过自己选，不再被默认规则绑架。</p>
+        </div>
+
+        <!-- 12. Network diagnostics -->
+        <div class="card-hover p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-lime-50 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-lime-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2" data-i18n="feature.diag.title">网络诊断可视化</h3>
+          <p class="text-slate-600 leading-relaxed" data-i18n="feature.diag.body">哪张网卡在发包、谁没收到，一目了然。发现不了设备时不再瞎猜。</p>
         </div>
 
       </div>
@@ -460,7 +610,7 @@
       <div class="space-y-4">
         <details class="group p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
           <summary class="font-semibold text-lg cursor-pointer flex items-center justify-between" data-i18n="faq.q1">需要联网才能用吗？</summary>
-          <p class="mt-4 text-slate-600 leading-relaxed" data-i18n="faq.a1">不需要。两台设备只要连在同一个 Wi-Fi 或同一个路由器下就能互传，全程不走互联网。</p>
+          <p class="mt-4 text-slate-600 leading-relaxed" data-i18n="faq.a1">完全不需要。AirTok 只用局域网，和有没有外网无关。两台设备连在同一个 Wi-Fi、同一个路由器、或者其中一台开热点另一台连上去都能传——哪怕手机完全没有蜂窝信号，开个热点照样互发文件。</p>
         </details>
 
         <details class="group p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
@@ -521,6 +671,7 @@
     const I18N = {
       'zh-CN': {
         'nav.features': '功能',
+        'nav.compare': '对比',
         'nav.download': '下载',
         'nav.faq': '常见问题',
         'nav.support': '支持',
@@ -528,19 +679,46 @@
 
         'hero.title.line1': '给所有设备的',
         'hero.title.line2': 'AirDrop',
-        'hero.subtitle': 'Windows、Mac、Linux、iOS、Android 彻底打通。你发出的 Live Photo，到对方安卓机里照样能动。',
+        'hero.subtitle': 'Windows、Mac、Linux、iOS、Android 多端联通。iOS Live Photo 与多品牌安卓动态照片底层自动转换。支持文件夹直接传输，几十 GB 超大文件稳定传输。',
         'hero.cta.download': '免费下载',
         'hero.cta.learn': '了解 Live Photo 互传 ↗',
 
-        'platforms.title': '五个平台都能用',
+        'platforms.title': '全平台覆盖',
+        'platforms.subtitle': '五端同步，随时可用。',
 
-        'killer.live.title': '发到安卓手机的 Live Photo，到了对方相册里还能动',
-        'killer.live.body': '告别静态图片。AirTok 实现了 iOS Live Photo 与多平台动态照片（华为、三星、Google）的底层自动转换。双向互传，直接播放。',
+        'killer.live.badge': '重点功能',
+        'killer.live.title': 'iPhone 和安卓，支持互发动态照片',
+        'killer.live.body': 'AirTok 支持 Live Photo 与安卓动态照片自动适配，跨设备传输后，可直接在 app 内查看动态图，保存到相册后也会被系统识别为动态图。',
+
+        'compare.title': '为什么 AirTok 更好用',
+        'compare.subtitle': '同类产品对比',
+        'compare.col.feature': '能力',
+        'compare.row.platform': '五端全覆盖（Win/Mac/Linux/iOS/Android）',
+        'compare.row.livephoto': 'Live Photo 跨平台保留（含安卓动态照片）',
+        'compare.row.resume': '断点续传 / 暂停恢复',
+        'compare.row.bigfile': '超大文件稳定传输（几十 GB）',
+        'compare.row.qr': '扫码快速配对',
+        'compare.row.multicast': '多设备并行发送（一次发给多台）',
+        'compare.row.trusted': '信任设备免二次确认',
+        'compare.row.text': '文本 / 剪贴板直传',
+        'compare.row.conflict': '文件冲突策略可选',
+        'compare.row.archive': '应用内解压',
+        'compare.row.diag': '网络诊断可视化',
+        'compare.row.account': '无需账户',
+        'compare.row.crypto': '端到端 TLS 加密',
+        'compare.cell.apple_only': '仅 Apple↔Apple',
+        'compare.cell.basic': '简陋',
+        'compare.cell.via_file': '走文件通道',
+        'compare.cell.first_class': '一等消息',
+        'compare.cell.flaky': '易中断',
+        'compare.cell.flaky2': '易中断',
+        'compare.cell.partial': '部分',
+        'compare.cell.fixed': '固定',
+        'compare.cell.rename_only': '仅重命名',
+        'compare.cell.three_modes': '重命名/覆盖/跳过',
 
         'features.title': '只做必要的事',
-        'features.subtitle': '没有花哨的功能，只有纯粹的传输体验',
-        'feature.crossplatform.title': '无需重新学习',
-        'feature.crossplatform.body': '五个平台，一套长相。',
+        'features.subtitle': '专注把传输这件事做到最好：跨系统、不压缩、不丢动态',
         'feature.resume.title': '断点续传',
         'feature.resume.body': '断网重连，从刚才的地方接着传。几十 GB 也能稳稳落地。',
         'feature.crypto.title': '端到端加密',
@@ -552,11 +730,21 @@
         'feature.text.title': '剪贴板互通',
         'feature.text.body': '发个长链接或验证码，比文件传输助手好用百倍。',
         'feature.pair.title': '无感发现',
-        'feature.pair.body': '自动发现同网络设备。跨网段也能扫码秒连。',
+        'feature.pair.body': '同一个 Wi-Fi 下开机即连。附近设备自动出现在列表，点一下就发。',
+        'feature.qr.title': '扫码连接',
+        'feature.qr.body': '手机扫一下屏幕上的二维码，设备立刻配对。不用拼设备名、不用等发现。',
+        'feature.multicast.title': '多设备同时发',
+        'feature.multicast.body': '一次选中多台设备，同一批文件并行发给所有人。课堂派资料、团队同步讲义再也不用重复点。',
         'feature.local.title': '无账户体系',
         'feature.local.body': '即开即用。无需注册，更不用登录。',
         'feature.history.title': '历史记录',
         'feature.history.body': '发过什么、发给谁了，笔笔清晰，可随时找回。',
+        'feature.control.title': '随时暂停、随时接',
+        'feature.control.body': '出门前暂停，到家再继续。不必担心中断打断节奏。',
+        'feature.conflict.title': '冲突你说了算',
+        'feature.conflict.body': '同名文件遇上了？重命名、覆盖、跳过自己选，不再被默认规则绑架。',
+        'feature.diag.title': '网络诊断可视化',
+        'feature.diag.body': '哪张网卡在发包、谁没收到，一目了然。发现不了设备时不再瞎猜。',
 
         // Screenshots that have a language-specific rendering (zh/en)
         'hero.screenshot': 'screenshots/hero-devices_cn.png',
@@ -581,7 +769,7 @@
         'faq.title': '常见问题',
         'faq.more': '查看更多故障排查与进阶用法',
         'faq.q1': '需要联网才能用吗？',
-        'faq.a1': '不需要。两台设备只要连在同一个 Wi-Fi 或同一个路由器下就能互传，全程不走互联网。',
+        'faq.a1': '完全不需要。AirTok 只用局域网，和有没有外网无关。两台设备连在同一个 Wi-Fi、同一个路由器、或者其中一台开热点另一台连上去都能传——哪怕手机完全没有蜂窝信号，开个热点照样互发文件。',
         'faq.q2': '和 AirDrop、LocalSend 有什么不一样？',
         'faq.a2': 'AirDrop 只在苹果设备之间用，Windows 和安卓被排除在外。LocalSend 虽然跨平台，但不支持 Live Photo 跨平台保留，也没有真正的断点续传。AirTok 把这些都补上了。',
         'faq.q3': '数据安全吗？',
@@ -603,6 +791,7 @@
       },
       'en': {
         'nav.features': 'Features',
+        'nav.compare': 'Compare',
         'nav.download': 'Download',
         'nav.faq': 'FAQ',
         'nav.support': 'Support',
@@ -610,19 +799,46 @@
 
         'hero.title.line1': 'The AirDrop for',
         'hero.title.line2': 'all your devices.',
-        'hero.subtitle': 'Bridging Windows, Mac, Linux, iOS, and Android. Send a Live Photo to Android, and it still moves.',
+        'hero.subtitle': 'Windows, Mac, Linux, iOS, Android — all connected. Automatic conversion between iOS Live Photos and Android Motion Photos across brands. Full folder transfer. Multi-GB files, reliably delivered.',
         'hero.cta.download': 'Download Free',
         'hero.cta.learn': 'See how Live Photo works ↗',
 
-        'platforms.title': 'Five platforms. One experience.',
+        'platforms.title': 'Every platform, covered.',
+        'platforms.subtitle': 'Five devices in step. Ready whenever you are.',
 
-        'killer.live.title': 'Send a Live Photo to Android. It still moves.',
-        'killer.live.body': 'AirTok automatically converts between iOS Live Photos and Android Motion Photos (Huawei, Samsung, Google). Press, hold, and watch it play.',
+        'killer.live.badge': 'Key feature',
+        'killer.live.title': 'iPhone and Android. Motion photos, both ways.',
+        'killer.live.body': 'AirTok adapts Live Photos and Android Motion Photos automatically. After transfer, play them right inside the app — and once saved to Photos, the system recognizes them as motion photos too.',
+
+        'compare.title': 'Why AirTok works better',
+        'compare.subtitle': 'Head-to-head with the rest',
+        'compare.col.feature': 'Capability',
+        'compare.row.platform': 'All five platforms (Win/Mac/Linux/iOS/Android)',
+        'compare.row.livephoto': 'Live Photo preserved cross-platform (incl. Android Motion Photo)',
+        'compare.row.resume': 'Resume on disconnect / pause & resume',
+        'compare.row.bigfile': 'Reliable multi-GB transfers',
+        'compare.row.qr': 'QR-code quick pairing',
+        'compare.row.multicast': 'Send to multiple devices at once',
+        'compare.row.trusted': 'Trusted devices skip confirmation',
+        'compare.row.text': 'Text / clipboard transfer',
+        'compare.row.conflict': 'Configurable conflict policy',
+        'compare.row.archive': 'In-app archive extraction',
+        'compare.row.diag': 'Visual network diagnostics',
+        'compare.row.account': 'No account required',
+        'compare.row.crypto': 'End-to-end TLS encryption',
+        'compare.cell.apple_only': 'Apple↔Apple only',
+        'compare.cell.basic': 'Basic',
+        'compare.cell.via_file': 'Through file channel',
+        'compare.cell.first_class': 'First-class',
+        'compare.cell.flaky': 'Unstable',
+        'compare.cell.flaky2': 'Unstable',
+        'compare.cell.partial': 'Partial',
+        'compare.cell.fixed': 'Fixed',
+        'compare.cell.rename_only': 'Rename only',
+        'compare.cell.three_modes': 'Rename / overwrite / skip',
 
         'features.title': 'Only what matters.',
-        'features.subtitle': 'No fluff. Just transfer, done right.',
-        'feature.crossplatform.title': 'Nothing to relearn',
-        'feature.crossplatform.body': 'Five platforms, one look.',
+        'features.subtitle': 'One focus — transfer, done right. Cross-platform. No compression. Motion stays motion.',
         'feature.resume.title': 'Resume on disconnect',
         'feature.resume.body': 'Pick up exactly where it dropped. Tens of gigabytes land safely.',
         'feature.crypto.title': 'End-to-end encrypted',
@@ -634,11 +850,21 @@
         'feature.text.title': 'Clipboard sync',
         'feature.text.body': 'Send a long URL or a code straight to the other device.',
         'feature.pair.title': 'Found instantly',
-        'feature.pair.body': 'Same network? Auto-discovered. Different network? Scan a code.',
+        'feature.pair.body': 'On the same Wi-Fi, devices auto-appear in the list. Tap and send.',
+        'feature.qr.title': 'Scan to pair',
+        'feature.qr.body': 'Scan the QR on screen — devices pair instantly. No hunting for device names, no waiting on discovery.',
+        'feature.multicast.title': 'Send to many, at once',
+        'feature.multicast.body': 'Pick multiple devices, send the same batch to everyone in parallel. Handing out classroom materials or syncing a team — no more one-at-a-time.',
         'feature.local.title': 'No accounts',
         'feature.local.body': 'Open and go. No sign-up, no sign-in.',
         'feature.history.title': 'Full history',
         'feature.history.body': 'Every transfer, every recipient, every file — all retrievable.',
+        'feature.control.title': 'Pause now, pick up later',
+        'feature.control.body': 'Pause before you head out, resume when you get home. No more restart-from-zero.',
+        'feature.conflict.title': 'Conflict, your call',
+        'feature.conflict.body': 'Same filename showed up? Pick rename, overwrite, or skip. No default rule to fight.',
+        'feature.diag.title': 'Visual diagnostics',
+        'feature.diag.body': 'See which NIC sends, who missed the packet. No more guessing when a device does not show up.',
 
         // Language-specific screenshots
         'hero.screenshot': 'screenshots/hero-devices_en.png',
@@ -663,7 +889,7 @@
         'faq.title': 'FAQ',
         'faq.more': 'More troubleshooting & advanced usage',
         'faq.q1': 'Do I need internet?',
-        'faq.a1': 'No. The two devices just need to be on the same Wi-Fi or behind the same router. Nothing goes through the internet.',
+        'faq.a1': 'Not at all. AirTok uses only the local network — whether it reaches the internet is irrelevant. Two devices work if they are on the same Wi-Fi, the same router, or if one shares a hotspot the other connects to. Even a phone with no cellular signal can transfer files by turning on its hotspot.',
         'faq.q2': 'How does it differ from AirDrop and LocalSend?',
         'faq.a2': 'AirDrop is Apple-only — Windows and Android users are left out. LocalSend is cross-platform but does not preserve Live Photos across platforms or support real resume. AirTok fixes both.',
         'faq.q3': 'Is the data secure?',
