@@ -4,10 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AirTok — Cross-platform LAN file transfer for iOS, Android, macOS, Windows, Linux</title>
-  <meta name="description" content="AirTok sends files, photos, and Live Photos between iOS, Android, macOS, Windows, and Linux over your local network. End-to-end TLS encryption, resumable transfers, no cloud, no sign-in." />
-  <meta name="keywords" content="AirTok,AirDrop alternative,LAN file transfer,局域网传输,跨平台传输,LocalSend,Live Photo 跨平台,iOS Android file transfer,Windows Mac Linux transfer,断点续传" />
-  <meta name="author" content="DEXUAN LI" />
+  <meta name="description" content="AirTok is a free cross-platform LAN file transfer tool for iOS, Android, macOS, Windows, and Linux. Preserves iOS Live Photos and Android Motion Photos across platforms, resumes interrupted transfers, handles multi-GB files, sends to multiple devices in parallel, and encrypts everything with TLS 1.3. No cloud, no account. An alternative to AirDrop and LocalSend." />
+  <meta name="keywords" content="AirTok,AirDrop alternative,LocalSend alternative,LAN file transfer,局域网传输,跨平台传输,Live Photo 跨平台,iOS Android file transfer,Windows Mac Linux transfer,Motion Photo,断点续传,大文件传输,多设备发送,扫码配对" />
+  <meta name="author" content="Dex Li" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://airtokapp.com/" />
+  <!-- Hreflang pairs the two language renders. Both URLs are the same
+       document; the JS i18n layer switches text at runtime. Declaring
+       both tells Google that this one page serves both audiences. -->
+  <link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/" />
+  <link rel="alternate" hreflang="en" href="https://airtokapp.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://airtokapp.com/" />
+  <!-- Preload the hero screenshot — it's the LCP element. Speeding this
+       up improves Core Web Vitals, which feeds into search ranking. -->
+  <link rel="preload" as="image" href="screenshots/hero-devices_cn.png" fetchpriority="high" />
   <!-- Brand mark mirrors app/assets/icon.png (single source of truth
        for the product icon — copied into this repo so the website and
        the shipped app always show the same logo). -->
@@ -16,7 +26,7 @@
 
   <!-- Open Graph (Facebook, LinkedIn, WeChat previews) -->
   <meta property="og:title" content="AirTok — The AirDrop for every device" />
-  <meta property="og:description" content="Cross-platform LAN file transfer. iOS, Android, macOS, Windows, Linux. TLS encrypted, resumable, no cloud." />
+  <meta property="og:description" content="Cross-platform LAN file transfer across iOS, Android, macOS, Windows, Linux. Keeps Live Photos moving on Android. Resumable multi-GB transfers. TLS 1.3. No cloud, no account." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://airtokapp.com/" />
   <meta property="og:image" content="https://airtokapp.com/og-image.png" />
@@ -29,7 +39,7 @@
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AirTok — The AirDrop for every device" />
-  <meta name="twitter:description" content="Cross-platform LAN file transfer. iOS, Android, macOS, Windows, Linux." />
+  <meta name="twitter:description" content="Cross-platform LAN file transfer. Live Photos stay moving on Android. Resumable multi-GB transfers. TLS 1.3. No cloud, no account." />
   <meta name="twitter:image" content="https://airtokapp.com/og-image.png" />
 
   <!-- Structured data: SoftwareApplication schema. Gives Google + AI
@@ -42,19 +52,41 @@
     "@type": "SoftwareApplication",
     "name": "AirTok",
     "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "iOS, Android, macOS, Windows, Linux",
-    "description": "Cross-platform LAN file transfer for iOS, Android, macOS, Windows, and Linux. Preserves Live Photos and Motion Photos across platforms, supports resumable transfers, and uses TLS 1.3 end-to-end encryption. No cloud, no analytics.",
+    "operatingSystem": "iOS 15+, Android 7+, macOS 11+, Windows 10, Linux",
+    "softwareVersion": "1.0.0",
+    "datePublished": "2026-01-01",
+    "inLanguage": ["zh-CN", "en"],
+    "description": "AirTok is a cross-platform local-network file transfer utility for iOS, Android, macOS, Windows, and Linux. It preserves iOS Live Photos and Android Motion Photos across platforms, resumes interrupted transfers, handles multi-gigabyte files reliably, and uses TLS 1.3 end-to-end encryption. No cloud, no account, no analytics.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "url": "https://airtokapp.com/",
     "image": "https://airtokapp.com/og-image.png",
-    "author": { "@type": "Person", "name": "DEXUAN LI" },
+    "screenshot": [
+      "https://airtokapp.com/screenshots/hero-devices_en.png",
+      "https://airtokapp.com/screenshots/live-photo-demo_en.png"
+    ],
+    "downloadUrl": [
+      "https://dl.airtokapp.com/macos/latest/AirTok.dmg",
+      "https://dl.airtokapp.com/android/latest/AirTok.apk"
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Dex Li"
+    },
     "featureList": [
-      "Cross-platform: iOS, Android, macOS, Windows, Linux",
-      "Live Photo / Motion Photo cross-platform transfer",
-      "TLS 1.3 end-to-end encryption",
-      "Resumable transfers for large files",
-      "Zero cloud, zero analytics, zero tracking",
-      "QR code pairing and auto-discovery"
+      "Cross-platform: runs on iOS, Android, macOS, Windows, and Linux",
+      "iOS Live Photo and Android Motion Photo cross-platform transfer with automatic format adaptation",
+      "Resume on disconnect with pause and resume controls",
+      "Reliable multi-gigabyte file transfer with chunked streaming",
+      "Folder transfer with recursive directory support",
+      "In-app archive extraction for ZIP, RAR, 7z, and tar files",
+      "QR code pairing and six-character connect code",
+      "Send the same files to multiple devices in parallel",
+      "Trusted devices can skip receive confirmation",
+      "Configurable file conflict policy: rename, overwrite, or skip",
+      "Clipboard and text transfer as first-class messages",
+      "Visual network diagnostics showing NIC, broadcast, and multicast state",
+      "TLS 1.3 end-to-end encryption, no cloud relay",
+      "Zero account, zero sign-up, zero analytics, zero tracking"
     ]
   }
   </script>
@@ -152,6 +184,16 @@
     .btn-link:hover { color: #0369a1; }
     .arrow::after { content: ' →'; transition: transform .15s ease; display: inline-block; }
     .arrow:hover::after { transform: translateX(3px); }
+    /* Screen-reader-only helper. Content is invisible to sighted users
+       but remains in the DOM for crawlers, LLM retrieval, and assistive
+       tech. Used for the hero SEO definition paragraph below. */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0);
+      white-space: nowrap; border: 0;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-b from-slate-50 to-white text-slate-900 antialiased">
@@ -197,6 +239,12 @@
         <span data-i18n="hero.title.line1">给所有设备的</span><br/>
         <span class="gradient-text" data-i18n="hero.title.line2">AirDrop</span>
       </h1>
+      <!-- Screen-reader / crawler definition paragraph. Gives LLMs a
+           clean "what is AirTok" sentence to retrieve without burying
+           it inside marketing copy. Mirrors the JSON-LD description. -->
+      <p class="sr-only" data-i18n="hero.definition">
+        AirTok 是一款跨平台局域网文件传输工具，支持 iOS、Android、macOS、Windows、Linux 五大系统。它能在 iPhone、安卓手机、Mac、Windows PC 和 Linux 电脑之间直接互传照片、视频、文件和文本，无需登录账户，不经过云端服务器。AirTok 支持 iOS Live Photo 与安卓动态照片的底层自动适配、断点续传、几十 GB 超大文件稳定传输、应用内解压压缩包、文件夹整目录发送、一次发送给多台设备、TLS 1.3 端到端加密等能力，是 AirDrop 和 LocalSend 的开源替代品。
+      </p>
       <p class="text-[18px] md:text-[22px] text-slate-600 max-w-3xl mx-auto leading-[1.45] mb-10" data-i18n="hero.subtitle">
         Windows、Mac、Linux、iOS、Android 多端联通。iOS Live Photo 与多品牌安卓动态照片底层自动转换。支持文件夹直接传输，几十 GB 超大文件稳定传输。
       </p>
@@ -213,9 +261,13 @@
          data-i18n-src; applyLang() picks the matching entry from the
          active dict. -->
     <div class="max-w-5xl mx-auto px-6 pb-24">
-      <img src="screenshots/hero-devices_cn.png" alt="AirTok"
+      <img src="screenshots/hero-devices_cn.png"
+           alt="AirTok 跨平台文件传输界面：iPhone、Mac、Android、Windows 之间互传照片、视频和文件"
            class="w-full rounded-2xl shadow-2xl shadow-slate-900/20"
-           data-i18n-src="hero.screenshot" loading="lazy" />
+           data-i18n-src="hero.screenshot"
+           data-i18n-alt="hero.screenshot.alt"
+           fetchpriority="high"
+           width="1600" height="900" />
     </div>
   </section>
 
@@ -272,9 +324,13 @@
       </p>
     </div>
     <div class="max-w-5xl mx-auto px-6">
-      <img src="screenshots/live-photo-demo_cn.png" alt="Live Photo cross-platform"
+      <img src="screenshots/live-photo-demo_cn.png"
+           alt="AirTok 将 iOS Live Photo 发送到安卓手机后，仍可作为动态照片播放的演示截图"
            class="w-full rounded-3xl shadow-2xl shadow-pink-500/10"
-           data-i18n-src="killer.live.screenshot" loading="lazy" />
+           data-i18n-src="killer.live.screenshot"
+           data-i18n-alt="killer.live.screenshot.alt"
+           loading="lazy"
+           width="1600" height="900" />
     </div>
   </section>
 
@@ -680,6 +736,7 @@
         'hero.title.line1': '给所有设备的',
         'hero.title.line2': 'AirDrop',
         'hero.subtitle': 'Windows、Mac、Linux、iOS、Android 多端联通。iOS Live Photo 与多品牌安卓动态照片底层自动转换。支持文件夹直接传输，几十 GB 超大文件稳定传输。',
+        'hero.definition': 'AirTok 是一款跨平台局域网文件传输工具，支持 iOS、Android、macOS、Windows、Linux 五大系统。它能在 iPhone、安卓手机、Mac、Windows PC 和 Linux 电脑之间直接互传照片、视频、文件和文本，无需登录账户，不经过云端服务器。AirTok 支持 iOS Live Photo 与安卓动态照片的底层自动适配、断点续传、几十 GB 超大文件稳定传输、应用内解压压缩包、文件夹整目录发送、一次发送给多台设备、TLS 1.3 端到端加密等能力，是 AirDrop 和 LocalSend 的替代品。',
         'hero.cta.download': '免费下载',
         'hero.cta.learn': '了解 Live Photo 互传 ↗',
 
@@ -748,7 +805,9 @@
 
         // Screenshots that have a language-specific rendering (zh/en)
         'hero.screenshot': 'screenshots/hero-devices_cn.png',
+        'hero.screenshot.alt': 'AirTok 跨平台文件传输界面：iPhone、Mac、Android、Windows 之间互传照片、视频和文件',
         'killer.live.screenshot': 'screenshots/live-photo-demo_cn.png',
+        'killer.live.screenshot.alt': 'AirTok 将 iOS Live Photo 发送到安卓手机后，仍可作为动态照片播放的演示截图',
 
         'download.title': '选择你的设备',
         'download.subtitle': '没有任何依赖，30 秒即可装好',
@@ -800,6 +859,7 @@
         'hero.title.line1': 'The AirDrop for',
         'hero.title.line2': 'all your devices.',
         'hero.subtitle': 'Windows, Mac, Linux, iOS, Android — all connected. Automatic conversion between iOS Live Photos and Android Motion Photos across brands. Full folder transfer. Multi-GB files, reliably delivered.',
+        'hero.definition': 'AirTok is a cross-platform local-area-network file transfer tool supporting iOS, Android, macOS, Windows, and Linux. It moves photos, videos, files, and text directly between iPhone, Android phones, Mac, Windows PC, and Linux desktops — with no account, no cloud relay, and no internet required. AirTok handles iOS Live Photo and Android Motion Photo adaptation at the format level, resumes transfers on disconnect, delivers multi-gigabyte files reliably, extracts archives in-app, sends full folders, broadcasts the same batch to multiple devices in parallel, and secures every byte with TLS 1.3 end-to-end encryption. It is an alternative to Apple AirDrop and LocalSend.',
         'hero.cta.download': 'Download Free',
         'hero.cta.learn': 'See how Live Photo works ↗',
 
@@ -868,7 +928,9 @@
 
         // Language-specific screenshots
         'hero.screenshot': 'screenshots/hero-devices_en.png',
+        'hero.screenshot.alt': 'AirTok cross-platform file transfer interface showing photos, videos, and files moving between iPhone, Mac, Android, and Windows',
         'killer.live.screenshot': 'screenshots/live-photo-demo_en.png',
+        'killer.live.screenshot.alt': 'Demonstration of an iOS Live Photo sent via AirTok to an Android phone, still playing as a motion photo in the gallery',
 
         'download.title': 'Pick your device.',
         'download.subtitle': 'No dependencies. Installs in 30 seconds.',
@@ -931,6 +993,12 @@
       document.querySelectorAll('[data-i18n-src]').forEach(el => {
         const key = el.getAttribute('data-i18n-src');
         if (dict[key]) el.setAttribute('src', dict[key]);
+      });
+      // Swap alt text for the same images so screen-readers and search
+      // crawlers see the description in the active language.
+      document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        const key = el.getAttribute('data-i18n-alt');
+        if (dict[key]) el.setAttribute('alt', dict[key]);
       });
       const toggle = document.getElementById('lang-toggle');
       if (toggle) toggle.textContent = dict['lang.toggle'];
