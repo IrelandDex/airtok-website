@@ -12,6 +12,10 @@
   },
   "forceUpdateBelow": "",
   "announcement": "",
+  "_comment_monetizationEnabled": "付费总开关：false=所有付费功能免费放行（不弹付费墙），true=按 StoreKit 订阅状态门控。灰度上线用。",
+  "monetizationEnabled": false,
+  "_comment_largeFileThresholdBytes": "单文件触发付费墙的字节阈值。10 GiB = 10 * 1024 * 1024 * 1024 = 10737418240。常用参考：1 GiB=1073741824 / 2 GiB=2147483648 / 5 GiB=5368709120 / 10 GiB=10737418240 / 20 GiB=21474836480。填 0 走代码默认 10 GiB。",
+  "largeFileThresholdBytes": 10737418240,
   "sections": [
     {
       "title": "链接",
