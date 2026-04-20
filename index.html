@@ -66,7 +66,8 @@
     ],
     "downloadUrl": [
       "https://dl.airtokapp.com/macos/latest/AirTok.dmg",
-      "https://dl.airtokapp.com/android/latest/AirTok.apk"
+      "https://dl.airtokapp.com/android/latest/AirTok.apk",
+      "https://dl.airtokapp.com/windows/latest/AirTok-windows-x64.zip"
     ],
     "author": {
       "@type": "Person",
@@ -601,14 +602,17 @@
           </div>
         </a>
 
-        <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
+        <a href="https://dl.airtokapp.com/windows/latest/AirTok-windows-x64.zip" class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
             <img src="icons/windows.svg" alt="Windows" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">Windows</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.windows.note">x64 · Windows 10/11</p>
-          <span class="text-slate-500 font-semibold" data-i18n="download.windows.cta">即将发布</span>
-        </div>
+          <div class="flex items-center justify-between">
+            <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.windows.cta">下载 .zip →</span>
+            <span class="text-xs text-slate-500">~60 MB</span>
+          </div>
+        </a>
 
         <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
@@ -814,7 +818,7 @@
         'download.macos.note': 'Universal · macOS 11+',
         'download.macos.cta': '下载 .dmg →',
         'download.windows.note': 'x64 · Windows 10/11',
-        'download.windows.cta': '即将发布',
+        'download.windows.cta': '下载 .zip →',
         'download.linux.note': 'x64 · 需要 GTK 3',
         'download.linux.cta': '即将发布',
         'download.ios.note': 'iOS 15+ · iPhone & iPad',
@@ -937,7 +941,7 @@
         'download.macos.note': 'Universal · macOS 11+',
         'download.macos.cta': 'Download .dmg →',
         'download.windows.note': 'x64 · Windows 10/11',
-        'download.windows.cta': 'Coming soon',
+        'download.windows.cta': 'Download .zip →',
         'download.linux.note': 'x64 · Requires GTK 3',
         'download.linux.cta': 'Coming soon',
         'download.ios.note': 'iOS 15+ · iPhone & iPad',
