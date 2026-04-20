@@ -68,6 +68,7 @@
       "https://dl.airtokapp.com/macos/latest/AirTok.dmg",
       "https://dl.airtokapp.com/android/latest/AirTok.apk",
       "https://dl.airtokapp.com/windows/latest/AirTok-Setup.exe",
+      "https://dl.airtokapp.com/windows/latest/AirTok-windows-x64.zip",
       "https://dl.airtokapp.com/linux/latest/airtok.deb",
       "https://dl.airtokapp.com/linux/latest/AirTok.AppImage"
     ],
@@ -598,23 +599,23 @@
             <h3 class="text-xl font-bold">macOS</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.macos.note">Universal · macOS 11+</p>
-          <div class="flex items-center justify-between">
-            <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.macos.cta">下载 .dmg →</span>
-            <span class="text-xs text-slate-500">~35 MB</span>
-          </div>
+          <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.macos.cta">下载 .dmg →</span>
         </a>
 
-        <a href="https://dl.airtokapp.com/windows/latest/AirTok-Setup.exe" class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
+        <div class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
             <img src="icons/windows.svg" alt="Windows" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">Windows</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.windows.note">x64 · Windows 10/11</p>
-          <div class="flex items-center justify-between">
+          <a href="https://dl.airtokapp.com/windows/latest/AirTok-Setup.exe" class="block mb-2">
             <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.windows.cta">下载安装器 →</span>
-            <span class="text-xs text-slate-500">~40 MB</span>
+          </a>
+          <div class="text-xs text-slate-500">
+            <span data-i18n="download.windows.alt">便携版：</span>
+            <a href="https://dl.airtokapp.com/windows/latest/AirTok-windows-x64.zip" class="text-slate-400 hover:text-brand-400 underline">zip</a>
           </div>
-        </a>
+        </div>
 
         <div class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
@@ -622,9 +623,8 @@
             <h3 class="text-xl font-bold">Linux</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.linux.note">x64 · Debian / Ubuntu</p>
-          <a href="https://dl.airtokapp.com/linux/latest/airtok.deb" class="flex items-center justify-between mb-2">
+          <a href="https://dl.airtokapp.com/linux/latest/airtok.deb" class="block mb-2">
             <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.linux.cta">下载 .deb →</span>
-            <span class="text-xs text-slate-500">~25 MB</span>
           </a>
           <div class="text-xs text-slate-500">
             <span data-i18n="download.linux.alt">其他发行版：</span>
@@ -647,10 +647,7 @@
             <h3 class="text-xl font-bold">Android</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.android.note">arm64 · Android 7+</p>
-          <div class="flex items-center justify-between">
-            <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.android.cta">下载 .apk →</span>
-            <span class="text-xs text-slate-500">~91 MB</span>
-          </div>
+          <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.android.cta">下载 .apk →</span>
         </a>
 
         <!-- Historical versions / changelog — re-enable once the
@@ -828,6 +825,7 @@
         'download.macos.cta': '下载 .dmg →',
         'download.windows.note': 'x64 · Windows 10/11',
         'download.windows.cta': '下载安装器 →',
+        'download.windows.alt': '便携版：',
         'download.linux.note': 'x64 · Debian / Ubuntu',
         'download.linux.cta': '下载 .deb →',
         'download.linux.alt': '其他发行版：',
@@ -952,6 +950,7 @@
         'download.macos.cta': 'Download .dmg →',
         'download.windows.note': 'x64 · Windows 10/11',
         'download.windows.cta': 'Download Installer →',
+        'download.windows.alt': 'Portable: ',
         'download.linux.note': 'x64 · Debian / Ubuntu',
         'download.linux.cta': 'Download .deb →',
         'download.linux.alt': 'Other distros: ',
