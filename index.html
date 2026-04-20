@@ -616,18 +616,21 @@
           </div>
         </a>
 
-        <a href="https://dl.airtokapp.com/linux/latest/airtok.deb" class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
+        <div class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
             <img src="icons/linux.svg" alt="Linux" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">Linux</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.linux.note">x64 · Debian / Ubuntu</p>
-          <div class="flex items-center justify-between mb-2">
+          <a href="https://dl.airtokapp.com/linux/latest/airtok.deb" class="flex items-center justify-between mb-2">
             <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.linux.cta">下载 .deb →</span>
             <span class="text-xs text-slate-500">~25 MB</span>
+          </a>
+          <div class="text-xs text-slate-500">
+            <span data-i18n="download.linux.alt">其他发行版：</span>
+            <a href="https://dl.airtokapp.com/linux/latest/AirTok.AppImage" class="text-slate-400 hover:text-brand-400 underline">AppImage</a>
           </div>
-          <span class="text-xs text-slate-500" data-i18n="download.linux.alt">其他发行版：<a href="https://dl.airtokapp.com/linux/latest/AirTok.AppImage" class="text-slate-400 hover:text-brand-400 underline">AppImage</a></span>
-        </a>
+        </div>
 
         <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
@@ -827,7 +830,7 @@
         'download.windows.cta': '下载安装器 →',
         'download.linux.note': 'x64 · Debian / Ubuntu',
         'download.linux.cta': '下载 .deb →',
-        'download.linux.alt': '其他发行版：<a href="https://dl.airtokapp.com/linux/latest/AirTok.AppImage" class="text-slate-400 hover:text-brand-400 underline">AppImage</a>',
+        'download.linux.alt': '其他发行版：',
         'download.ios.note': 'iOS 15+ · iPhone & iPad',
         'download.ios.cta': '即将上架 App Store',
         'download.android.note': 'arm64 · Android 7+',
@@ -951,7 +954,7 @@
         'download.windows.cta': 'Download Installer →',
         'download.linux.note': 'x64 · Debian / Ubuntu',
         'download.linux.cta': 'Download .deb →',
-        'download.linux.alt': 'Other distros: <a href="https://dl.airtokapp.com/linux/latest/AirTok.AppImage" class="text-slate-400 hover:text-brand-400 underline">AppImage</a>',
+        'download.linux.alt': 'Other distros: ',
         'download.ios.note': 'iOS 15+ · iPhone & iPad',
         'download.ios.cta': 'Coming to App Store',
         'download.android.note': 'arm64 · Android 7+',
