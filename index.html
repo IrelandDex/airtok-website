@@ -67,7 +67,9 @@
     "downloadUrl": [
       "https://dl.airtokapp.com/macos/latest/AirTok.dmg",
       "https://dl.airtokapp.com/android/latest/AirTok.apk",
-      "https://dl.airtokapp.com/windows/latest/AirTok-Setup.exe"
+      "https://dl.airtokapp.com/windows/latest/AirTok-Setup.exe",
+      "https://dl.airtokapp.com/linux/latest/airtok.deb",
+      "https://dl.airtokapp.com/linux/latest/AirTok.AppImage"
     ],
     "author": {
       "@type": "Person",
@@ -614,14 +616,18 @@
           </div>
         </a>
 
-        <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
+        <a href="https://dl.airtokapp.com/linux/latest/airtok.deb" class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
             <img src="icons/linux.svg" alt="Linux" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">Linux</h3>
           </div>
-          <p class="text-sm text-slate-400 mb-4" data-i18n="download.linux.note">x64 · 需要 GTK 3</p>
-          <span class="text-slate-500 font-semibold" data-i18n="download.linux.cta">即将发布</span>
-        </div>
+          <p class="text-sm text-slate-400 mb-4" data-i18n="download.linux.note">x64 · Debian / Ubuntu</p>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.linux.cta">下载 .deb →</span>
+            <span class="text-xs text-slate-500">~25 MB</span>
+          </div>
+          <span class="text-xs text-slate-500" data-i18n="download.linux.alt">其他发行版：<a href="https://dl.airtokapp.com/linux/latest/AirTok.AppImage" class="text-slate-400 hover:text-brand-400 underline">AppImage</a></span>
+        </a>
 
         <div class="p-8 bg-slate-800/50 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
@@ -819,8 +825,9 @@
         'download.macos.cta': '下载 .dmg →',
         'download.windows.note': 'x64 · Windows 10/11',
         'download.windows.cta': '下载安装器 →',
-        'download.linux.note': 'x64 · 需要 GTK 3',
-        'download.linux.cta': '即将发布',
+        'download.linux.note': 'x64 · Debian / Ubuntu',
+        'download.linux.cta': '下载 .deb →',
+        'download.linux.alt': '其他发行版：<a href="https://dl.airtokapp.com/linux/latest/AirTok.AppImage" class="text-slate-400 hover:text-brand-400 underline">AppImage</a>',
         'download.ios.note': 'iOS 15+ · iPhone & iPad',
         'download.ios.cta': '即将上架 App Store',
         'download.android.note': 'arm64 · Android 7+',
@@ -942,8 +949,9 @@
         'download.macos.cta': 'Download .dmg →',
         'download.windows.note': 'x64 · Windows 10/11',
         'download.windows.cta': 'Download Installer →',
-        'download.linux.note': 'x64 · Requires GTK 3',
-        'download.linux.cta': 'Coming soon',
+        'download.linux.note': 'x64 · Debian / Ubuntu',
+        'download.linux.cta': 'Download .deb →',
+        'download.linux.alt': 'Other distros: <a href="https://dl.airtokapp.com/linux/latest/AirTok.AppImage" class="text-slate-400 hover:text-brand-400 underline">AppImage</a>',
         'download.ios.note': 'iOS 15+ · iPhone & iPad',
         'download.ios.cta': 'Coming to App Store',
         'download.android.note': 'arm64 · Android 7+',
@@ -1016,9 +1024,11 @@
     // anchor (page scrolls to the full device matrix below).
     const DOWNLOAD_URLS = {
       macos:   'https://dl.airtokapp.com/macos/latest/AirTok.dmg',
+      windows: 'https://dl.airtokapp.com/windows/latest/AirTok-Setup.exe',
+      linux:   'https://dl.airtokapp.com/linux/latest/airtok.deb',
       android: 'https://dl.airtokapp.com/android/latest/AirTok.apk',
-      // windows/linux: not yet published → leave blank so the CTA
-      // falls back to scrolling down to the download section.
+      // ios: awaiting App Store — leave blank so the CTA falls back to
+      // scrolling down to the download section.
     };
 
     function updateOsButton(dict) {
