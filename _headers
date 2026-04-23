@@ -1,0 +1,42 @@
+# Cloudflare Pages static-asset header rules.
+#
+# Cloudflare Pages reads this file at build time and turns each block
+# into edge-layer `Cache-Control` / other headers for the matching
+# path. Rules cascade top-to-bottom; later blocks can override earlier
+# ones for the same path.
+#
+# Reference: https://developers.cloudflare.com/pages/configuration/headers/
+
+
+# ---------------------------------------------------------------------
+# config.json — the AirTok app's remote feature-flag + version-gate
+# feed. Consumed by every client on startup and every 60 s thereafter
+# (see `app/lib/providers/remote_config_provider.dart` and
+# `app/lib/widgets/version_gate.dart`).
+#
+# Why a short Cache-Control:
+#
+#   Default Pages behavior caches static JSON aggressively (minutes
+#   to hours). That's fine for privacy.html but WRONG for config.json
+#   — a force-update push or a monetization flip is an "immediate"
+#   operation from our perspective. With the default cache we'd have
+#   to either manually purge from the Cloudflare dashboard after
+#   every push (fragile), or accept hours of delay (unacceptable for
+#   hotfixes).
+#
+#   max-age=60 means the CF edge caches the file for at most 60
+#   seconds. Combined with the client-side 60 s retry, the worst-case
+#   propagation delay is ~2 minutes — good enough for "we pushed a
+#   fix, it's live now" without the operator having to do anything
+#   extra.
+#
+#   must-revalidate belts-and-suspenders: any intermediate proxy or
+#   OS-level HTTP cache that misinterprets max-age still has to
+#   re-check with origin when stale, instead of serving stale copies
+#   indefinitely.
+#
+# Emergency bypass: if you push a broken config and need instant
+# rollback, Cloudflare dashboard → airtokapp.com domain → Caching
+# → Purge by URL → `https://airtokapp.com/config.json`.
+/config.json
+  Cache-Control: public, max-age=60, must-revalidate
