@@ -48,6 +48,13 @@
           "title": "使用条款",
           "title_en": "Terms of Service",
           "url": "https://airtokapp.com/terms.html"
+        },
+        {
+          "type": "link",
+          "icon": "changelog",
+          "title": "更新日志",
+          "title_en": "What's New",
+          "url": "https://airtokapp.com/changelog.html"
         }
       ]
     },
