@@ -30,7 +30,7 @@
 <body>
   <div class="lang"><a href="terms.html">中文</a></div>
   <h1>Terms of Service</h1>
-  <p class="date">Effective: April 17, 2026 · Last updated: April 18, 2026</p>
+  <p class="date">Effective: April 17, 2026 · Last updated: May 2, 2026</p>
 
   <h2>1. Acceptance of Terms</h2>
   <p>Welcome to AirTok ("the App"). The App is developed and operated by Dex Li ("we", "us", or "our"). By downloading, installing, or using the App, you agree to be bound by these Terms of Service. If you do not agree, please do not use the App.</p>
@@ -95,17 +95,34 @@
   </ul>
 
   <h2>8. Paid Features & Subscriptions</h2>
-  <p>Most of the App is free forever. On <strong>iOS only</strong>, the following professional features ("Pro Features") require a paid unlock:</p>
+  <p>Most of the App is free forever — including LAN transfers, cross-platform delivery, and Live Photo handling. On iOS, <strong>AirTok Plus</strong> is offered as a paid subscription primarily to raise your cross-network relay (TURN) quota and unlock related convenience features.</p>
+
+  <h3>AirTok Plus Monthly Subscription</h3>
   <ul>
-    <li>Sending single files above a configured size threshold (the current threshold is shown in-app)</li>
-    <li>Saving received Live Photos as native Live Photos in the Photos library</li>
+    <li><strong>Product:</strong> AirTok Plus monthly subscription (<code>com.airtok.send.plus.monthly</code>)</li>
+    <li><strong>Price:</strong> as displayed in-app (Apple shows the final locale-adjusted price including applicable tax at checkout)</li>
+    <li><strong>Benefits:</strong> 50 GB of cross-network relay traffic per month, unlimited Live Photo saves with motion preserved, no per-file size limit, no relay-speed throttling</li>
+    <li><strong>Billing cycle:</strong> billed every 30 days from your subscription anchor day, NOT aligned to calendar month. For example, subscribing on May 15 means renewal on June 15, with quota resetting on the same day.</li>
   </ul>
-  <p>On every other platform (macOS, Android, Windows, Linux) there is no paid tier, and the above features are available for free.</p>
-  <p><strong>Pricing &amp; Billing.</strong> Pro Features are offered through the Apple App Store as auto-renewing monthly, quarterly, or yearly subscriptions. The prices displayed in the App are authoritative; Apple shows the final locale-adjusted price (including applicable tax) at checkout. All charges are made to your Apple account.</p>
-  <p><strong>Free Trial.</strong> First-time subscribers to the Monthly plan are eligible for a <strong>7-day free trial</strong> (Apple Introductory Offer). Pro Features are fully unlocked during the trial; if you cancel at least 24 hours before the trial ends, no charge is made. Eligibility is determined by Apple per Apple ID per subscription group — each Apple ID receives the trial only once within this group.</p>
-  <p><strong>Auto-Renewal.</strong> Subscriptions (and free trials) automatically renew at the end of each period unless you cancel at least 24 hours before the renewal date in <em>Settings → Apple ID → Subscriptions</em>. Cancelling does not revoke the remainder of the current paid period.</p>
-  <p><strong>Refunds.</strong> All payments are handled by Apple. Refund requests must be submitted to Apple via <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">reportaproblem.apple.com</a> and are governed by the Apple Media Services Terms. The developer cannot issue refunds directly.</p>
+
+  <h3>One-Time Topup Packs</h3>
+  <ul>
+    <li><strong>Products:</strong> +10 GB pack (<code>com.airtok.send.topup.10gb</code>), +50 GB pack (<code>com.airtok.send.topup.50gb</code>)</li>
+    <li><strong>Type:</strong> Consumable IAP, one-time purchase</li>
+    <li><strong>Validity:</strong> <strong>30 days</strong> from purchase (independent of subscription state — non-subscribers may also buy)</li>
+    <li><strong>Consumption:</strong> Stacks on top of your current monthly quota. The system burns subscription quota first; once that is exhausted, topup balances are consumed in soonest-to-expire order (FIFO).</li>
+  </ul>
+
+  <h3>Billing, Renewal & Refunds</h3>
+  <p><strong>Pricing & Billing.</strong> All paid items are processed through the Apple App Store. The prices shown in the App are authoritative. All charges are made to your Apple account.</p>
+  <p><strong>Auto-Renewal.</strong> The AirTok Plus monthly subscription automatically renews 24 hours before each period ends, unless you cancel at least 24 hours before the renewal date in <em>Settings → Apple ID → Subscriptions</em>. Cancelling does not revoke the remainder of the current paid period. One-time topups do not renew.</p>
+  <p><strong>Cancellation & Downgrade.</strong> After cancelling, you keep Plus benefits for the remainder of the current period. At period end your account automatically downgrades to the free tier (1 GB cross-network relay quota per month). Topups already purchased are unaffected by subscription cancellation and remain usable until their own expiry date.</p>
+  <p><strong>Refunds.</strong> All payments are handled by Apple. Refund requests must be submitted to Apple via <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">reportaproblem.apple.com</a> and are governed by the Apple Media Services Terms. The developer cannot issue refunds directly. An Apple-approved subscription refund immediately revokes Plus benefits; a topup refund immediately invalidates remaining topup bytes.</p>
   <p><strong>Price Changes.</strong> We reserve the right to change prices for new subscriptions and renewals. For active auto-renewing subscriptions, any price increase is subject to Apple's policy, under which Apple will notify you in advance and, where required, obtain renewed consent.</p>
+  <p><strong>Entitlement Binding.</strong> Paid entitlements are bound to your AirTok account (via login), not to a single device. Plus benefits and topup balances may be shared across multiple devices signed into the same AirTok account. Uninstalling or switching devices does not affect your subscription; signing in again restores it.</p>
+
+  <h3>Other Platforms</h3>
+  <p>Paid features are not currently offered on macOS, Android, Windows, or Linux. If we introduce them in the future, they will be processed through that platform's official payment channel (e.g., Google Play Billing, Stripe) and governed by that platform's terms.</p>
 
   <h2>9. App Updates</h2>
   <p>We may release updates from time to time to fix issues, improve features, or enhance security. Updates may be delivered through app stores or via in-app notifications. We recommend keeping the App up to date for the best experience.</p>

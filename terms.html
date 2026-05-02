@@ -30,7 +30,7 @@
 <body>
   <div class="lang"><a href="terms_en.html">English</a></div>
   <h1>使用条款</h1>
-  <p class="date">生效日期：2026 年 4 月 17 日 · 最后更新：2026 年 4 月 18 日</p>
+  <p class="date">生效日期：2026 年 4 月 17 日 · 最后更新：2026 年 5 月 2 日</p>
 
   <h2>1. 接受条款</h2>
   <p>欢迎使用 AirTok（以下简称"本应用"）。本应用由独立开发者 Dex Li（以下简称"我们"）开发和运营。下载、安装或使用本应用即表示您同意受本使用条款的约束。如果您不同意本条款，请勿使用本应用。</p>
@@ -95,17 +95,34 @@
   </ul>
 
   <h2>8. 付费功能与订阅</h2>
-  <p>本应用大部分功能永久免费。iOS 版本对以下专业功能（"Pro 功能"）采用付费解锁：</p>
+  <p>本应用大部分功能永久免费，包括局域网传输、跨平台收发、Live Photo 处理等。iOS 版本提供 <strong>AirTok Plus</strong> 付费订阅，用于跨网络中转（TURN）流量配额提升等增强场景。</p>
+
+  <h3>AirTok Plus 月度订阅</h3>
   <ul>
-    <li>超过一定大小的单文件传输（阈值以 App 内显示为准）</li>
-    <li>将收到的 Live Photo 以原生动效保存到相册</li>
+    <li><strong>产品</strong>：AirTok Plus 月度订阅 (<code>com.airtok.send.plus.monthly</code>)</li>
+    <li><strong>价格</strong>：以 App 内展示为准（由 Apple 按您所在地区显示最终含税价格）</li>
+    <li><strong>权益</strong>：每月 50 GB 跨网中转流量、无限保存动态 Live Photo、单文件无大小限制、跨网中转不限速</li>
+    <li><strong>计费周期</strong>：按订阅日 30 天结算（不与自然月对齐）。例如 5 月 15 日订阅，下次续费日为 6 月 15 日，配额也于该日重置</li>
   </ul>
-  <p>其他平台（macOS、Android、Windows、Linux）不提供付费解锁，上述功能在对应平台上免费开放。</p>
-  <p><strong>定价与计费</strong>：Pro 功能通过 Apple App Store 以月度、季度或年度自动续订订阅的方式提供。价格以应用内展示为准，由 Apple 在结算时按您所在地区显示最终含税价格。付款由您绑定的 Apple 账户扣费。</p>
-  <p><strong>免费试用</strong>：首次订阅月度套餐的用户可享受 <strong>7 天免费试用</strong>（Apple 介绍性优惠 / Introductory Offer）。试用期间完整解锁 Pro 功能；如在试用结束前至少 24 小时取消订阅，不会产生任何扣费。试用资格由 Apple 按 Apple ID 和订阅组判定，每个 Apple ID 在本订阅组中仅享受一次。</p>
-  <p><strong>自动续订</strong>：订阅（及免费试用）到期前 24 小时 Apple 会自动扣费续订下一周期，除非您在到期前至少 24 小时于 iOS 系统"设置 &rarr; Apple ID &rarr; 订阅"中关闭自动续订。关闭续订不会撤销当前已生效的订阅周期。</p>
-  <p><strong>退款</strong>：所有付款由 Apple 处理，退款请求请通过 <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">reportaproblem.apple.com</a> 向 Apple 提交，按 Apple 媒体服务条款处理。开发者无法直接退款。</p>
+
+  <h3>一次性流量包（Topup）</h3>
+  <ul>
+    <li><strong>产品</strong>：+10 GB 流量包 (<code>com.airtok.send.topup.10gb</code>)、+50 GB 流量包 (<code>com.airtok.send.topup.50gb</code>)</li>
+    <li><strong>类型</strong>：消耗型 IAP，一次性购买</li>
+    <li><strong>有效期</strong>：自购买日起 <strong>30 天</strong>（与订阅状态独立，未订阅用户也可购买）</li>
+    <li><strong>消耗规则</strong>：叠加在当前周期配额之上。系统优先消耗订阅配额，订阅配额耗尽后按"先到期先消耗"（FIFO）扣减 Topup 余额</li>
+  </ul>
+
+  <h3>计费、续订与退款</h3>
+  <p><strong>定价与计费</strong>：所有付费均通过 Apple App Store 处理。价格以应用内展示为准。付款由您绑定的 Apple 账户扣费。</p>
+  <p><strong>自动续订</strong>：AirTok Plus 月度订阅会在每周期到期前 24 小时由 Apple 自动扣费续订，除非您提前至少 24 小时于 iOS 系统"<strong>设置 &rarr; Apple ID &rarr; 订阅</strong>"中关闭自动续订。关闭续订不会撤销当前已生效的订阅周期。一次性 Topup 不涉及续订。</p>
+  <p><strong>取消与降级</strong>：取消订阅后，剩余周期内仍可继续使用 Plus 权益；周期结束后自动降级为免费版（每月 1 GB 跨网中转额度）。已购买的 Topup 不受订阅取消影响，依然在有效期内可用。</p>
+  <p><strong>退款</strong>：所有付款由 Apple 处理。退款请求请通过 <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">reportaproblem.apple.com</a> 向 Apple 提交，按 Apple 媒体服务条款处理。开发者无法直接退款。订阅退款经 Apple 批准后，会立即终止 Plus 权益；Topup 退款会立即作废剩余字节。</p>
   <p><strong>价格调整</strong>：我们保留在新用户订阅或续订时调整价格的权利。对于自动续订订阅，如价格上调，Apple 会按其政策提前通知您并在必要时重新获取您的同意。</p>
+  <p><strong>权益绑定</strong>：付费权益绑定到您的 AirTok 账户（通过登录关联），而非单台设备。同一 AirTok 账户在多台设备登录可共享 Plus 权益和 Topup 余额。卸载或更换设备不影响订阅状态，重新登录即可恢复。</p>
+
+  <h3>其他平台</h3>
+  <p>macOS、Android、Windows、Linux 暂不提供付费功能。如未来开放，将通过相应平台的官方支付渠道（如 Google Play Billing、Stripe 等），并适用对应平台条款。</p>
 
   <h2>9. 应用更新</h2>
   <p>我们可能不定期发布更新，以修复问题、改进功能或增强安全性。更新可能通过应用商店推送或通过应用内提示。我们建议您保持使用最新版本以获得最佳体验。</p>
