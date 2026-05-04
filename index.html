@@ -68,7 +68,7 @@
       "https://dl.airtokapp.com/macos/latest/AirTok.dmg",
       "https://dl.airtokapp.com/android/latest/AirTok.apk",
       "https://dl.airtokapp.com/windows/latest/AirTok-Setup.exe",
-      "https://dl.airtokapp.com/windows/latest/AirTok-windows-x64.zip",
+      "https://dl.airtokapp.com/windows/latest/AirTok-Setup.zip",
       "https://dl.airtokapp.com/linux/latest/airtok.deb",
       "https://dl.airtokapp.com/linux/latest/AirTok.AppImage"
     ],
@@ -612,8 +612,8 @@
             <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.windows.cta">下载安装器 →</span>
           </a>
           <div class="text-xs text-slate-500">
-            <span data-i18n="download.windows.alt">便携版：</span>
-            <a href="https://dl.airtokapp.com/windows/latest/AirTok-windows-x64.zip" class="text-slate-400 hover:text-brand-400 underline">zip</a>
+            <span data-i18n="download.windows.alt">浏览器拦截下载？</span>
+            <a href="https://dl.airtokapp.com/windows/latest/AirTok-Setup.zip" class="text-slate-400 hover:text-brand-400 underline" data-i18n="download.windows.altCta">下载 zip 版</a>
           </div>
         </div>
 
@@ -650,16 +650,17 @@
           <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.android.cta">下载 .apk →</span>
         </a>
 
-        <!-- Historical versions / changelog — re-enable once the
-             download CDN is live. -->
-        <div class="p-8 bg-gradient-to-br from-brand-600/40 to-indigo-700/40 rounded-2xl border border-brand-500/30 opacity-70">
+        <!-- Changelog card. href gets swapped to changelog_en.html
+             when the user toggles to English (see updateChangelogLink
+             in the lang script below). -->
+        <a id="changelog-link" href="changelog.html" class="card-hover group p-8 bg-gradient-to-br from-brand-600/40 to-indigo-700/40 rounded-2xl border border-brand-500/30">
           <div class="flex items-center gap-3 mb-4">
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
             <h3 class="text-xl font-bold" data-i18n="download.all.title">所有版本</h3>
           </div>
           <p class="text-sm text-brand-100 mb-4" data-i18n="download.all.note">查看历史版本与更新日志</p>
-          <span class="text-white font-semibold" data-i18n="download.all.cta">即将开放</span>
-        </div>
+          <span class="text-white font-semibold group-hover:text-brand-100" data-i18n="download.all.cta">查看更新日志 →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -825,7 +826,8 @@
         'download.macos.cta': '下载 .dmg →',
         'download.windows.note': 'x64 · Windows 10/11',
         'download.windows.cta': '下载安装器 →',
-        'download.windows.alt': '便携版：',
+        'download.windows.alt': '浏览器拦截下载？',
+        'download.windows.altCta': '下载 zip 版',
         'download.linux.note': 'x64 · Debian / Ubuntu',
         'download.linux.cta': '下载 .deb →',
         'download.linux.alt': '其他发行版：',
@@ -835,7 +837,7 @@
         'download.android.cta': '下载 .apk →',
         'download.all.title': '所有版本',
         'download.all.note': '查看历史版本与更新日志',
-        'download.all.cta': '即将开放',
+        'download.all.cta': '查看更新日志 →',
 
         'faq.title': '常见问题',
         'faq.more': '查看更多故障排查与进阶用法',
@@ -950,7 +952,8 @@
         'download.macos.cta': 'Download .dmg →',
         'download.windows.note': 'x64 · Windows 10/11',
         'download.windows.cta': 'Download Installer →',
-        'download.windows.alt': 'Portable: ',
+        'download.windows.alt': 'Browser blocking download? ',
+        'download.windows.altCta': 'Get zip version',
         'download.linux.note': 'x64 · Debian / Ubuntu',
         'download.linux.cta': 'Download .deb →',
         'download.linux.alt': 'Other distros: ',
@@ -960,7 +963,7 @@
         'download.android.cta': 'Download .apk →',
         'download.all.title': 'All versions',
         'download.all.note': 'Browse past releases and changelog',
-        'download.all.cta': 'Coming soon',
+        'download.all.cta': 'View changelog →',
 
         'faq.title': 'FAQ',
         'faq.more': 'More troubleshooting & advanced usage',
@@ -1017,6 +1020,16 @@
       const toggle = document.getElementById('lang-toggle');
       if (toggle) toggle.textContent = dict['lang.toggle'];
       updateOsButton(dict);
+      // Point the changelog card at the language-matched page so an
+      // English visitor doesn't land on the Chinese changelog and have
+      // to click the in-page lang toggle.
+      const changelogLink = document.getElementById('changelog-link');
+      if (changelogLink) {
+        changelogLink.setAttribute(
+          'href',
+          lang === 'en' ? 'changelog_en.html' : 'changelog.html',
+        );
+      }
       localStorage.setItem('airtok.lang', lang);
     }
 
@@ -1026,7 +1039,15 @@
     // anchor (page scrolls to the full device matrix below).
     const DOWNLOAD_URLS = {
       macos:   'https://dl.airtokapp.com/macos/latest/AirTok.dmg',
-      windows: 'https://dl.airtokapp.com/windows/latest/AirTok-Setup.exe',
+      // windows: intentionally omitted. Without code signing, Chrome /
+      // Edge / corporate filters routinely block the direct Setup.exe
+      // download with no escape hatch. Falling back to #download
+      // anchor makes the hero CTA scroll to the download section
+      // where the user sees both AirTok-Setup.exe AND
+      // AirTok-Setup.zip + the "browser blocking download?" hint —
+      // which is the only path that lets a blocked user actually
+      // finish downloading. Other platforms (.dmg / .deb / .apk) are
+      // not commonly blocked, so they keep the one-click direct flow.
       linux:   'https://dl.airtokapp.com/linux/latest/airtok.deb',
       android: 'https://dl.airtokapp.com/android/latest/AirTok.apk',
       // ios: awaiting App Store — leave blank so the CTA falls back to
