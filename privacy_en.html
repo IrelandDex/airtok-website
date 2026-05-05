@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — AirTok</title>
-  <meta name="description" content="AirTok does not collect, store, or transmit any personal data to our servers. All file transfers happen entirely within your local network. Full policy, permissions, local data inventory, and legal compliance (PIPL / GDPR / CCPA)." />
+  <meta name="description" content="AirTok minimizes data collection. File contents always go device-to-device, never stored on our servers. Optional account for cross-network sending. Full policy, permissions, retention, and legal compliance (PIPL / GDPR / CCPA)." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://airtokapp.com/privacy_en.html" />
   <link rel="alternate" hreflang="en" href="https://airtokapp.com/privacy_en.html" />
   <link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/privacy.html" />
   <meta property="og:title" content="Privacy Policy — AirTok" />
-  <meta property="og:description" content="AirTok collects no personal data. All transfers stay on your local network." />
+  <meta property="og:description" content="File contents go device-to-device, never stored on our servers. Minimal account data, only when you sign in." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://airtokapp.com/privacy_en.html" />
   <meta property="og:image" content="https://airtokapp.com/og-image.png" />
@@ -37,34 +37,45 @@
 <body>
   <div class="lang"><a href="privacy.html">中文</a></div>
   <h1>Privacy Policy</h1>
-  <p class="date">Effective: April 17, 2026 · Last updated: May 2, 2026</p>
+  <p class="date">Effective: April 17, 2026 · Last updated: May 5, 2026</p>
 
   <div class="summary">
-    <p>In short: AirTok does not collect any personal data, does not use any tracking technology, and all file transfers happen exclusively within your local network.</p>
+    <p>In short: file contents always go device-to-device — we never see them and they are never stored on our servers. We do not use any analytics or tracking SDK. The only data we collect on our servers is what is required to operate optional account features (sign-in, paid entitlement, cross-network sending).</p>
   </div>
 
   <h2>1. About This App</h2>
-  <p>AirTok ("the App") is a cross-platform local network file transfer tool supporting iOS, macOS, Android, Windows, and Linux. It is developed and operated by Dex Li ("we", "us", or "our").</p>
-  <p>We understand the importance of privacy. This App was designed from the ground up with a "zero data collection" principle. This privacy policy aims to transparently explain how we handle (and do not handle) your data.</p>
+  <p>AirTok ("the App") is a cross-platform peer-to-peer file transfer tool supporting iOS, macOS, Android, Windows, and Linux. It is developed and operated by Dex Li ("we", "us", or "our").</p>
+  <p>The App offers two transfer modes:</p>
+  <ul>
+    <li><strong>Local network (LAN) mode</strong>: when both devices are on the same Wi-Fi, files transfer directly between devices over your local network. No internet, no servers.</li>
+    <li><strong>Cross-network (WAN) mode</strong>: when devices are on different networks, the App establishes an end-to-end encrypted channel between your devices. File contents are still only readable by your two devices, never by us or by intermediate servers.</li>
+  </ul>
+  <p>We designed AirTok to handle as little of your data as possible. This privacy policy aims to transparently explain how we handle (and do not handle) your data.</p>
 
   <h2>2. Data We Do NOT Collect</h2>
   <p>This App <strong>does not collect, store, or transmit</strong> any of the following data to our servers or any third party:</p>
   <ul>
-    <li>Personal identity information (name, email, phone number, address, etc.)</li>
-    <li>Device identifiers (IDFA, IDFV, Android ID, etc.)</li>
+    <li>Contents or filenames of files you transfer</li>
+    <li>Advertising / tracking identifiers (IDFA, AAID, etc.)</li>
     <li>Precise or approximate location data</li>
     <li>Usage behavior data or analytics</li>
-    <li>Contents or names of transferred files</li>
     <li>Contacts, calendar, browsing history, or other sensitive personal data</li>
     <li>Crash logs (not automatically reported)</li>
   </ul>
 
-  <h2>3. How Data Is Transferred</h2>
-  <p>The core function of this App is to transfer files directly between devices on the <strong>same local network</strong>:</p>
+  <h2>3. How Files Are Transferred</h2>
+  <h3>LAN mode (same Wi-Fi)</h3>
   <ul>
-    <li>Files are transferred via <strong>peer-to-peer TCP connections</strong> directly between devices, without passing through any cloud server or relay</li>
-    <li><strong>TLS encryption</strong> is supported to protect data during transit within the local network</li>
+    <li>Files transfer via <strong>peer-to-peer TCP connections</strong> directly between devices, without passing through any cloud server</li>
+    <li><strong>TLS 1.3 encryption</strong> protects data during transit</li>
     <li>After transfer, files are saved to the receiving device's local storage</li>
+  </ul>
+  <h3>WAN mode (cross-network)</h3>
+  <ul>
+    <li>The App uses our signaling service to help your two devices discover each other across networks. Signaling messages contain only public connection metadata (such as encrypted handshake parameters) — never file contents</li>
+    <li>When a direct peer-to-peer connection cannot be established due to NAT/firewall, file traffic is relayed through a TURN server. The TURN server only forwards encrypted bytes; it cannot read file contents</li>
+    <li>End-to-end encryption protects file contents — only your two devices hold the keys, the relay does not</li>
+    <li>Files are not stored on the signaling or TURN server at any point</li>
   </ul>
 
   <h2>4. Device Permissions</h2>
@@ -73,26 +84,27 @@
   <table>
     <tr><th>Permission</th><th>Purpose</th><th>When Requested</th></tr>
     <tr><td>Local Network</td><td>Discover other devices and transfer files on the LAN</td><td>On first launch</td></tr>
-    <tr><td>Photo Library</td><td>Select photos/videos to send, or save received media to Photos</td><td>When selecting photos or saving</td></tr>
+    <tr><td>Photo Library / Media</td><td>Select photos/videos to send, or save received media to Photos</td><td>When selecting photos or saving</td></tr>
     <tr><td>Camera</td><td>Scan QR codes to quickly connect to other devices</td><td>When using QR scanner</td></tr>
     <tr><td>File Access</td><td>Select files to send, or save received files</td><td>When selecting files</td></tr>
+    <tr><td>Notifications</td><td>Show transfer progress and completion alerts</td><td>On first transfer (or first launch on Android 13+)</td></tr>
   </table>
   <p>You can revoke any of these permissions at any time in your system settings. Revoking a permission may disable the related feature but will not affect other functions of the App.</p>
 
   <h2>5. Network Communication</h2>
-  <p>This App uses the following network protocols, <strong>restricted to your local network only</strong>:</p>
+  <h3>Local network (LAN)</h3>
   <ul>
     <li><strong>UDP broadcast/multicast</strong> (port 53318): Used to automatically discover other AirTok devices on the same network. Broadcast content only includes device name and connection port — no personal information.</li>
     <li><strong>TCP connections</strong> (port 53317): Used for file transfer between devices. Supports TLS 1.3 encryption.</li>
     <li><strong>Local HTTP</strong> (default port 53319, falls back to a system-assigned port if occupied; desktop only): Internal communication between app components, listening on 127.0.0.1 only — inaccessible to external devices.</li>
   </ul>
 
-  <h3>Only Internet Access</h3>
-  <p>The App's About page fetches a public configuration file via HTTPS (hosted on our official site airtokapp.com) to show the latest version and support links. This request:</p>
+  <h3>Internet endpoints</h3>
   <ul>
-    <li>Does not send any device information or user data</li>
-    <li>Does not use cookies or tracking technology</li>
-    <li>Fails silently without affecting core functionality</li>
+    <li><strong>signaling.airtokapp.com</strong> (Cloudflare Workers / Durable Objects): WebSocket signaling that helps your devices establish a cross-network connection. Sees encrypted handshake metadata; never sees file contents.</li>
+    <li><strong>Cloudflare TURN servers</strong>: Used as a relay only when a direct peer-to-peer connection is impossible due to network restrictions. Forwards encrypted bytes; cannot decrypt.</li>
+    <li><strong>api.airtokapp.com</strong>: Backend for account sign-in, paid entitlement validation, and update check. Only contacted when you actively use account / paid features (or when the App checks for a new version).</li>
+    <li><strong>Apple / Google identity endpoints</strong>: Contacted by the platform OS when you sign in with Apple or Google. We do not see your password.</li>
   </ul>
 
   <h2>6. Local Data Storage</h2>
@@ -106,26 +118,41 @@
   </ul>
   <p>All of the above is stored locally on your device and is never uploaded to any server. Uninstalling the App will delete all data except received files.</p>
 
-  <h2>7. Third-Party Services</h2>
-  <p>This App <strong>does not integrate</strong> any third-party analytics or tracking SDKs, including but not limited to:</p>
+  <h2>7. Account &amp; Sign-In</h2>
+  <p>An account is <strong>not required</strong> for local network transfer. You can install and use the App on multiple devices on the same Wi-Fi without ever signing in.</p>
+  <p>Signing in unlocks cross-network transfer and paid features. You may sign in via:</p>
+  <ul>
+    <li><strong>Sign in with Apple</strong> (iOS / macOS, native AuthenticationServices framework). We receive your stable Apple user ID and the email address you choose to share (your real or relay email). We never see your Apple ID password.</li>
+    <li><strong>Sign in with Google</strong> (Android / iOS). We receive your Google account email address and a stable Google user ID. We never see your Google password.</li>
+    <li><strong>Email + one-time code</strong>: you enter an email address; we send a one-time verification code. We store only the email address.</li>
+  </ul>
+  <p>Once signed in, our server stores: your email address, a stable account ID, the chosen sign-in method, and timestamps for account creation and last sign-in. This data is used solely to operate account-gated features and to associate your devices with the same account.</p>
+
+  <h2>8. Third-Party Services</h2>
+  <p>This App <strong>does not integrate</strong> any third-party analytics, advertising, tracking, or crash reporting SDKs, including but not limited to:</p>
   <ul>
     <li>Analytics SDKs (e.g., Google Analytics, Firebase Analytics)</li>
     <li>Advertising SDKs (e.g., AdMob, Facebook Ads)</li>
-    <li>Tracking SDKs (e.g., Adjust, AppsFlyer)</li>
+    <li>Attribution / tracking SDKs (e.g., Adjust, AppsFlyer)</li>
     <li>Crash reporting SDKs (e.g., Crashlytics, Sentry)</li>
-    <li>Social login SDKs</li>
   </ul>
-  <p>The iOS version handles paid subscriptions and one-time purchases through Apple's <strong>StoreKit</strong>. Billing, renewals, and refunds are managed entirely by your Apple account; we never handle your payment information (credit card numbers, Apple ID passwords, etc. never reach our servers).</p>
-  <p>To validate your paid entitlement, the App does send Apple's <strong>transaction identifiers (transactionId / originalTransactionId)</strong> to our server. Our server uses Apple's official App Store Server API to verify the transaction and stores the following:</p>
+  <p>The following third-party services are used because they are essential to the App's functionality:</p>
+  <ul>
+    <li><strong>Cloudflare</strong> — provides the signaling service and TURN relay used by cross-network transfer (see §3 and §5). Cloudflare processes encrypted handshake data and (when relayed) end-to-end encrypted file bytes. Cloudflare is contractually a data processor and cannot decrypt your files.</li>
+    <li><strong>Apple Sign In</strong> (Sign in with Apple) — used only when you choose to sign in via Apple. The exchange happens directly between your device, Apple, and our backend; we receive only the identity token Apple issues.</li>
+    <li><strong>Google Sign In</strong> — used only when you choose to sign in via Google. Same handling as above.</li>
+    <li><strong>Apple StoreKit</strong> (iOS only) — handles paid subscriptions and one-time purchases. Billing, renewals, and refunds are managed entirely by your Apple account; we never handle your payment information (credit card numbers, Apple ID passwords, etc. never reach our servers).</li>
+  </ul>
+  <p>To validate your paid entitlement, the App sends Apple's <strong>transaction identifiers (transactionId / originalTransactionId)</strong> to our server. Our server uses Apple's official App Store Server API to verify the transaction and stores the following:</p>
   <ul>
     <li>Subscription product ID, current period start / end timestamps, auto-renew status</li>
     <li>One-time topup pack grant timestamp, expiry, and remaining bytes</li>
     <li>Apple originalTransactionId used to associate the above with your account</li>
   </ul>
   <p>We also receive subscription lifecycle events (renewal, refund, cancellation, etc.) via Apple's App Store Server Notifications V2 to keep your paid status in sync.</p>
-  <p>This data is used <strong>solely</strong> for paid feature access control and subscription lifecycle management — never for advertising, profiling, or resale to any third party. When you delete your account (see §10) the related transaction records enter the same soft-delete pipeline as the rest of your account data.</p>
+  <p>Account and entitlement data is used <strong>solely</strong> for account operation, paid feature access control, and subscription lifecycle management — never for advertising, profiling, or resale to any third party. When you delete your account (see §11) the related records enter the soft-delete pipeline.</p>
 
-  <h2>8. Data Security</h2>
+  <h2>9. Data Security</h2>
   <p>We take the following measures to protect your data:</p>
   <ul>
     <li>File transfers support TLS 1.3 end-to-end encryption</li>
@@ -135,32 +162,38 @@
     <li>Optional receive confirmation prevents unauthorized devices from pushing files</li>
   </ul>
 
-  <h2>9. Children's Privacy</h2>
+  <h2>10. Children's Privacy</h2>
   <p>This App is not directed at children under the age of 13 and does not knowingly collect any personal information from children. If you are a parent or guardian and believe your child has encountered a privacy issue while using this App, please contact us.</p>
 
-  <h2>10. Your Rights</h2>
-  <p>Since we do not collect any personal data, there is no personal data to delete or export. All your data resides on your own device. You can at any time:</p>
+  <h2>11. Your Rights &amp; Data Retention</h2>
+  <h3>Data we keep on our servers (only if you have signed in)</h3>
   <ul>
-    <li>Clear transfer history in App settings</li>
-    <li>Delete received files</li>
-    <li>Untrust devices</li>
-    <li>Uninstall the App to remove all local data</li>
+    <li><strong>Account email + ID + sign-in method</strong>: kept until you delete your account</li>
+    <li><strong>Subscription / paid entitlement records</strong>: kept until you delete your account; after deletion, retained for the billing dispute window (typically 180 days) before final removal</li>
+    <li><strong>File transfer contents and metadata</strong>: not stored on our servers at any point</li>
+  </ul>
+  <h3>What you can do</h3>
+  <ul>
+    <li><strong>Delete your account</strong>: in-app via Account → Delete Account (iOS and Android), or by emailing us. Account deletion removes your sign-in identity and starts the entitlement soft-delete pipeline.</li>
+    <li><strong>Export your data</strong>: contact us by email and we will provide a copy of any personal data tied to your account.</li>
+    <li><strong>Sign out</strong>: removes the session token from this device without deleting your account.</li>
+    <li><strong>Clear local data</strong>: clear transfer history in App settings, delete received files, untrust devices, or uninstall the App to remove all local data.</li>
   </ul>
 
-  <h2>11. Legal Compliance</h2>
+  <h2>12. Legal Compliance</h2>
   <p>This privacy policy is designed to comply with the following privacy regulations:</p>
   <ul>
     <li>Personal Information Protection Law of the People's Republic of China (PIPL)</li>
     <li>General Data Protection Regulation (GDPR, applicable to EU users)</li>
     <li>California Consumer Privacy Act (CCPA, applicable to California residents)</li>
   </ul>
-  <p>Since this App does not collect any personal data, the obligations regarding data processing and data subject rights under these regulations do not materially apply.</p>
+  <p>Where account features are used, we honor your data subject rights under these regulations (access, deletion, portability) as described in §11.</p>
 
-  <h2>12. Changes to This Policy</h2>
+  <h2>13. Changes to This Policy</h2>
   <p>If this policy is updated, we will post the revised version on this page and update the "Last updated" date at the top. Significant changes will be communicated via in-app announcements.</p>
   <p>We encourage you to review this page periodically for the latest privacy information.</p>
 
-  <h2>13. Contact Us</h2>
+  <h2>14. Contact Us</h2>
   <p>If you have any questions or suggestions regarding this privacy policy, please contact us at:</p>
   <p>📧 Email: <a href="mailto:dexli0215@gmail.com">dexli0215@gmail.com</a></p>
 </body>

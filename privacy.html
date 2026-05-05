@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="zh-CN" href="https://airtokapp.com/privacy.html" />
   <link rel="alternate" hreflang="en" href="https://airtokapp.com/privacy_en.html" />
   <meta property="og:title" content="隐私政策 — AirTok" />
-  <meta property="og:description" content="AirTok 不收集任何个人数据。所有文件传输仅在本地网络内完成。" />
+  <meta property="og:description" content="文件内容在设备之间直接流动,从不在我们的服务器上存储。仅登录后收集少量账号数据。" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://airtokapp.com/privacy.html" />
   <meta property="og:image" content="https://airtokapp.com/og-image.png" />
@@ -37,34 +37,45 @@
 <body>
   <div class="lang"><a href="privacy_en.html">English</a></div>
   <h1>隐私政策</h1>
-  <p class="date">生效日期：2026 年 4 月 17 日 · 最后更新：2026 年 5 月 2 日</p>
+  <p class="date">生效日期：2026 年 4 月 17 日 · 最后更新：2026 年 5 月 5 日</p>
 
   <div class="summary">
-    <p>简要说明：AirTok 不收集任何个人数据，不使用任何追踪技术，所有文件传输仅在您的本地网络内完成。</p>
+    <p>简要说明：文件内容始终在您的设备之间直接流动——我们看不到这些内容，也不会在我们的服务器上存储。我们不集成任何用于数据分析或追踪的第三方 SDK。我们服务器上唯一收集的数据，是支撑可选的账号功能（登录、付费权益、跨网络传输）所必需的最少数据。</p>
   </div>
 
   <h2>1. 应用简介</h2>
-  <p>AirTok（以下简称"本应用"）是一款跨平台局域网文件传输工具，支持 iOS、macOS、Android、Windows 和 Linux。本应用由独立开发者 Dex Li（以下简称"我们"）开发和运营。</p>
-  <p>我们深知隐私的重要性，本应用从设计之初即遵循"零数据收集"原则。本隐私政策旨在透明地说明我们如何（以及如何不）处理您的数据。</p>
+  <p>AirTok（以下简称"本应用"）是一款跨平台端到端文件传输工具，支持 iOS、macOS、Android、Windows 和 Linux。本应用由独立开发者 Dex Li（以下简称"我们"）开发和运营。</p>
+  <p>本应用提供两种传输模式：</p>
+  <ul>
+    <li><strong>局域网（LAN）模式</strong>：当两台设备处于同一 Wi-Fi 时，文件在设备之间直接传输，不经任何服务器，不消耗流量。</li>
+    <li><strong>跨网络（WAN）模式</strong>：当设备处于不同网络时，本应用在您的两台设备之间建立端到端加密通道。文件内容仍然只有您的两台设备能解密，我们和任何中间服务器都无法读取。</li>
+  </ul>
+  <p>我们设计 AirTok 时遵循"最小化处理用户数据"的原则。本隐私政策旨在透明地说明我们如何（以及如何不）处理您的数据。</p>
 
   <h2>2. 我们不收集的数据</h2>
   <p>本应用<strong>不收集、不存储、不传输</strong>以下任何数据到我们的服务器或任何第三方：</p>
   <ul>
-    <li>个人身份信息（姓名、邮箱、电话号码、地址等）</li>
-    <li>设备标识符（IDFA、IDFV、Android ID 等）</li>
+    <li>您传输的文件内容或文件名</li>
+    <li>广告 / 追踪标识符（IDFA、AAID 等）</li>
     <li>精确或粗略位置信息</li>
     <li>使用行为数据或分析统计</li>
-    <li>传输的文件内容或文件名</li>
     <li>通讯录、日历、浏览记录等个人敏感数据</li>
     <li>崩溃日志（不会自动上报）</li>
   </ul>
 
-  <h2>3. 数据如何传输</h2>
-  <p>本应用的核心功能是在<strong>同一局域网</strong>内的设备之间直接传输文件：</p>
+  <h2>3. 文件如何传输</h2>
+  <h3>局域网模式（同一 Wi-Fi）</h3>
   <ul>
-    <li>文件通过 <strong>TCP 点对点连接</strong>在设备间直接传输，不经过任何云服务器或中转节点</li>
-    <li>支持 <strong>TLS 加密</strong>传输，保护数据在局域网内的传输安全</li>
+    <li>文件通过 <strong>TCP 点对点连接</strong>在设备间直接传输，不经过任何云服务器</li>
+    <li><strong>TLS 1.3 加密</strong>保护数据在传输过程中的安全</li>
     <li>传输完成后，文件保存在接收方设备的本地存储中</li>
+  </ul>
+  <h3>跨网络模式（不同网络）</h3>
+  <ul>
+    <li>本应用使用我们的信令服务，帮助您的两台设备在不同网络之间互相发现。信令消息仅包含公开的连接元数据（如加密握手参数），<strong>不包含文件内容</strong></li>
+    <li>当因 NAT/防火墙限制无法建立点对点直连时，文件流量会通过 TURN 服务器中转。TURN 服务器只转发已加密的字节，<strong>无法读取文件内容</strong></li>
+    <li>端到端加密保护文件内容——只有您的两台设备持有密钥，中转服务器没有</li>
+    <li>文件在信令服务器或 TURN 服务器上的任何阶段都不会被存储</li>
   </ul>
 
   <h2>4. 设备权限使用说明</h2>
@@ -73,26 +84,27 @@
   <table>
     <tr><th>权限</th><th>用途</th><th>何时请求</th></tr>
     <tr><td>本地网络</td><td>在局域网内发现其他设备并传输文件</td><td>首次启动时</td></tr>
-    <tr><td>照片库</td><td>选择照片/视频发送，或将接收的媒体保存到相册</td><td>选择发送照片或保存时</td></tr>
+    <tr><td>照片库 / 媒体</td><td>选择照片/视频发送，或将接收的媒体保存到相册</td><td>选择发送照片或保存时</td></tr>
     <tr><td>相机</td><td>扫描二维码以快速连接其他设备</td><td>使用扫码功能时</td></tr>
     <tr><td>文件访问</td><td>选择文件发送，或保存接收的文件</td><td>选择发送文件时</td></tr>
+    <tr><td>通知</td><td>展示传输进度和完成提醒</td><td>首次发起传输时（Android 13+ 在首次启动时）</td></tr>
   </table>
   <p>您可以随时在系统设置中撤销以上任何权限。撤销权限可能导致相关功能不可用，但不会影响应用的其他功能。</p>
 
   <h2>5. 网络通信</h2>
-  <p>本应用使用以下网络通信方式，<strong>仅限本地局域网</strong>：</p>
+  <h3>本地网络（局域网）</h3>
   <ul>
     <li><strong>UDP 广播/多播</strong>（端口 53318）：用于自动发现同一网络内的其他 AirTok 设备。广播内容仅包含设备名称和连接端口，不含任何个人信息。</li>
     <li><strong>TCP 连接</strong>（端口 53317）：用于设备间的文件传输。支持 TLS 1.3 加密。</li>
     <li><strong>本地 HTTP</strong>（默认端口 53319，若被占用则由系统分配备用端口；仅桌面端）：应用内部组件间的通信，仅监听 127.0.0.1，外部设备无法访问。</li>
   </ul>
 
-  <h3>唯一的互联网访问</h3>
-  <p>本应用在"关于"页面会通过 HTTPS 获取一个公开的配置文件（托管在本官网 airtokapp.com），用于展示最新版本信息和支持链接。该请求：</p>
+  <h3>互联网端点</h3>
   <ul>
-    <li>不发送任何设备信息或用户数据</li>
-    <li>不使用 Cookie 或追踪技术</li>
-    <li>失败时静默降级，不影响核心功能</li>
+    <li><strong>signaling.airtokapp.com</strong>（Cloudflare Workers / Durable Objects）：WebSocket 信令服务，帮助您的设备在不同网络之间建立连接。仅看到加密的握手元数据，不会看到文件内容。</li>
+    <li><strong>Cloudflare TURN 服务器</strong>：仅在因网络限制无法建立点对点直连时作为中转使用。仅转发已加密的字节，无法解密。</li>
+    <li><strong>api.airtokapp.com</strong>：用于账号登录、付费权益校验和版本检查的后端。仅在您主动使用账号 / 付费功能时（或本应用检查新版本时）访问。</li>
+    <li><strong>Apple / Google 身份验证端点</strong>：当您选择以 Apple 或 Google 登录时，由系统直接发起请求。我们不会接触您的密码。</li>
   </ul>
 
   <h2>6. 本地数据存储</h2>
@@ -106,26 +118,41 @@
   </ul>
   <p>以上数据全部存储在您的设备本地，不会上传到任何服务器。卸载应用将删除除已接收文件外的所有数据。</p>
 
-  <h2>7. 第三方服务</h2>
-  <p>本应用<strong>不集成</strong>任何用于数据分析或追踪的第三方 SDK，包括但不限于：</p>
+  <h2>7. 账号与登录</h2>
+  <p>使用局域网传输<strong>无需登录</strong>。您可以在多台同一 Wi-Fi 下的设备上安装并使用本应用，全程无需登录。</p>
+  <p>登录账号可解锁跨网络传输和付费功能。可选的登录方式包括：</p>
+  <ul>
+    <li><strong>Sign in with Apple</strong>（iOS / macOS，使用 Apple 原生 AuthenticationServices 框架）。我们会收到您的 Apple 稳定用户 ID 以及您选择共享的邮箱地址（真实邮箱或 Apple 中继邮箱）。我们看不到您的 Apple ID 密码。</li>
+    <li><strong>Sign in with Google</strong>（Android / iOS）。我们会收到您的 Google 账号邮箱地址和稳定用户 ID。我们看不到您的 Google 密码。</li>
+    <li><strong>邮箱 + 一次性验证码</strong>：您输入邮箱地址，我们向其发送一次性验证码。我们仅存储该邮箱地址。</li>
+  </ul>
+  <p>登录后，我们的服务器存储：您的邮箱地址、稳定账号 ID、所选登录方式、账号创建与最近一次登录的时间戳。这些数据仅用于支撑账号相关的功能，并将您的多台设备关联到同一账号。</p>
+
+  <h2>8. 第三方服务</h2>
+  <p>本应用<strong>不集成</strong>任何用于数据分析、广告、追踪或崩溃报告的第三方 SDK，包括但不限于：</p>
   <ul>
     <li>分析/统计 SDK（如 Google Analytics、Firebase Analytics）</li>
     <li>广告 SDK（如 AdMob、Facebook Ads）</li>
-    <li>追踪 SDK（如 Adjust、AppsFlyer）</li>
+    <li>归因 / 追踪 SDK（如 Adjust、AppsFlyer）</li>
     <li>崩溃报告 SDK（如 Crashlytics、Sentry）</li>
-    <li>社交登录 SDK</li>
   </ul>
-  <p>iOS 版本通过 Apple 官方的 <strong>StoreKit</strong> 处理付费订阅与一次性购买。付款、续订、退款完全由 Apple 账户管理，我们不经手您的支付信息（信用卡号、Apple ID 密码等永远不会触达我们的服务器）。</p>
-  <p>但为了校验付费状态，App 会将 Apple 返回的 <strong>交易标识符（transactionId / originalTransactionId）</strong>发送到我们的服务器。我们的服务器使用 Apple 官方 App Store Server API 验证该交易，并存储如下信息：</p>
+  <p>本应用使用以下第三方服务，因为它们是核心功能不可或缺的部分：</p>
+  <ul>
+    <li><strong>Cloudflare</strong>——为跨网络传输提供信令服务和 TURN 中转（详见 §3 和 §5）。Cloudflare 处理加密握手数据，以及（中转时）端到端加密的文件字节。Cloudflare 在合同上是数据处理者，无法解密您的文件。</li>
+    <li><strong>Apple Sign In</strong>（Sign in with Apple）——仅在您选择以 Apple 登录时使用。整个流程在您的设备、Apple 与我们的后端之间直接完成；我们仅接收 Apple 签发的身份令牌。</li>
+    <li><strong>Google Sign In</strong>——仅在您选择以 Google 登录时使用，处理方式同上。</li>
+    <li><strong>Apple StoreKit</strong>（仅 iOS）——处理付费订阅与一次性购买。付款、续订、退款完全由 Apple 账户管理，我们不经手您的支付信息（信用卡号、Apple ID 密码等永远不会触达我们的服务器）。</li>
+  </ul>
+  <p>为校验付费状态，App 会将 Apple 返回的 <strong>交易标识符（transactionId / originalTransactionId）</strong>发送到我们的服务器。我们的服务器使用 Apple 官方 App Store Server API 验证该交易，并存储如下信息：</p>
   <ul>
     <li>订阅产品 ID、订阅周期开始 / 结束时间、自动续费开关状态</li>
     <li>一次性流量包（Topup）的发放时间、有效期、剩余字节数</li>
     <li>用于将上述记录关联到您账户的 Apple originalTransactionId</li>
   </ul>
   <p>此外，我们会接收 Apple 通过 App Store Server Notifications V2 发送的订阅生命周期事件（成功续费 / 退款 / 取消等），以同步更新您的付费状态。</p>
-  <p>以上数据<strong>仅用于</strong>付费功能权限校验和订阅生命周期管理，不用于广告投放、用户画像分析或转售给任何第三方。仅当您主动注销账号（详见 §10）时，相关交易记录会与账号一同进入软删除流程。</p>
+  <p>账号与权益数据<strong>仅用于</strong>账号运行、付费功能权限校验和订阅生命周期管理，不用于广告投放、用户画像分析或转售给任何第三方。仅当您主动注销账号（详见 §11）时，相关记录会进入软删除流程。</p>
 
-  <h2>8. 数据安全</h2>
+  <h2>9. 数据安全</h2>
   <p>我们采取以下措施保护您的数据安全：</p>
   <ul>
     <li>文件传输支持 TLS 1.3 端到端加密</li>
@@ -135,32 +162,38 @@
     <li>可选的接收确认机制，防止未经授权的设备推送文件</li>
   </ul>
 
-  <h2>9. 儿童隐私</h2>
+  <h2>10. 儿童隐私</h2>
   <p>本应用不针对 13 岁以下的儿童，也不故意收集任何儿童的个人信息。如果您是家长或监护人，发现您的孩子在使用本应用时遇到隐私问题，请联系我们。</p>
 
-  <h2>10. 您的权利</h2>
-  <p>由于我们不收集任何个人数据，因此不存在需要删除或导出的个人数据。您的所有数据都在您自己的设备上，您可以随时：</p>
+  <h2>11. 您的权利与数据保留</h2>
+  <h3>我们在服务器上保留的数据（仅当您登录账号后）</h3>
   <ul>
-    <li>在应用设置中清除传输历史</li>
-    <li>删除已接收的文件</li>
-    <li>取消设备信任</li>
-    <li>卸载应用以删除所有本地数据</li>
+    <li><strong>账号邮箱 + ID + 登录方式</strong>：保留至您注销账号</li>
+    <li><strong>订阅 / 付费权益记录</strong>：保留至您注销账号；注销后会保留计费争议窗口期（通常 180 天）后最终删除</li>
+    <li><strong>文件传输内容与元数据</strong>：在任何阶段都不会存储在我们的服务器上</li>
+  </ul>
+  <h3>您可以做的事</h3>
+  <ul>
+    <li><strong>注销账号</strong>：在 App 内通过 账号 → 注销账号（iOS 与 Android 均支持），或发邮件给我们。注销账号会清除您的登录身份并触发权益软删除流程。</li>
+    <li><strong>导出您的数据</strong>：发邮件联系我们，我们会提供与您账号关联的个人数据副本。</li>
+    <li><strong>退出登录</strong>：从当前设备移除会话令牌，但不会删除账号。</li>
+    <li><strong>清理本地数据</strong>：在应用设置中清除传输历史、删除已接收的文件、取消设备信任，或卸载应用以删除所有本地数据。</li>
   </ul>
 
-  <h2>11. 适用法律</h2>
+  <h2>12. 适用法律</h2>
   <p>本隐私政策适用于以下隐私法规的要求：</p>
   <ul>
     <li>《中华人民共和国个人信息保护法》（PIPL）</li>
     <li>《通用数据保护条例》（GDPR，适用于欧盟用户）</li>
     <li>《加州消费者隐私法案》（CCPA，适用于加州用户）</li>
   </ul>
-  <p>由于本应用不收集任何个人数据，上述法规中关于数据处理、数据主体权利等条款在本应用中不产生实质性义务。</p>
+  <p>对于使用了账号功能的用户，我们按照上述法规支持您的数据主体权利（访问、删除、导出），具体方式见 §11。</p>
 
-  <h2>12. 隐私政策的变更</h2>
+  <h2>13. 隐私政策的变更</h2>
   <p>如本政策发生变更，我们将在此页面发布更新版本，并更新页面顶部的"最后更新"日期。重大变更将在应用内以公告形式通知。</p>
   <p>建议您定期查看本页面以了解最新的隐私保护信息。</p>
 
-  <h2>13. 联系我们</h2>
+  <h2>14. 联系我们</h2>
   <p>如果您对本隐私政策有任何疑问或建议，请通过以下方式联系我们：</p>
   <p>📧 邮箱：<a href="mailto:dexli0215@gmail.com">dexli0215@gmail.com</a></p>
 </body>
