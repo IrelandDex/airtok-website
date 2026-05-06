@@ -30,6 +30,16 @@
   "monetizationEnabled": false,
   "_comment_largeFileThresholdBytes": "单文件触发付费墙的字节阈值。10 GiB = 10 * 1024 * 1024 * 1024 = 10737418240。常用参考：1 GiB=1073741824 / 2 GiB=2147483648 / 5 GiB=5368709120 / 10 GiB=10737418240 / 20 GiB=21474836480。填 0 走代码默认 10 GiB。",
   "largeFileThresholdBytes": 10737418240,
+  "_comment_webPaymentEnabled": "非 iOS 平台的「网页订阅」按钮总开关。false=隐藏（默认）；true=在 macOS DMG / Windows / Linux / Android 直装包 上账号页显示一个 tonal button，跳转到 webPaymentUrl 完成订阅。**iOS 永远不显示这个按钮**（App Store 政策禁止 steering）。**Mac App Store / Google Play 渠道也永远不显示**（webPaymentChannelBlocklist 自动屏蔽）。准备好 Stripe / Paddle 网页结账后翻 true 即可，老用户下次启动自动看到，不用 app 更新。",
+  "webPaymentEnabled": false,
+  "_comment_webPaymentUrl": "「网页订阅」按钮跳转的 URL，外部浏览器打开。一开始可以指到落地页（airtokapp.com/pricing），等真正的 Stripe checkout 上线再换成 https://airtokapp.com/checkout?plan=plus。改 URL 不需要 app 更新。",
+  "webPaymentUrl": "https://airtokapp.com/pricing",
+  "_comment_webPaymentChannelBlocklist": "硬性禁止显示「网页订阅」按钮的发行渠道，即使 webPaymentEnabled=true 也照样隐藏。Apple / Google 的 storefront 政策禁止 app 引导用户去外部支付（Steering），违反会被下架。三个常见值：ios_app_store / mac_app_store / android_play_store。如果未来上 Mac App Store / Play Store 再添加。",
+  "webPaymentChannelBlocklist": [
+    "ios_app_store",
+    "mac_app_store",
+    "android_play_store"
+  ],
   "sections": [
     {
       "title": "链接",
