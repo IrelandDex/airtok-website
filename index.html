@@ -108,7 +108,7 @@
         "name": "Does AirTok require an internet connection?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not at all. AirTok uses only the local network — whether it reaches the internet is irrelevant. Two devices work if they are on the same Wi-Fi, the same router, or if one shares a hotspot the other connects to. Even a phone with no cellular signal can transfer files by turning on its hotspot."
+          "text": "Not for same-network transfers. On the same Wi-Fi, same router, or via hotspot, AirTok runs purely over the local network — even a phone with no cellular signal can send files. When the two devices are on different networks, AirTok automatically falls back to a TLS-encrypted remote relay so the transfer still goes through."
         }
       },
       {
@@ -247,7 +247,7 @@
            clean "what is AirTok" sentence to retrieve without burying
            it inside marketing copy. Mirrors the JSON-LD description. -->
       <p class="sr-only" data-i18n="hero.definition">
-        AirTok 是一款跨平台局域网文件传输工具，支持 iOS、Android、macOS、Windows、Linux 五大系统。它能在 iPhone、安卓手机、Mac、Windows PC 和 Linux 电脑之间直接互传照片、视频、文件和文本，无需登录账户，不经过云端服务器。AirTok 支持 iOS Live Photo 与安卓动态照片的底层自动适配、断点续传、几十 GB 超大文件稳定传输、应用内解压压缩包、文件夹整目录发送、一次发送给多台设备、TLS 1.3 端到端加密等能力，是 AirDrop 和 LocalSend 的开源替代品。
+        AirTok 是一款跨平台文件传输工具，支持 iOS、Android、macOS、Windows、Linux 五大系统。它能在 iPhone、安卓手机、Mac、Windows PC 和 Linux 电脑之间直接互传照片、视频、文件和文本，无需登录账户。两台设备在同一网络时走纯局域网直连不经云端；处在不同网络时自动切到 TLS 加密的远程中继，异地也能传。AirTok 支持 iOS Live Photo 与安卓动态照片的底层自动适配、断点续传、几十 GB 超大文件稳定传输、应用内解压压缩包、文件夹整目录发送、一次发送给多台设备、TLS 1.3 端到端加密等能力，是 AirDrop 和 LocalSend 的替代品。
       </p>
       <p class="text-[18px] md:text-[22px] text-slate-600 max-w-3xl mx-auto leading-[1.45] mb-10" data-i18n="hero.subtitle">
         Windows、Mac、Linux、iOS、Android 多端联通。iOS Live Photo 与多品牌安卓动态照片底层自动转换。支持文件夹直接传输，几十 GB 超大文件稳定传输。
@@ -366,6 +366,12 @@
               <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
             </tr>
             <tr>
+              <td class="px-5 py-4 font-medium" data-i18n="compare.row.wan">异地传输（不在同一网络）</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-rose-500">✗</td>
+              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold" data-i18n="compare.cell.wan_yes">✓ 自动中继</td>
+            </tr>
+            <tr>
               <td class="px-5 py-4 font-medium" data-i18n="compare.row.livephoto">Live Photo 跨平台保留（含安卓动态照片）</td>
               <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.apple_only">仅 Apple↔Apple</td>
               <td class="px-5 py-4 text-center text-rose-500">✗</td>
@@ -400,18 +406,6 @@
               <td class="px-5 py-4 text-center text-rose-500">✗</td>
               <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.partial">部分</td>
               <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold">✓</td>
-            </tr>
-            <tr>
-              <td class="px-5 py-4 font-medium" data-i18n="compare.row.text">文本 / 剪贴板直传</td>
-              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.basic">简陋</td>
-              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.via_file">走文件通道</td>
-              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold" data-i18n="compare.cell.first_class">一等消息</td>
-            </tr>
-            <tr>
-              <td class="px-5 py-4 font-medium" data-i18n="compare.row.conflict">文件冲突策略可选</td>
-              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.fixed">固定</td>
-              <td class="px-5 py-4 text-center text-slate-400" data-i18n="compare.cell.rename_only">仅重命名</td>
-              <td class="px-5 py-4 text-center text-emerald-600 bg-brand-50/40 font-semibold" data-i18n="compare.cell.three_modes">重命名/覆盖/跳过</td>
             </tr>
             <tr>
               <td class="px-5 py-4 font-medium" data-i18n="compare.row.archive">应用内解压</td>
@@ -470,7 +464,7 @@
             <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
           </div>
           <h3 class="text-xl font-bold mb-2" data-i18n="feature.crypto.title">端到端加密</h3>
-          <p class="text-slate-600 leading-relaxed" data-i18n="feature.crypto.body">数据只在你的两台设备间流动，不经过任何服务器。</p>
+          <p class="text-slate-600 leading-relaxed" data-i18n="feature.crypto.body">TLS 1.3 全程加密，密钥只在你的两台设备上。即便走中继，途中谁也解不开。</p>
         </div>
 
         <!-- 4. Speed -->
@@ -480,6 +474,15 @@
           </div>
           <h3 class="text-xl font-bold mb-2" data-i18n="feature.speed.title">榨干局域网带宽</h3>
           <p class="text-slate-600 leading-relaxed" data-i18n="feature.speed.body">不绕道云端。路由有多快，传得就有多快。</p>
+        </div>
+
+        <!-- 4b. Remote / WAN transfer -->
+        <div class="card-hover p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-violet-50 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2" data-i18n="feature.wan.title">异地也能传</h3>
+          <p class="text-slate-600 leading-relaxed" data-i18n="feature.wan.body">不在同一个网络？AirTok 自动切到 TLS 加密的远程中继，跨城跨国都能稳稳送达，不用 U 盘也不用网盘。</p>
         </div>
 
         <!-- 5. Archive -->
@@ -677,7 +680,7 @@
       <div class="space-y-4">
         <details class="group p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
           <summary class="font-semibold text-lg cursor-pointer flex items-center justify-between" data-i18n="faq.q1">需要联网才能用吗？</summary>
-          <p class="mt-4 text-slate-600 leading-relaxed" data-i18n="faq.a1">完全不需要。AirTok 只用局域网，和有没有外网无关。两台设备连在同一个 Wi-Fi、同一个路由器、或者其中一台开热点另一台连上去都能传——哪怕手机完全没有蜂窝信号，开个热点照样互发文件。</p>
+          <p class="mt-4 text-slate-600 leading-relaxed" data-i18n="faq.a1">同网传输完全不用外网。两台设备连在同一个 Wi-Fi、同一个路由器、或其中一台开热点另一台连上去——哪怕手机完全没有蜂窝信号，开个热点照样互发。当两台设备处在不同网络时，AirTok 会自动走 TLS 加密的远程中继，异地也能传。</p>
         </details>
 
         <details class="group p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
@@ -747,7 +750,7 @@
         'hero.title.line1': '给所有设备的',
         'hero.title.line2': 'AirDrop',
         'hero.subtitle': 'Windows、Mac、Linux、iOS、Android 多端联通。iOS Live Photo 与多品牌安卓动态照片底层自动转换。支持文件夹直接传输，几十 GB 超大文件稳定传输。',
-        'hero.definition': 'AirTok 是一款跨平台局域网文件传输工具，支持 iOS、Android、macOS、Windows、Linux 五大系统。它能在 iPhone、安卓手机、Mac、Windows PC 和 Linux 电脑之间直接互传照片、视频、文件和文本，无需登录账户，不经过云端服务器。AirTok 支持 iOS Live Photo 与安卓动态照片的底层自动适配、断点续传、几十 GB 超大文件稳定传输、应用内解压压缩包、文件夹整目录发送、一次发送给多台设备、TLS 1.3 端到端加密等能力，是 AirDrop 和 LocalSend 的替代品。',
+        'hero.definition': 'AirTok 是一款跨平台文件传输工具，支持 iOS、Android、macOS、Windows、Linux 五大系统。它能在 iPhone、安卓手机、Mac、Windows PC 和 Linux 电脑之间直接互传照片、视频、文件和文本，无需登录账户。两台设备在同一网络时走纯局域网直连不经云端；处在不同网络时自动切到 TLS 加密的远程中继，异地也能传。AirTok 支持 iOS Live Photo 与安卓动态照片的底层自动适配、断点续传、几十 GB 超大文件稳定传输、应用内解压压缩包、文件夹整目录发送、一次发送给多台设备、TLS 1.3 端到端加密等能力，是 AirDrop 和 LocalSend 的替代品。',
         'hero.cta.download': '免费下载',
         'hero.cta.learn': '了解 Live Photo 互传 ↗',
 
@@ -762,37 +765,33 @@
         'compare.subtitle': '同类产品对比',
         'compare.col.feature': '能力',
         'compare.row.platform': '五端全覆盖（Win/Mac/Linux/iOS/Android）',
+        'compare.row.wan': '异地传输（不在同一网络）',
+        'compare.cell.wan_yes': '✓ 自动中继',
         'compare.row.livephoto': 'Live Photo 跨平台保留（含安卓动态照片）',
         'compare.row.resume': '断点续传 / 暂停恢复',
         'compare.row.bigfile': '超大文件稳定传输（几十 GB）',
         'compare.row.qr': '扫码快速配对',
         'compare.row.multicast': '多设备并行发送（一次发给多台）',
         'compare.row.trusted': '信任设备免二次确认',
-        'compare.row.text': '文本 / 剪贴板直传',
-        'compare.row.conflict': '文件冲突策略可选',
         'compare.row.archive': '应用内解压',
         'compare.row.diag': '网络诊断可视化',
         'compare.row.account': '无需账户',
         'compare.row.crypto': '端到端 TLS 加密',
         'compare.cell.apple_only': '仅 Apple↔Apple',
-        'compare.cell.basic': '简陋',
-        'compare.cell.via_file': '走文件通道',
-        'compare.cell.first_class': '一等消息',
         'compare.cell.flaky': '易中断',
         'compare.cell.flaky2': '易中断',
         'compare.cell.partial': '部分',
-        'compare.cell.fixed': '固定',
-        'compare.cell.rename_only': '仅重命名',
-        'compare.cell.three_modes': '重命名/覆盖/跳过',
 
         'features.title': '只做必要的事',
         'features.subtitle': '专注把传输这件事做到最好：跨系统、不压缩、不丢动态',
         'feature.resume.title': '断点续传',
         'feature.resume.body': '断网重连，从刚才的地方接着传。几十 GB 也能稳稳落地。',
         'feature.crypto.title': '端到端加密',
-        'feature.crypto.body': '数据只在你的两台设备间流动，不经过任何服务器。',
+        'feature.crypto.body': 'TLS 1.3 全程加密，密钥只在你的两台设备上。即便走中继，途中谁也解不开。',
         'feature.speed.title': '榨干局域网带宽',
         'feature.speed.body': '不绕道云端。路由有多快，传得就有多快。',
+        'feature.wan.title': '异地也能传',
+        'feature.wan.body': '不在同一个网络？AirTok 自动切到 TLS 加密的远程中继，跨城跨国都能稳稳送达，不用 U 盘也不用网盘。',
         'feature.archive.title': '自动解压',
         'feature.archive.body': '收到 ZIP、RAR 等压缩包，点一下直接在应用内解开。',
         'feature.text.title': '剪贴板互通',
@@ -842,7 +841,7 @@
         'faq.title': '常见问题',
         'faq.more': '查看更多故障排查与进阶用法',
         'faq.q1': '需要联网才能用吗？',
-        'faq.a1': '完全不需要。AirTok 只用局域网，和有没有外网无关。两台设备连在同一个 Wi-Fi、同一个路由器、或者其中一台开热点另一台连上去都能传——哪怕手机完全没有蜂窝信号，开个热点照样互发文件。',
+        'faq.a1': '同网传输完全不用外网。两台设备连在同一个 Wi-Fi、同一个路由器、或其中一台开热点另一台连上去——哪怕手机完全没有蜂窝信号，开个热点照样互发。当两台设备处在不同网络时，AirTok 会自动走 TLS 加密的远程中继，异地也能传。',
         'faq.q2': '和 AirDrop、LocalSend 有什么不一样？',
         'faq.a2': 'AirDrop 只在苹果设备之间用，Windows 和安卓被排除在外。LocalSend 虽然跨平台，但不支持 Live Photo 跨平台保留，也没有真正的断点续传。AirTok 把这些都补上了。',
         'faq.q3': '数据安全吗？',
@@ -873,7 +872,7 @@
         'hero.title.line1': 'The AirDrop for',
         'hero.title.line2': 'all your devices.',
         'hero.subtitle': 'Windows, Mac, Linux, iOS, Android — all connected. Automatic conversion between iOS Live Photos and Android Motion Photos across brands. Full folder transfer. Multi-GB files, reliably delivered.',
-        'hero.definition': 'AirTok is a cross-platform local-area-network file transfer tool supporting iOS, Android, macOS, Windows, and Linux. It moves photos, videos, files, and text directly between iPhone, Android phones, Mac, Windows PC, and Linux desktops — with no account, no cloud relay, and no internet required. AirTok handles iOS Live Photo and Android Motion Photo adaptation at the format level, resumes transfers on disconnect, delivers multi-gigabyte files reliably, extracts archives in-app, sends full folders, broadcasts the same batch to multiple devices in parallel, and secures every byte with TLS 1.3 end-to-end encryption. It is an alternative to Apple AirDrop and LocalSend.',
+        'hero.definition': 'AirTok is a cross-platform file transfer tool supporting iOS, Android, macOS, Windows, and Linux. It moves photos, videos, files, and text directly between iPhone, Android phones, Mac, Windows PC, and Linux desktops — no account required. When the two devices share a network, AirTok runs as a pure LAN direct connection with nothing in the middle; when they sit on different networks, it automatically falls back to a TLS-encrypted remote relay so the transfer still goes through. AirTok handles iOS Live Photo and Android Motion Photo adaptation at the format level, resumes transfers on disconnect, delivers multi-gigabyte files reliably, extracts archives in-app, sends full folders, broadcasts the same batch to multiple devices in parallel, and secures every byte with TLS 1.3 end-to-end encryption. It is an alternative to Apple AirDrop and LocalSend.',
         'hero.cta.download': 'Download Free',
         'hero.cta.learn': 'See how Live Photo works ↗',
 
@@ -888,37 +887,33 @@
         'compare.subtitle': 'Head-to-head with the rest',
         'compare.col.feature': 'Capability',
         'compare.row.platform': 'All five platforms (Win/Mac/Linux/iOS/Android)',
+        'compare.row.wan': 'Remote transfer (different networks)',
+        'compare.cell.wan_yes': '✓ Auto relay',
         'compare.row.livephoto': 'Live Photo preserved cross-platform (incl. Android Motion Photo)',
         'compare.row.resume': 'Resume on disconnect / pause & resume',
         'compare.row.bigfile': 'Reliable multi-GB transfers',
         'compare.row.qr': 'QR-code quick pairing',
         'compare.row.multicast': 'Send to multiple devices at once',
         'compare.row.trusted': 'Trusted devices skip confirmation',
-        'compare.row.text': 'Text / clipboard transfer',
-        'compare.row.conflict': 'Configurable conflict policy',
         'compare.row.archive': 'In-app archive extraction',
         'compare.row.diag': 'Visual network diagnostics',
         'compare.row.account': 'No account required',
         'compare.row.crypto': 'End-to-end TLS encryption',
         'compare.cell.apple_only': 'Apple↔Apple only',
-        'compare.cell.basic': 'Basic',
-        'compare.cell.via_file': 'Through file channel',
-        'compare.cell.first_class': 'First-class',
         'compare.cell.flaky': 'Unstable',
         'compare.cell.flaky2': 'Unstable',
         'compare.cell.partial': 'Partial',
-        'compare.cell.fixed': 'Fixed',
-        'compare.cell.rename_only': 'Rename only',
-        'compare.cell.three_modes': 'Rename / overwrite / skip',
 
         'features.title': 'Only what matters.',
         'features.subtitle': 'One focus — transfer, done right. Cross-platform. No compression. Motion stays motion.',
         'feature.resume.title': 'Resume on disconnect',
         'feature.resume.body': 'Pick up exactly where it dropped. Tens of gigabytes land safely.',
         'feature.crypto.title': 'End-to-end encrypted',
-        'feature.crypto.body': 'Files travel between your two devices. Never through a server.',
+        'feature.crypto.body': 'TLS 1.3 throughout. Keys live only on your two devices — even on a relay, nothing in the middle can read your files.',
         'feature.speed.title': 'Pure LAN speed',
         'feature.speed.body': 'No detour through the cloud. As fast as your router can move.',
+        'feature.wan.title': 'Remote, too',
+        'feature.wan.body': 'Not on the same network? AirTok falls back to a TLS-encrypted remote relay automatically — across cities or across countries, no thumb drive or cloud drive needed.',
         'feature.archive.title': 'Auto-extract',
         'feature.archive.body': 'ZIPs, RARs, 7z — open them right in the app.',
         'feature.text.title': 'Clipboard sync',
@@ -968,7 +963,7 @@
         'faq.title': 'FAQ',
         'faq.more': 'More troubleshooting & advanced usage',
         'faq.q1': 'Do I need internet?',
-        'faq.a1': 'Not at all. AirTok uses only the local network — whether it reaches the internet is irrelevant. Two devices work if they are on the same Wi-Fi, the same router, or if one shares a hotspot the other connects to. Even a phone with no cellular signal can transfer files by turning on its hotspot.',
+        'faq.a1': 'Not for same-network transfers. On the same Wi-Fi, same router, or via hotspot, AirTok runs purely over the local network — even a phone with no cellular signal can send files. When the two devices sit on different networks, AirTok automatically falls back to a TLS-encrypted remote relay so the transfer still goes through.',
         'faq.q2': 'How does it differ from AirDrop and LocalSend?',
         'faq.a2': 'AirDrop is Apple-only — Windows and Android users are left out. LocalSend is cross-platform but does not preserve Live Photos across platforms or support real resume. AirTok fixes both.',
         'faq.q3': 'Is the data secure?',

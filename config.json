@@ -24,8 +24,9 @@
   "forceUpdateBelow": "",
   "_comment_recommendedUpdateBelow": "【软提示】当前版本 < 这个值时，启动弹一次可跳过的升级 dialog。\"暂不升级\"会记住，下次启动不再打扰；服务端把这个值再抬高，用户会重新看到一次。留空 = 关闭（默认）。独立于 forceUpdateBelow，两个都设时硬阻断优先。",
   "recommendedUpdateBelow": "",
-  "_comment_announcement": "全局公告横幅内容，留空则不显示。目前 UI 未消费这个字段，预留给未来用。",
-  "announcement": "",
+  "_comment_announcement": "首页顶部公告横幅。null 或缺失则不显示。Schema：{ id, severity, title, body, ctaLabel, ctaUrl, expiresAt, showPolicy }。id 是公告唯一标识，dismiss 后写到客户端 prefs 不再显示；改 id 等于发新公告（用户重新看到）。severity = info(蓝/默认) / warning(黄) / urgent(红)，决定 banner 颜色和图标。title / body / ctaLabel 都是 i18n 对象 { zh, en }，按用户 app 语言自动选；缺当前语言 fallback 到 en，再 fallback 到任意非空值。ctaUrl 空就不显示按钮；非空时点了用 url_launcher 外部浏览器打开。expiresAt = ISO-8601 UTC 字符串（必须带 Z 后缀），过期自动隐藏；null = 永不过期（慎用）。showPolicy = once_per_id(默认，dismiss 一次永久不再显示) / every_launch(每次启动重显示，无 dismiss 按钮) / sticky(永久显示直到 expiresAt，无 dismiss 按钮)。",
+  "_comment_announcement_example": "示例填法（取消注释 + 改 announcement 字段为下面对象即可启用）：{ \"id\": \"2026-05-08-launch\", \"severity\": \"info\", \"title\": { \"zh\": \"AirTok 上线啦\", \"en\": \"AirTok is live!\" }, \"body\": { \"zh\": \"感谢内测...\", \"en\": \"Thanks for testing...\" }, \"ctaLabel\": { \"zh\": \"查看更新\", \"en\": \"What's new\" }, \"ctaUrl\": \"https://airtokapp.com/changelog.html\", \"expiresAt\": \"2026-05-15T00:00:00Z\", \"showPolicy\": \"once_per_id\" }",
+  "announcement": null,
   "_comment_monetizationEnabled": "付费总开关：false=所有付费功能免费放行（不弹付费墙），true=按 StoreKit 订阅状态门控。灰度上线用。",
   "monetizationEnabled": false,
   "_comment_largeFileThresholdBytes": "单文件触发付费墙的字节阈值。10 GiB = 10 * 1024 * 1024 * 1024 = 10737418240。常用参考：1 GiB=1073741824 / 2 GiB=2147483648 / 5 GiB=5368709120 / 10 GiB=10737418240 / 20 GiB=21474836480。填 0 走代码默认 10 GiB。",
@@ -65,6 +66,14 @@
           "title": "更新日志",
           "title_en": "What's New",
           "url": "https://airtokapp.com/changelog.html"
+        },
+        {
+          "_comment": "评分链接。点击跳转到 airtokapp.com/review，落地页按 User-Agent 重定向到对应平台 store 评分页（待添加）。iOS 上线后等 App ID 到手，可改成直接 https://apps.apple.com/app/idXXXXXXXXXX?action=write-review；Android 上线后改成 https://play.google.com/store/apps/details?id=com.airtok.send。临时 URL 留 review.html 兜底。",
+          "type": "link",
+          "icon": "star",
+          "title": "给 AirTok 评分",
+          "title_en": "Rate AirTok",
+          "url": "https://airtokapp.com/review.html"
         }
       ]
     },

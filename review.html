@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rate AirTok</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 520px; margin: 80px auto; padding: 0 24px; color: #1a1a1a; line-height: 1.6; text-align: center; }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    p { color: #555; margin-bottom: 28px; }
+    .btn { display: inline-block; background: #1B6EF3; color: #fff; padding: 12px 22px; border-radius: 10px; text-decoration: none; font-weight: 600; margin: 6px; }
+    .btn.secondary { background: #f0f0f0; color: #333; }
+    .lang { color: #888; font-size: 14px; margin-top: 36px; }
+  </style>
+</head>
+<body>
+  <h1 id="title">Loading…</h1>
+  <p id="subtitle"></p>
+  <div id="cta"></div>
+  <p class="lang"><a href="mailto:dexli0215@gmail.com">Send feedback by email instead</a></p>
+
+  <script>
+    // Per-platform store review URLs.
+    // **TODO** — fill these in once the apps are live:
+    //   * iOS: https://apps.apple.com/app/idXXXXXXXXXX?action=write-review
+    //   * Mac App Store: https://apps.apple.com/app/idYYYYYYYYYY?action=write-review
+    //   * Google Play: https://play.google.com/store/apps/details?id=com.airtok.send
+    // Until then leave the field empty and the page falls back to the
+    // generic "thanks for using AirTok" copy with a feedback CTA.
+    const URLS = {
+      ios: '',
+      macApp: '',
+      android: 'https://play.google.com/store/apps/details?id=com.airtok.send',
+    };
+
+    const ua = navigator.userAgent;
+    const isZh = (navigator.language || '').toLowerCase().startsWith('zh');
+    const T = isZh
+      ? { thanks: '感谢使用 AirTok！', go: '前往商店评分', sorry: '当前平台暂未提供应用商店链接。', mail: '请通过邮件反馈给我们：' }
+      : { thanks: 'Thanks for using AirTok!', go: 'Open store to rate', sorry: 'No store link is available on this platform yet.', mail: 'Please share feedback by email:' };
+
+    let target = '';
+    if (/iPhone|iPad|iPod/i.test(ua)) target = URLS.ios;
+    else if (/Macintosh|Mac OS X/i.test(ua)) target = URLS.macApp;
+    else if (/Android/i.test(ua)) target = URLS.android;
+
+    const titleEl = document.getElementById('title');
+    const subtitleEl = document.getElementById('subtitle');
+    const ctaEl = document.getElementById('cta');
+
+    if (target) {
+      titleEl.textContent = T.thanks;
+      subtitleEl.textContent = '';
+      ctaEl.innerHTML = '<a class="btn" href="' + target + '">' + T.go + '</a>';
+      // Auto-redirect after a brief beat so users on iOS get the App
+      // Store overlay flow without an extra tap.
+      setTimeout(function () { window.location.href = target; }, 500);
+    } else {
+      titleEl.textContent = T.thanks;
+      subtitleEl.textContent = T.sorry + ' ' + T.mail;
+      ctaEl.innerHTML = '<a class="btn secondary" href="mailto:dexli0215@gmail.com">dexli0215@gmail.com</a>';
+    }
+  </script>
+</body>
+</html>
