@@ -6,6 +6,8 @@
   },
   "_comment_latestVersion": "用户当前已安装版本低于这个值就弹\"有新版\"横幅（非阻断）。只管显示提示，不影响功能。留空则不提示。",
   "latestVersion": "1.0.0",
+  "_comment_latestBuild": "对应 latestVersion 的 build 号（pubspec '+N' 部分）。首页 JS 用 (latestVersion, latestBuild) 把 /latest/AirTok.dmg 升级成 /1.0.1/AirTok-1.0.1-12.dmg 之类的版本化永久链接，每次发版 URL 自动变，避免 CDN / 浏览器 cache 拖到旧包。每次 archive/上传后必须跟 latestVersion 同步更新。留空 = JS 跳过升级，沿用 /latest/ 链接（仍能下，只是有 cache 风险）。",
+  "latestBuild": "11",
   "_comment_updateUrl": "各平台升级跳转链接。Dart 侧按当前 Platform 选对应 key：iOS→ios / Android→android / macOS→macos→desktop 兜底 / Windows→windows→desktop 兜底 / Linux→linux→desktop 兜底。ios 和 macos 必须分开填 —— App Store 上 iOS 和 Mac 是两个独立 product page。三个桌面端可以只填 desktop 走统一下载页，也可以针对性填 windows/linux/macos 直链到具体安装包。为空的 key 按钮会 disable（用户看到弹窗但点不了），所以发版前必须填齐该平台的那个。",
   "updateUrl": {
     "_comment_ios": "App Store product page。点了走系统 App Store overlay。新版本上架后这个 URL 不变，App Store 自动跳到最新版。",
