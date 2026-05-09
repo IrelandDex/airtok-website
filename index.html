@@ -596,10 +596,7 @@
              from Simple Icons, then vendored to avoid the third-party
              CDN dependency). Edit the file directly if you need to
              recolor or swap the brand mark. -->
-        <a href="https://dl.airtokapp.com/macos/latest/AirTok.dmg"
-           data-versioned-platform="macos"
-           data-versioned-tpl="AirTok-{V}-{B}.dmg"
-           class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
+        <a href="https://dl.airtokapp.com/macos/latest/AirTok.dmg" class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
             <img src="icons/apple.svg" alt="macOS" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">macOS</h3>
@@ -614,18 +611,12 @@
             <h3 class="text-xl font-bold">Windows</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.windows.note">x64 · Windows 10/11</p>
-          <a href="https://dl.airtokapp.com/windows/latest/AirTok-Setup.exe"
-             data-versioned-platform="windows"
-             data-versioned-tpl="AirTok-{V}-{B}-Setup.exe"
-             class="block mb-2">
+          <a href="https://dl.airtokapp.com/windows/latest/AirTok-Setup.exe" class="block mb-2">
             <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.windows.cta">下载安装器 →</span>
           </a>
           <div class="text-xs text-slate-500">
             <span data-i18n="download.windows.alt">浏览器拦截下载？</span>
-            <a href="https://dl.airtokapp.com/windows/latest/AirTok-Setup.zip"
-               data-versioned-platform="windows"
-               data-versioned-tpl="AirTok-{V}-{B}-Setup.zip"
-               class="text-slate-400 hover:text-brand-400 underline" data-i18n="download.windows.altCta">下载 zip 版</a>
+            <a href="https://dl.airtokapp.com/windows/latest/AirTok-Setup.zip" class="text-slate-400 hover:text-brand-400 underline" data-i18n="download.windows.altCta">下载 zip 版</a>
           </div>
         </div>
 
@@ -635,18 +626,12 @@
             <h3 class="text-xl font-bold">Linux</h3>
           </div>
           <p class="text-sm text-slate-400 mb-4" data-i18n="download.linux.note">x64 · Debian / Ubuntu</p>
-          <a href="https://dl.airtokapp.com/linux/latest/airtok.deb"
-             data-versioned-platform="linux"
-             data-versioned-tpl="airtok_{V}-{B}_amd64.deb"
-             class="block mb-2">
+          <a href="https://dl.airtokapp.com/linux/latest/airtok.deb" class="block mb-2">
             <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.linux.cta">下载 .deb →</span>
           </a>
           <div class="text-xs text-slate-500">
             <span data-i18n="download.linux.alt">其他发行版：</span>
-            <a href="https://dl.airtokapp.com/linux/latest/AirTok.AppImage"
-               data-versioned-platform="linux"
-               data-versioned-tpl="AirTok-{V}-{B}-x86_64.AppImage"
-               class="text-slate-400 hover:text-brand-400 underline">AppImage</a>
+            <a href="https://dl.airtokapp.com/linux/latest/AirTok.AppImage" class="text-slate-400 hover:text-brand-400 underline">AppImage</a>
           </div>
         </div>
 
@@ -659,10 +644,7 @@
           <span class="text-brand-400 font-semibold group-hover:text-brand-300" data-i18n="download.ios.cta">在 App Store 下载 →</span>
         </a>
 
-        <a href="https://dl.airtokapp.com/android/latest/AirTok.apk"
-           data-versioned-platform="android"
-           data-versioned-tpl="AirTok-{V}-{B}.apk"
-           class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
+        <a href="https://dl.airtokapp.com/android/latest/AirTok.apk" class="card-hover group p-8 bg-slate-800 hover:bg-slate-750 rounded-2xl border border-slate-700">
           <div class="flex items-center gap-3 mb-4">
             <img src="icons/android.svg" alt="Android" class="w-8 h-8" loading="lazy" />
             <h3 class="text-xl font-bold">Android</h3>
@@ -1092,43 +1074,6 @@
       currentLang = currentLang === 'zh-CN' ? 'en' : 'zh-CN';
       applyLang(currentLang);
     });
-  </script>
-
-  <!-- Versioned-permalink upgrade for download links.
-       Why: the /latest/ R2 path is mutable — every release overwrites
-       the same URL. Even with Cache-Control: must-revalidate, some
-       intermediaries (corporate proxies, ISP caches, browser BFCache)
-       still serve stale bytes after a release. The cleanest fix is
-       to make every release a brand-new URL: that way the cache key
-       itself is fresh and there's nothing to invalidate.
-       Implementation: each download anchor carries
-       data-versioned-platform + data-versioned-tpl (filename template
-       with {V} = version, {B} = build number). On page load we read
-       the current latestVersion / latestBuild from config.json and
-       rewrite each anchor's href to the immutable
-       /<platform>/<version>/<filename> form. If config.json fails to
-       load or fields are missing we leave the original /latest/ href
-       in place — graceful degradation, downloads still work. -->
-  <script>
-    (function upgradeDownloadLinks() {
-      var anchors = document.querySelectorAll('a[data-versioned-platform][data-versioned-tpl]');
-      if (anchors.length === 0) return;
-      fetch('/config.json', { cache: 'no-store' })
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (cfg) {
-          if (!cfg) return;
-          var v = (cfg.latestVersion || '').trim();
-          var b = (cfg.latestBuild || '').toString().trim();
-          if (!v || !b) return;
-          anchors.forEach(function (a) {
-            var platform = a.dataset.versionedPlatform;
-            var tpl = a.dataset.versionedTpl;
-            var fname = tpl.replace('{V}', v).replace('{B}', b);
-            a.href = 'https://dl.airtokapp.com/' + platform + '/' + v + '/' + fname;
-          });
-        })
-        .catch(function () { /* keep /latest/ fallback */ });
-    })();
   </script>
 </body>
 </html>
