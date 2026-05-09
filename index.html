@@ -858,7 +858,7 @@
         'os.macos': '下载 macOS 版',
         'os.windows': '下载 Windows 版',
         'os.linux': '下载 Linux 版',
-        'os.ios': 'App Store · 即将到来',
+        'os.ios': '在 App Store 下载',
         'os.android': '下载 .apk',
       },
       'en': {
@@ -980,7 +980,7 @@
         'os.macos': 'Download for macOS',
         'os.windows': 'Download for Windows',
         'os.linux': 'Download for Linux',
-        'os.ios': 'Coming to App Store',
+        'os.ios': 'Get on App Store',
         'os.android': 'Download .apk',
       }
     };
@@ -1045,8 +1045,11 @@
       // not commonly blocked, so they keep the one-click direct flow.
       linux:   'https://dl.airtokapp.com/linux/latest/airtok.deb',
       android: 'https://dl.airtokapp.com/android/latest/AirTok.apk',
-      // ios: awaiting App Store — leave blank so the CTA falls back to
-      // scrolling down to the download section.
+      // iOS live on App Store as id6762522886 since 2026-05-08.
+      // Country-less URL → Apple auto-redirects to user's regional
+      // store (US / JP / EU / etc). Mainland China store doesn't
+      // have AirTok yet; users there see "Item not available".
+      ios:     'https://apps.apple.com/app/id6762522886',
     };
 
     function updateOsButton(dict) {
