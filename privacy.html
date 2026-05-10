@@ -99,12 +99,12 @@
     <li><strong>本地 HTTP</strong>（默认端口 53319，若被占用则由系统分配备用端口；仅桌面端）：应用内部组件间的通信，仅监听 127.0.0.1，外部设备无法访问。</li>
   </ul>
 
-  <h3>互联网端点</h3>
+  <h3>联网服务</h3>
   <ul>
-    <li><strong>signaling.airtokapp.com</strong>（Cloudflare Workers / Durable Objects）：WebSocket 信令服务，帮助您的设备在不同网络之间建立连接。仅看到加密的握手元数据，不会看到文件内容。</li>
-    <li><strong>Cloudflare TURN 服务器</strong>：仅在因网络限制无法建立点对点直连时作为中转使用。仅转发已加密的字节，无法解密。</li>
-    <li><strong>api.airtokapp.com</strong>：用于账号登录、付费权益校验和版本检查的后端。仅在您主动使用账号 / 付费功能时（或本应用检查新版本时）访问。</li>
-    <li><strong>Apple / Google 身份验证端点</strong>：当您选择以 Apple 或 Google 登录时，由系统直接发起请求。我们不会接触您的密码。</li>
+    <li><strong>信令服务</strong>：当两台设备不在同一局域网时，由 AirTok 后端协助双方建立加密连接通道。该服务仅处理建立连接所需的握手元数据，<strong>不会接触文件内容</strong>。</li>
+    <li><strong>中继服务</strong>：仅当因网络限制无法建立点对点直连时启用，转发已经端到端加密的字节流。中继方<strong>无法解密</strong>所传输的数据。</li>
+    <li><strong>账号与版本检查接口</strong>：用于账号登录、付费权益校验和新版本检查。仅在您主动使用账号 / 付费功能时（或应用启动时检查更新）访问。</li>
+    <li><strong>Apple / Google 身份验证</strong>：当您选择以 Apple 或 Google 登录时，由系统直接与对应平台通讯。我们不会接触您的密码。</li>
   </ul>
 
   <h2>6. 本地数据存储</h2>
@@ -138,7 +138,7 @@
   </ul>
   <p>本应用使用以下第三方服务，因为它们是核心功能不可或缺的部分：</p>
   <ul>
-    <li><strong>Cloudflare</strong>——为跨网络传输提供信令服务和 TURN 中转（详见 §3 和 §5）。Cloudflare 处理加密握手数据，以及（中转时）端到端加密的文件字节。Cloudflare 在合同上是数据处理者，无法解密您的文件。</li>
+    <li><strong>网络基础设施服务商</strong>——为跨网络传输提供信令与中继能力（详见 §3 与 §5）。服务商仅处理加密的握手数据与（中转时）端到端加密的字节流，按合同作为数据处理者参与，无法解密您的文件。</li>
     <li><strong>Apple Sign In</strong>（Sign in with Apple）——仅在您选择以 Apple 登录时使用。整个流程在您的设备、Apple 与我们的后端之间直接完成；我们仅接收 Apple 签发的身份令牌。</li>
     <li><strong>Google Sign In</strong>——仅在您选择以 Google 登录时使用，处理方式同上。</li>
     <li><strong>Apple StoreKit</strong>（仅 iOS）——处理付费订阅与一次性购买。付款、续订、退款完全由 Apple 账户管理，我们不经手您的支付信息（信用卡号、Apple ID 密码等永远不会触达我们的服务器）。</li>

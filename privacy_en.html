@@ -99,12 +99,12 @@
     <li><strong>Local HTTP</strong> (default port 53319, falls back to a system-assigned port if occupied; desktop only): Internal communication between app components, listening on 127.0.0.1 only — inaccessible to external devices.</li>
   </ul>
 
-  <h3>Internet endpoints</h3>
+  <h3>Network services</h3>
   <ul>
-    <li><strong>signaling.airtokapp.com</strong> (Cloudflare Workers / Durable Objects): WebSocket signaling that helps your devices establish a cross-network connection. Sees encrypted handshake metadata; never sees file contents.</li>
-    <li><strong>Cloudflare TURN servers</strong>: Used as a relay only when a direct peer-to-peer connection is impossible due to network restrictions. Forwards encrypted bytes; cannot decrypt.</li>
-    <li><strong>api.airtokapp.com</strong>: Backend for account sign-in, paid entitlement validation, and update check. Only contacted when you actively use account / paid features (or when the App checks for a new version).</li>
-    <li><strong>Apple / Google identity endpoints</strong>: Contacted by the platform OS when you sign in with Apple or Google. We do not see your password.</li>
+    <li><strong>Signaling service</strong>: When two devices are not on the same local network, the AirTok backend assists in establishing an encrypted connection channel. This service only handles the handshake metadata needed to set up the connection; <strong>it never sees file contents</strong>.</li>
+    <li><strong>Relay service</strong>: Used only when a direct peer-to-peer connection is impossible due to network restrictions; forwards bytes that are already end-to-end encrypted. The relay <strong>cannot decrypt</strong> the data passing through.</li>
+    <li><strong>Account &amp; update API</strong>: Used for account sign-in, paid entitlement validation, and version checks. Only contacted when you actively use account / paid features (or when the App checks for a new version).</li>
+    <li><strong>Apple / Google identity</strong>: Contacted by the platform OS when you sign in with Apple or Google. We never see your password.</li>
   </ul>
 
   <h2>6. Local Data Storage</h2>
@@ -138,7 +138,7 @@
   </ul>
   <p>The following third-party services are used because they are essential to the App's functionality:</p>
   <ul>
-    <li><strong>Cloudflare</strong> — provides the signaling service and TURN relay used by cross-network transfer (see §3 and §5). Cloudflare processes encrypted handshake data and (when relayed) end-to-end encrypted file bytes. Cloudflare is contractually a data processor and cannot decrypt your files.</li>
+    <li><strong>Network infrastructure provider</strong> — provides the signaling and relay capacity used by cross-network transfer (see §3 and §5). The provider only handles encrypted handshake data and (when relayed) end-to-end encrypted byte streams. It is contractually a data processor and cannot decrypt your files.</li>
     <li><strong>Apple Sign In</strong> (Sign in with Apple) — used only when you choose to sign in via Apple. The exchange happens directly between your device, Apple, and our backend; we receive only the identity token Apple issues.</li>
     <li><strong>Google Sign In</strong> — used only when you choose to sign in via Google. Same handling as above.</li>
     <li><strong>Apple StoreKit</strong> (iOS only) — handles paid subscriptions and one-time purchases. Billing, renewals, and refunds are managed entirely by your Apple account; we never handle your payment information (credit card numbers, Apple ID passwords, etc. never reach our servers).</li>
