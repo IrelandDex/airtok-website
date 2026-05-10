@@ -73,9 +73,9 @@
   <h3>WAN mode (cross-network)</h3>
   <ul>
     <li>The App uses our signaling service to help your two devices discover each other across networks. Signaling messages contain only public connection metadata (such as encrypted handshake parameters) — never file contents</li>
-    <li>When a direct peer-to-peer connection cannot be established due to NAT/firewall, file traffic is relayed through a TURN server. The TURN server only forwards encrypted bytes; it cannot read file contents</li>
+    <li>When a direct peer-to-peer connection cannot be established due to NAT/firewall, file traffic is forwarded through a relay server. The relay server only forwards encrypted bytes; it cannot read file contents</li>
     <li>End-to-end encryption protects file contents — only your two devices hold the keys, the relay does not</li>
-    <li>Files are not stored on the signaling or TURN server at any point</li>
+    <li>Files are not stored on the signaling or relay server at any point</li>
   </ul>
 
   <h2>4. Device Permissions</h2>
@@ -94,9 +94,9 @@
   <h2>5. Network Communication</h2>
   <h3>Local network (LAN)</h3>
   <ul>
-    <li><strong>UDP broadcast/multicast</strong> (port 53318): Used to automatically discover other AirTok devices on the same network. Broadcast content only includes device name and connection port — no personal information.</li>
-    <li><strong>TCP connections</strong> (port 53317): Used for file transfer between devices. Supports TLS 1.3 encryption.</li>
-    <li><strong>Local HTTP</strong> (default port 53319, falls back to a system-assigned port if occupied; desktop only): Internal communication between app components, listening on 127.0.0.1 only — inaccessible to external devices.</li>
+    <li><strong>UDP broadcast/multicast</strong>: Used to automatically discover other AirTok devices on the same network. Broadcast content only includes device name and connection info — no personal information.</li>
+    <li><strong>TCP connections</strong>: Used for file transfer between devices. Supports TLS 1.3 encryption.</li>
+    <li><strong>Local loopback HTTP</strong> (desktop only): Internal communication between app components, bound to the machine's loopback address only — inaccessible to external devices.</li>
   </ul>
 
   <h3>Network services</h3>
@@ -143,13 +143,13 @@
     <li><strong>Google Sign In</strong> — used only when you choose to sign in via Google. Same handling as above.</li>
     <li><strong>Apple StoreKit</strong> (iOS only) — handles paid subscriptions and one-time purchases. Billing, renewals, and refunds are managed entirely by your Apple account; we never handle your payment information (credit card numbers, Apple ID passwords, etc. never reach our servers).</li>
   </ul>
-  <p>To validate your paid entitlement, the App sends Apple's <strong>transaction identifiers (transactionId / originalTransactionId)</strong> to our server. Our server uses Apple's official App Store Server API to verify the transaction and stores the following:</p>
+  <p>To validate your paid entitlement, the App sends Apple's <strong>transaction identifier</strong> to our server. We verify the transaction through Apple's official interface and store the following:</p>
   <ul>
-    <li>Subscription product ID, current period start / end timestamps, auto-renew status</li>
+    <li>Subscription product identifier, current period start / end timestamps, auto-renew status</li>
     <li>One-time topup pack grant timestamp, expiry, and remaining bytes</li>
-    <li>Apple originalTransactionId used to associate the above with your account</li>
+    <li>The Apple transaction identifier used to associate the above with your account</li>
   </ul>
-  <p>We also receive subscription lifecycle events (renewal, refund, cancellation, etc.) via Apple's App Store Server Notifications V2 to keep your paid status in sync.</p>
+  <p>We also receive subscription lifecycle events pushed by Apple (renewal, refund, cancellation, etc.) to keep your paid status in sync.</p>
   <p>Account and entitlement data is used <strong>solely</strong> for account operation, paid feature access control, and subscription lifecycle management — never for advertising, profiling, or resale to any third party. When you delete your account (see §11) the related records enter the soft-delete pipeline.</p>
 
   <h2>9. Data Security</h2>
